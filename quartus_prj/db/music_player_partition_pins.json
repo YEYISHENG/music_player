@@ -1,0 +1,65 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "music[0]",
+					"strict" : false
+				},
+				{
+					"name" : "music[1]",
+					"strict" : false
+				},
+				{
+					"name" : "speed[0]",
+					"strict" : false
+				},
+				{
+					"name" : "speed[1]",
+					"strict" : false
+				},
+				{
+					"name" : "mode",
+					"strict" : false
+				},
+				{
+					"name" : "volume[0]",
+					"strict" : false
+				},
+				{
+					"name" : "volume[1]",
+					"strict" : false
+				},
+				{
+					"name" : "volume[2]",
+					"strict" : false
+				},
+				{
+					"name" : "clk",
+					"strict" : false
+				},
+				{
+					"name" : "rst_n",
+					"strict" : false
+				},
+				{
+					"name" : "key2_flag",
+					"strict" : false
+				},
+				{
+					"name" : "key1_flag",
+					"strict" : false
+				},
+				{
+					"name" : "key3_flag",
+					"strict" : false
+				},
+				{
+					"name" : "key4_flag",
+					"strict" : false
+				}
+			]
+		}
+	]
+}

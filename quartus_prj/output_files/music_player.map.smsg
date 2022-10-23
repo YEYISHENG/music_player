@@ -1,0 +1,2 @@
+Warning (10268): Verilog HDL information at lcd_fsm.v(213): always construct contains both blocking and non-blocking assignments File: D:/QuartusProjects/music_player/rtl/lcd_fsm.v Line: 213
+Warning (10268): Verilog HDL information at lcd_fsm.v(228): always construct contains both blocking and non-blocking assignments File: D:/QuartusProjects/music_player/rtl/lcd_fsm.v Line: 228

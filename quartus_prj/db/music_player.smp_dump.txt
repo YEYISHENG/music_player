@@ -1,0 +1,31 @@
+
+State Machine - |lcd_fsm|currentstate
+Name currentstate.S20 currentstate.S19 currentstate.S18 currentstate.S17 currentstate.S16 currentstate.S15 currentstate.S14 currentstate.S13 currentstate.S12 currentstate.S11 currentstate.S10 currentstate.S9 currentstate.S8 currentstate.S7 currentstate.S6 currentstate.S5 currentstate.S4 currentstate.S3 currentstate.S2 currentstate.S1 
+currentstate.S1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+currentstate.S2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 
+currentstate.S3 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 1 
+currentstate.S4 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 1 
+currentstate.S5 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 
+currentstate.S6 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 1 
+currentstate.S7 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 1 
+currentstate.S8 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 1 
+currentstate.S9 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 
+currentstate.S10 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1 
+currentstate.S11 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 1 
+currentstate.S12 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 1 
+currentstate.S13 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 1 
+currentstate.S14 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 1 
+currentstate.S15 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+currentstate.S16 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+currentstate.S17 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+currentstate.S18 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+currentstate.S19 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+currentstate.S20 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+
+State Machine - |lcd_fsm|KEY
+Name KEY.key4 KEY.key3 KEY.key2 KEY.000 KEY.100 
+KEY.000 0 0 0 0 0 
+KEY.key2 0 0 1 1 0 
+KEY.key3 0 1 0 1 0 
+KEY.key4 1 0 0 1 0 
+KEY.100 0 0 0 1 1 
