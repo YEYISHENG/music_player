@@ -1,0 +1,14 @@
+Analysis & Synthesis Status : Successful - Mon Oct 31 20:09:57 2022
+Quartus Prime Version : 18.1.0 Build 625 09/12/2018 SJ Standard Edition
+Revision Name : top_sd_rw
+Top-level Entity Name : top_sd_rw
+Family : Cyclone IV E
+Total logic elements : 1,219
+    Total combinational functions : 905
+    Dedicated logic registers : 838
+Total registers : 838
+Total pins : 10
+Total virtual pins : 0
+Total memory bits : 98,304
+Embedded Multiplier 9-bit elements : 0
+Total PLLs : 1

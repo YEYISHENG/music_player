@@ -10,43 +10,43 @@ z2
 cModel Technology
 Z0 dD:/QuartusProjects/music_player/quartus_prj/simulation/modelsim
 T_opt
-!s110 1666529838
-VzAmTI8BM;f5bXah9cgZT12
+!s110 1666625892
+V7E[KkDKjIKnfMbXUi_T^N3
 04 10 4 work tb_lcd_fsm fast 0
-=1-dc1ba1b8f353-63553a2d-1ee-4964
+=1-dc1ba1b8f353-6356b162-1b0-1b8
 o-quiet -auto_acc_if_foreign -work work -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cycloneive_ver -L rtl_work -L work +acc
 Z1 tCvgOpt 0
 n@_opt
 OL;O;2020.4;71
 vlcd_fsm
-Z2 !s110 1666529836
+!s110 1666625887
 !i10b 1
-!s100 KdGn3J_5cLY5zEYQ>ADWm3
-Z3 !s11b Dg1SIo80bB@j0V0VzS_@n1
-IF`dSN]l6NI^:BzM09_AJz3
+!s100 n3:O;k4KR;iVaH3lZ;hfQ3
+Z2 !s11b Dg1SIo80bB@j0V0VzS_@n1
+IeQ9HM@A=Pi0VTZ;bhgRAh3
 R0
-w1666529791
+w1666532561
 8D:/QuartusProjects/music_player/rtl/lcd_fsm.v
 FD:/QuartusProjects/music_player/rtl/lcd_fsm.v
 !i122 0
-L0 1 271
-Z4 VDg1SIo80bB@j0V0VzS_@n1
-Z5 OL;L;2020.4;71
+L0 1 269
+Z3 VDg1SIo80bB@j0V0VzS_@n1
+Z4 OL;L;2020.4;71
 r1
 !s85 0
 31
-!s108 1666529835.000000
+!s108 1666625887.000000
 !s107 D:/QuartusProjects/music_player/rtl/lcd_fsm.v|
 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+D:/QuartusProjects/music_player/rtl|D:/QuartusProjects/music_player/rtl/lcd_fsm.v|
 !i113 0
-Z6 o-vlog01compat -work work -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+Z5 o-vlog01compat -work work -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
 !s92 -vlog01compat -work work +incdir+D:/QuartusProjects/music_player/rtl -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
 R1
 vtb_lcd_fsm
-R2
+!s110 1666625888
 !i10b 1
 !s100 GYU<Wzi?j8jBAEh1a=<eH0
-R3
+R2
 I7[3C:i[h6o8Gb5BecRn4]2
 R0
 w1666529033
@@ -54,15 +54,15 @@ w1666529033
 FD:/QuartusProjects/music_player/quartus_prj/../sim/tb_lcd_fsm.v
 !i122 1
 L0 3 118
+R3
 R4
-R5
 r1
 !s85 0
 31
-!s108 1666529836.000000
+!s108 1666625888.000000
 !s107 D:/QuartusProjects/music_player/quartus_prj/../sim/tb_lcd_fsm.v|
 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+D:/QuartusProjects/music_player/quartus_prj/../sim|D:/QuartusProjects/music_player/quartus_prj/../sim/tb_lcd_fsm.v|
 !i113 0
-R6
+R5
 !s92 -vlog01compat -work work +incdir+D:/QuartusProjects/music_player/quartus_prj/../sim -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
 R1

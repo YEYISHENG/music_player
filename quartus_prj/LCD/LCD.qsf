@@ -11,14 +11,11 @@ set_global_assignment -name PROJECT_CREATION_TIME_DATE "10:41:50 OCTOBER 30,2022
 set_global_assignment -name DEVICE_FILTER_PACKAGE FBGA
 set_global_assignment -name DEVICE_FILTER_PIN_COUNT 780
 set_global_assignment -name DEVICE_FILTER_SPEED_GRADE 7
-set_global_assignment -name SDC_FILE LCD.SDC
 set_global_assignment -name STRATIX_DEVICE_IO_STANDARD "3.3-V LVTTL"
 
 #============================================================
 # CLOCK
 #============================================================
-set_location_assignment PIN_Y2 -to CLOCK_50
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to CLOCK_50
 set_location_assignment PIN_AG14 -to CLOCK2_50
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to CLOCK2_50
 set_location_assignment PIN_AG15 -to CLOCK3_50
@@ -93,13 +90,9 @@ set_instance_assignment -name IO_STANDARD "2.5 V" -to LEDG[8]
 #============================================================
 # KEY
 #============================================================
-set_location_assignment PIN_M23 -to KEY[0]
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to KEY[0]
-set_location_assignment PIN_M21 -to KEY[1]
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to KEY[1]
-set_location_assignment PIN_N21 -to KEY[2]
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to KEY[2]
-set_location_assignment PIN_R24 -to KEY[3]
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to KEY[3]
 
 #============================================================
@@ -123,14 +116,6 @@ set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to EX_IO[6]
 #============================================================
 # SW
 #============================================================
-set_location_assignment PIN_AB28 -to SW[0]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SW[0]
-set_location_assignment PIN_AC28 -to SW[1]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SW[1]
-set_location_assignment PIN_AC27 -to SW[2]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SW[2]
-set_location_assignment PIN_AD27 -to SW[3]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SW[3]
 set_location_assignment PIN_AB27 -to SW[4]
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SW[4]
 set_location_assignment PIN_AC26 -to SW[5]
@@ -157,8 +142,6 @@ set_location_assignment PIN_AA22 -to SW[15]
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SW[15]
 set_location_assignment PIN_Y24 -to SW[16]
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SW[16]
-set_location_assignment PIN_Y23 -to SW[17]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SW[17]
 
 #============================================================
 # SEG7
@@ -295,16 +278,8 @@ set_location_assignment PIN_M3 -to LCD_DATA[6]
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to LCD_DATA[6]
 set_location_assignment PIN_M5 -to LCD_DATA[7]
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to LCD_DATA[7]
-set_location_assignment PIN_L6 -to LCD_BLON
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to LCD_BLON
-set_location_assignment PIN_M1 -to LCD_RW
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to LCD_RW
-set_location_assignment PIN_L4 -to LCD_EN
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to LCD_EN
 set_location_assignment PIN_M2 -to LCD_RS
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to LCD_RS
-set_location_assignment PIN_L5 -to LCD_ON
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to LCD_ON
 
 #============================================================
 # RS232
@@ -911,8 +886,39 @@ set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to FL_WP_N
 #============================================================
 
 
-set_global_assignment -name VERILOG_FILE ../../rtl/LCD.v
 set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
 set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
 set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
+set_global_assignment -name MIN_CORE_JUNCTION_TEMP 0
+set_global_assignment -name MAX_CORE_JUNCTION_TEMP 85
+set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "23 MM HEAT SINK WITH 200 LFPM AIRFLOW"
+set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
+set_global_assignment -name EDA_SIMULATION_TOOL "ModelSim (Verilog)"
+set_global_assignment -name EDA_TIME_SCALE "1 ns" -section_id eda_simulation
+set_global_assignment -name EDA_OUTPUT_DATA_FORMAT "VERILOG HDL" -section_id eda_simulation
+set_global_assignment -name EDA_TEST_BENCH_ENABLE_STATUS TEST_BENCH_MODE -section_id eda_simulation
+set_global_assignment -name EDA_NATIVELINK_SIMULATION_TEST_BENCH tb_LCD -section_id eda_simulation
+set_global_assignment -name EDA_TEST_BENCH_NAME tb_LCD -section_id eda_simulation
+set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id tb_LCD
+set_global_assignment -name EDA_TEST_BENCH_RUN_SIM_FOR "1 us" -section_id tb_LCD
+set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME tb_LCD -section_id tb_LCD
+set_global_assignment -name EDA_TEST_BENCH_FILE ../../sim/tb_LCD.v -section_id tb_LCD
+set_location_assignment PIN_Y2 -to clk
+set_location_assignment PIN_AB28 -to key1_flag
+set_location_assignment PIN_AC28 -to key2_flag
+set_location_assignment PIN_AC27 -to key3_flag
+set_location_assignment PIN_AD27 -to key4_flag
+set_location_assignment PIN_Y23 -to rst_n
+set_location_assignment PIN_L4 -to LCD_E
+set_global_assignment -name VERILOG_FILE ../../rtl/key_filter.v
+set_global_assignment -name SDC_FILE LCD.sdc
+set_global_assignment -name VERILOG_FILE ../../sim/tb_LCD.v
+set_global_assignment -name SDC_FILE LCD.SDC
+set_global_assignment -name VERILOG_FILE ../../rtl/LCD.v
+set_location_assignment PIN_L5 -to LCD_ON
+set_location_assignment PIN_M1 -to LCD_RW
+set_location_assignment PIN_R24 -to KEY1
+set_location_assignment PIN_N21 -to KEY2
+set_location_assignment PIN_M21 -to KEY3
+set_location_assignment PIN_M23 -to KEY4
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

@@ -1,0 +1,144 @@
+# Reading D:/ModelSim/modelsim_ase/tcl/vsim/pref.tcl
+# do top_sd_rw_run_msim_rtl_verilog.do
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# Model Technology ModelSim - Intel FPGA Edition vmap 10.5b Lib Mapping Utility 2016.10 Oct  5 2016
+# vmap work rtl_work 
+# Copying D:/ModelSim/modelsim_ase/win32aloem/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# 
+# vlog -vlog01compat -work work +incdir+E:/academic/shuzi_keshe/ziliao/29_top_sd_rw/rtl {E:/academic/shuzi_keshe/ziliao/29_top_sd_rw/rtl/led_alarm.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 17:17:28 on Oct 31,2022
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+E:/academic/shuzi_keshe/ziliao/29_top_sd_rw/rtl" E:/academic/shuzi_keshe/ziliao/29_top_sd_rw/rtl/led_alarm.v 
+# -- Compiling module led_alarm
+# 
+# Top level modules:
+# 	led_alarm
+# End time: 17:17:29 on Oct 31,2022, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+E:/academic/shuzi_keshe/ziliao/29_top_sd_rw/rtl {E:/academic/shuzi_keshe/ziliao/29_top_sd_rw/rtl/data_gen.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 17:17:29 on Oct 31,2022
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+E:/academic/shuzi_keshe/ziliao/29_top_sd_rw/rtl" E:/academic/shuzi_keshe/ziliao/29_top_sd_rw/rtl/data_gen.v 
+# -- Compiling module data_gen
+# 
+# Top level modules:
+# 	data_gen
+# End time: 17:17:29 on Oct 31,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+E:/academic/shuzi_keshe/ziliao/29_top_sd_rw/par/ipcore {E:/academic/shuzi_keshe/ziliao/29_top_sd_rw/par/ipcore/pll_clk.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 17:17:29 on Oct 31,2022
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+E:/academic/shuzi_keshe/ziliao/29_top_sd_rw/par/ipcore" E:/academic/shuzi_keshe/ziliao/29_top_sd_rw/par/ipcore/pll_clk.v 
+# -- Compiling module pll_clk
+# 
+# Top level modules:
+# 	pll_clk
+# End time: 17:17:29 on Oct 31,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+E:/academic/shuzi_keshe/ziliao/29_top_sd_rw/rtl {E:/academic/shuzi_keshe/ziliao/29_top_sd_rw/rtl/top_sd_rw.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 17:17:29 on Oct 31,2022
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+E:/academic/shuzi_keshe/ziliao/29_top_sd_rw/rtl" E:/academic/shuzi_keshe/ziliao/29_top_sd_rw/rtl/top_sd_rw.v 
+# -- Compiling module top_sd_rw
+# 
+# Top level modules:
+# 	top_sd_rw
+# End time: 17:17:29 on Oct 31,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+E:/academic/shuzi_keshe/ziliao/29_top_sd_rw/rtl {E:/academic/shuzi_keshe/ziliao/29_top_sd_rw/rtl/sd_write.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 17:17:29 on Oct 31,2022
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+E:/academic/shuzi_keshe/ziliao/29_top_sd_rw/rtl" E:/academic/shuzi_keshe/ziliao/29_top_sd_rw/rtl/sd_write.v 
+# -- Compiling module sd_write
+# 
+# Top level modules:
+# 	sd_write
+# End time: 17:17:29 on Oct 31,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+E:/academic/shuzi_keshe/ziliao/29_top_sd_rw/rtl {E:/academic/shuzi_keshe/ziliao/29_top_sd_rw/rtl/sd_read.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 17:17:29 on Oct 31,2022
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+E:/academic/shuzi_keshe/ziliao/29_top_sd_rw/rtl" E:/academic/shuzi_keshe/ziliao/29_top_sd_rw/rtl/sd_read.v 
+# -- Compiling module sd_read
+# 
+# Top level modules:
+# 	sd_read
+# End time: 17:17:29 on Oct 31,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+E:/academic/shuzi_keshe/ziliao/29_top_sd_rw/rtl {E:/academic/shuzi_keshe/ziliao/29_top_sd_rw/rtl/sd_init.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 17:17:29 on Oct 31,2022
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+E:/academic/shuzi_keshe/ziliao/29_top_sd_rw/rtl" E:/academic/shuzi_keshe/ziliao/29_top_sd_rw/rtl/sd_init.v 
+# -- Compiling module sd_init
+# 
+# Top level modules:
+# 	sd_init
+# End time: 17:17:29 on Oct 31,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+E:/academic/shuzi_keshe/ziliao/29_top_sd_rw/rtl {E:/academic/shuzi_keshe/ziliao/29_top_sd_rw/rtl/sd_ctrl_top.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 17:17:29 on Oct 31,2022
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+E:/academic/shuzi_keshe/ziliao/29_top_sd_rw/rtl" E:/academic/shuzi_keshe/ziliao/29_top_sd_rw/rtl/sd_ctrl_top.v 
+# -- Compiling module sd_ctrl_top
+# 
+# Top level modules:
+# 	sd_ctrl_top
+# End time: 17:17:29 on Oct 31,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+E:/academic/shuzi_keshe/ziliao/29_top_sd_rw/par/db {E:/academic/shuzi_keshe/ziliao/29_top_sd_rw/par/db/pll_clk_altpll.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 17:17:29 on Oct 31,2022
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+E:/academic/shuzi_keshe/ziliao/29_top_sd_rw/par/db" E:/academic/shuzi_keshe/ziliao/29_top_sd_rw/par/db/pll_clk_altpll.v 
+# -- Compiling module pll_clk_altpll
+# 
+# Top level modules:
+# 	pll_clk_altpll
+# End time: 17:17:29 on Oct 31,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# 
+# vlog -vlog01compat -work work +incdir+E:/academic/shuzi_keshe/ziliao/29_top_sd_rw/par/../sim {E:/academic/shuzi_keshe/ziliao/29_top_sd_rw/par/../sim/tb_top_sd_rw.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 17:17:30 on Oct 31,2022
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+E:/academic/shuzi_keshe/ziliao/29_top_sd_rw/par/../sim" E:/academic/shuzi_keshe/ziliao/29_top_sd_rw/par/../sim/tb_top_sd_rw.v 
+# -- Compiling module tb_top_sd_rw
+# 
+# Top level modules:
+# 	tb_top_sd_rw
+# End time: 17:17:30 on Oct 31,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# 
+# vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cycloneive_ver -L rtl_work -L work -voptargs="+acc"  tb_top_sd_rw
+# vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cycloneive_ver -L rtl_work -L work -voptargs=""+acc"" tb_top_sd_rw 
+# Start time: 17:17:30 on Oct 31,2022
+# Loading work.tb_top_sd_rw
+# Loading work.top_sd_rw
+# Loading work.pll_clk
+# Loading altera_mf_ver.altpll
+# Loading altera_mf_ver.ALTERA_DEVICE_FAMILIES
+# Loading altera_mf_ver.pll_iobuf
+# Loading work.data_gen
+# Loading work.sd_ctrl_top
+# Loading work.sd_init
+# Loading work.sd_write
+# Loading work.sd_read
+# Loading work.led_alarm
+# Loading altera_mf_ver.MF_cycloneiii_pll
+# Loading altera_mf_ver.cda_m_cntr
+# Loading altera_mf_ver.cda_n_cntr
+# Loading altera_mf_ver.cda_scale_cntr
+# 
+# add wave *
+# view structure
+# .main_pane.structure.interior.cs.body.struct
+# view signals
+# .main_pane.objects.interior.cs.body.tree
+# run -all
+restart
+run
+# End time: 17:19:21 on Oct 31,2022, Elapsed time: 0:01:51
+# Errors: 0, Warnings: 0

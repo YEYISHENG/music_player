@@ -1,0 +1,230 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dE:/academic/shuzi_keshe/ziliao/29_top_sd_rw/par/simulation/modelsim
+vdata_gen
+Z1 !s110 1667207849
+!i10b 1
+!s100 YizB@R<DVYcmPM9ekmTmL2
+I;`j=fP[XD`O5;]Nh9ZoSV2
+Z2 VDg1SIo80bB@j0V0VzS_@n1
+R0
+w1667206714
+8E:/academic/shuzi_keshe/ziliao/29_top_sd_rw/rtl/data_gen.v
+FE:/academic/shuzi_keshe/ziliao/29_top_sd_rw/rtl/data_gen.v
+Z3 L0 22
+Z4 OV;L;10.5b;63
+r1
+!s85 0
+31
+Z5 !s108 1667207849.000000
+!s107 E:/academic/shuzi_keshe/ziliao/29_top_sd_rw/rtl/data_gen.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+E:/academic/shuzi_keshe/ziliao/29_top_sd_rw/rtl|E:/academic/shuzi_keshe/ziliao/29_top_sd_rw/rtl/data_gen.v|
+!i113 1
+Z6 o-vlog01compat -work work
+Z7 !s92 -vlog01compat -work work +incdir+E:/academic/shuzi_keshe/ziliao/29_top_sd_rw/rtl
+Z8 tCvgOpt 0
+vled_alarm
+R1
+!i10b 1
+!s100 Jj[<GczLoQDaH67d7af`K3
+If2fo]`dL@3J6o6OBNMUgK0
+R2
+R0
+Z9 w1601284117
+8E:/academic/shuzi_keshe/ziliao/29_top_sd_rw/rtl/led_alarm.v
+FE:/academic/shuzi_keshe/ziliao/29_top_sd_rw/rtl/led_alarm.v
+R3
+R4
+r1
+!s85 0
+31
+!s108 1667207848.000000
+!s107 E:/academic/shuzi_keshe/ziliao/29_top_sd_rw/rtl/led_alarm.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+E:/academic/shuzi_keshe/ziliao/29_top_sd_rw/rtl|E:/academic/shuzi_keshe/ziliao/29_top_sd_rw/rtl/led_alarm.v|
+!i113 1
+R6
+R7
+R8
+vpll_clk
+R1
+!i10b 1
+!s100 E^[[NbTOIZ@V9[DMH62N@1
+I=h@L_Kb52U[h0z5YbL0BG0
+R2
+R0
+w1666884223
+8E:/academic/shuzi_keshe/ziliao/29_top_sd_rw/par/ipcore/pll_clk.v
+FE:/academic/shuzi_keshe/ziliao/29_top_sd_rw/par/ipcore/pll_clk.v
+L0 39
+R4
+r1
+!s85 0
+31
+R5
+!s107 E:/academic/shuzi_keshe/ziliao/29_top_sd_rw/par/ipcore/pll_clk.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+E:/academic/shuzi_keshe/ziliao/29_top_sd_rw/par/ipcore|E:/academic/shuzi_keshe/ziliao/29_top_sd_rw/par/ipcore/pll_clk.v|
+!i113 1
+R6
+!s92 -vlog01compat -work work +incdir+E:/academic/shuzi_keshe/ziliao/29_top_sd_rw/par/ipcore
+R8
+vpll_clk_altpll
+R1
+!i10b 1
+!s100 TAmoSk7]li2n2[a:aDQMS2
+I1Y67AFz@_[g[=JADUW_g10
+R2
+R0
+w1666884333
+8E:/academic/shuzi_keshe/ziliao/29_top_sd_rw/par/db/pll_clk_altpll.v
+FE:/academic/shuzi_keshe/ziliao/29_top_sd_rw/par/db/pll_clk_altpll.v
+L0 30
+R4
+r1
+!s85 0
+31
+R5
+!s107 E:/academic/shuzi_keshe/ziliao/29_top_sd_rw/par/db/pll_clk_altpll.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+E:/academic/shuzi_keshe/ziliao/29_top_sd_rw/par/db|E:/academic/shuzi_keshe/ziliao/29_top_sd_rw/par/db/pll_clk_altpll.v|
+!i113 1
+R6
+!s92 -vlog01compat -work work +incdir+E:/academic/shuzi_keshe/ziliao/29_top_sd_rw/par/db
+R8
+vsd_ctrl_top
+R1
+!i10b 1
+!s100 K^ma9P45=R^AV0IXNZTlc0
+I1<0H4O:5KEg;j<4^<ODo]0
+R2
+R0
+R9
+8E:/academic/shuzi_keshe/ziliao/29_top_sd_rw/rtl/sd_ctrl_top.v
+FE:/academic/shuzi_keshe/ziliao/29_top_sd_rw/rtl/sd_ctrl_top.v
+R3
+R4
+r1
+!s85 0
+31
+R5
+!s107 E:/academic/shuzi_keshe/ziliao/29_top_sd_rw/rtl/sd_ctrl_top.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+E:/academic/shuzi_keshe/ziliao/29_top_sd_rw/rtl|E:/academic/shuzi_keshe/ziliao/29_top_sd_rw/rtl/sd_ctrl_top.v|
+!i113 1
+R6
+R7
+R8
+vsd_init
+R1
+!i10b 1
+!s100 iEdPjCiCaHb7_EnXZ;>O`3
+I00G37acD7Q5;z3JFIHM;a3
+R2
+R0
+R9
+8E:/academic/shuzi_keshe/ziliao/29_top_sd_rw/rtl/sd_init.v
+FE:/academic/shuzi_keshe/ziliao/29_top_sd_rw/rtl/sd_init.v
+R3
+R4
+r1
+!s85 0
+31
+R5
+!s107 E:/academic/shuzi_keshe/ziliao/29_top_sd_rw/rtl/sd_init.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+E:/academic/shuzi_keshe/ziliao/29_top_sd_rw/rtl|E:/academic/shuzi_keshe/ziliao/29_top_sd_rw/rtl/sd_init.v|
+!i113 1
+R6
+R7
+R8
+vsd_read
+R1
+!i10b 1
+!s100 E5U]=DBMcjG6D?imNk9kF3
+IIlHX76zX=SjF[YS3EjmKS3
+R2
+R0
+R9
+8E:/academic/shuzi_keshe/ziliao/29_top_sd_rw/rtl/sd_read.v
+FE:/academic/shuzi_keshe/ziliao/29_top_sd_rw/rtl/sd_read.v
+R3
+R4
+r1
+!s85 0
+31
+R5
+!s107 E:/academic/shuzi_keshe/ziliao/29_top_sd_rw/rtl/sd_read.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+E:/academic/shuzi_keshe/ziliao/29_top_sd_rw/rtl|E:/academic/shuzi_keshe/ziliao/29_top_sd_rw/rtl/sd_read.v|
+!i113 1
+R6
+R7
+R8
+vsd_write
+R1
+!i10b 1
+!s100 m9]52YBaTmhW0o3FfoZJe3
+I@M?h8fgkhjeSFQ[04R^283
+R2
+R0
+R9
+8E:/academic/shuzi_keshe/ziliao/29_top_sd_rw/rtl/sd_write.v
+FE:/academic/shuzi_keshe/ziliao/29_top_sd_rw/rtl/sd_write.v
+R3
+R4
+r1
+!s85 0
+31
+R5
+!s107 E:/academic/shuzi_keshe/ziliao/29_top_sd_rw/rtl/sd_write.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+E:/academic/shuzi_keshe/ziliao/29_top_sd_rw/rtl|E:/academic/shuzi_keshe/ziliao/29_top_sd_rw/rtl/sd_write.v|
+!i113 1
+R6
+R7
+R8
+vtb_top_sd_rw
+!s110 1667207850
+!i10b 1
+!s100 NQ[J=:JmGkalF9B5?h;VT2
+IA226MTePLJS3:jl9[Z>oV1
+R2
+R0
+w1667207695
+8E:/academic/shuzi_keshe/ziliao/29_top_sd_rw/par/../sim/tb_top_sd_rw.v
+FE:/academic/shuzi_keshe/ziliao/29_top_sd_rw/par/../sim/tb_top_sd_rw.v
+L0 2
+R4
+r1
+!s85 0
+31
+!s108 1667207850.000000
+!s107 E:/academic/shuzi_keshe/ziliao/29_top_sd_rw/par/../sim/tb_top_sd_rw.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+E:/academic/shuzi_keshe/ziliao/29_top_sd_rw/par/../sim|E:/academic/shuzi_keshe/ziliao/29_top_sd_rw/par/../sim/tb_top_sd_rw.v|
+!i113 1
+R6
+!s92 -vlog01compat -work work +incdir+E:/academic/shuzi_keshe/ziliao/29_top_sd_rw/par/../sim
+R8
+vtop_sd_rw
+R1
+!i10b 1
+!s100 EIbO<_bQRa7m52dinYiB30
+Ia::7LL?i8W5o`g_lLU>E>2
+R2
+R0
+R9
+8E:/academic/shuzi_keshe/ziliao/29_top_sd_rw/rtl/top_sd_rw.v
+FE:/academic/shuzi_keshe/ziliao/29_top_sd_rw/rtl/top_sd_rw.v
+R3
+R4
+r1
+!s85 0
+31
+R5
+!s107 E:/academic/shuzi_keshe/ziliao/29_top_sd_rw/rtl/top_sd_rw.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+E:/academic/shuzi_keshe/ziliao/29_top_sd_rw/rtl|E:/academic/shuzi_keshe/ziliao/29_top_sd_rw/rtl/top_sd_rw.v|
+!i113 1
+R6
+R7
+R8

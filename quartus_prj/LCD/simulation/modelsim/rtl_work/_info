@@ -1,0 +1,70 @@
+m255
+K4
+z2
+!s11f vlog 2020.4 2020.10, Oct 13 2020
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dD:/QuartusProjects/music_player/quartus_prj/LCD/simulation/modelsim
+T_opt
+!s110 1667118996
+VEf3JW^Y;<DgOD`jCez25L2
+04 6 4 work tb_LCD fast 0
+=1-dc1ba1b8f353-635e3793-389-6b08
+o-quiet -auto_acc_if_foreign -work work -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cycloneive_ver -L rtl_work -L work +acc
+Z1 tCvgOpt 0
+n@_opt
+OL;O;2020.4;71
+vLCD
+Z2 !s110 1667118980
+!i10b 1
+!s100 jcO;FBGkEC4kH::>7CVL12
+Z3 !s11b Dg1SIo80bB@j0V0VzS_@n1
+ID_N^Z7aCEGSF<_F?BBF^51
+R0
+w1667118888
+8D:/QuartusProjects/music_player/rtl/LCD.v
+FD:/QuartusProjects/music_player/rtl/LCD.v
+!i122 0
+L0 1 373
+Z4 VDg1SIo80bB@j0V0VzS_@n1
+Z5 OL;L;2020.4;71
+r1
+!s85 0
+31
+Z6 !s108 1667118980.000000
+!s107 D:/QuartusProjects/music_player/rtl/LCD.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+D:/QuartusProjects/music_player/rtl|D:/QuartusProjects/music_player/rtl/LCD.v|
+!i113 0
+Z7 o-vlog01compat -work work -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+!s92 -vlog01compat -work work +incdir+D:/QuartusProjects/music_player/rtl -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+R1
+n@l@c@d
+vtb_LCD
+R2
+!i10b 1
+!s100 J`o0eb?2o:<`zN3?=WSme2
+R3
+I;Tk@EU8Z[<z8_RTe?UKES2
+R0
+w1667118899
+8D:/QuartusProjects/music_player/quartus_prj/LCD/../../sim/tb_LCD.v
+FD:/QuartusProjects/music_player/quartus_prj/LCD/../../sim/tb_LCD.v
+!i122 1
+L0 3 90
+R4
+R5
+r1
+!s85 0
+31
+R6
+!s107 D:/QuartusProjects/music_player/quartus_prj/LCD/../../sim/tb_LCD.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+D:/QuartusProjects/music_player/quartus_prj/LCD/../../sim|D:/QuartusProjects/music_player/quartus_prj/LCD/../../sim/tb_LCD.v|
+!i113 0
+R7
+!s92 -vlog01compat -work work +incdir+D:/QuartusProjects/music_player/quartus_prj/LCD/../../sim -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+R1
+ntb_@l@c@d

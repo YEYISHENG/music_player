@@ -1,5 +1,5 @@
 Analysis & Synthesis report for LCD
-Sun Oct 30 10:49:55 2022
+Mon Oct 31 20:36:08 2022
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
 
 
@@ -13,11 +13,21 @@ Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
   5. Analysis & Synthesis Source Files Read
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
-  8. General Register Statistics
-  9. Post-Synthesis Netlist Statistics for Top Partition
- 10. Elapsed Time Per Partition
- 11. Analysis & Synthesis Messages
- 12. Analysis & Synthesis Suppressed Messages
+  8. State Machine - |LCD|currentstate
+  9. State Machine - |LCD|KEY
+ 10. Registers Removed During Synthesis
+ 11. General Register Statistics
+ 12. Inverted Register Statistics
+ 13. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 14. Parameter Settings for User Entity Instance: Top-level Entity: |LCD
+ 15. Parameter Settings for User Entity Instance: key_filter:K1
+ 16. Parameter Settings for User Entity Instance: key_filter:K2
+ 17. Parameter Settings for User Entity Instance: key_filter:K3
+ 18. Parameter Settings for User Entity Instance: key_filter:K4
+ 19. Post-Synthesis Netlist Statistics for Top Partition
+ 20. Elapsed Time Per Partition
+ 21. Analysis & Synthesis Messages
+ 22. Analysis & Synthesis Suppressed Messages
 
 
 
@@ -43,16 +53,16 @@ refer to the applicable agreement for further details.
 +--------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                         ;
 +------------------------------------+-------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Sun Oct 30 10:49:55 2022           ;
+; Analysis & Synthesis Status        ; Successful - Mon Oct 31 20:36:08 2022           ;
 ; Quartus Prime Version              ; 18.1.0 Build 625 09/12/2018 SJ Standard Edition ;
 ; Revision Name                      ; LCD                                             ;
 ; Top-level Entity Name              ; LCD                                             ;
 ; Family                             ; Cyclone IV E                                    ;
-; Total logic elements               ; 0                                               ;
-;     Total combinational functions  ; 0                                               ;
-;     Dedicated logic registers      ; 0                                               ;
-; Total registers                    ; 0                                               ;
-; Total pins                         ; 400                                             ;
+; Total logic elements               ; 574                                             ;
+;     Total combinational functions  ; 536                                             ;
+;     Dedicated logic registers      ; 259                                             ;
+; Total registers                    ; 259                                             ;
+; Total pins                         ; 18                                              ;
 ; Total virtual pins                 ; 0                                               ;
 ; Total memory bits                  ; 0                                               ;
 ; Embedded Multiplier 9-bit elements ; 0                                               ;
@@ -155,51 +165,56 @@ refer to the applicable agreement for further details.
 ; Maximum allowed            ; 4           ;
 ;                            ;             ;
 ; Average used               ; 1.00        ;
-; Maximum used               ; 1           ;
+; Maximum used               ; 4           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   0.0%      ;
+;     Processor 3            ;   0.0%      ;
+;     Processor 4            ;   0.0%      ;
 +----------------------------+-------------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                              ;
-+----------------------------------+-----------------+------------------------------+-------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                          ; Library ;
-+----------------------------------+-----------------+------------------------------+-------------------------------------------------------+---------+
-; lcd.v                            ; yes             ; Auto-Found Verilog HDL File  ; D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v ;         ;
-+----------------------------------+-----------------+------------------------------+-------------------------------------------------------+---------+
++------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                   ;
++----------------------------------+-----------------+------------------------+--------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type              ; File Name with Absolute Path                     ; Library ;
++----------------------------------+-----------------+------------------------+--------------------------------------------------+---------+
+; ../../rtl/key_filter.v           ; yes             ; User Verilog HDL File  ; D:/QuartusProjects/music_player/rtl/key_filter.v ;         ;
+; ../../rtl/LCD.v                  ; yes             ; User Verilog HDL File  ; D:/QuartusProjects/music_player/rtl/LCD.v        ;         ;
++----------------------------------+-----------------+------------------------+--------------------------------------------------+---------+
 
 
-+---------------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary                   ;
-+---------------------------------------------+-----------------+
-; Resource                                    ; Usage           ;
-+---------------------------------------------+-----------------+
-;                                             ;                 ;
-; Total combinational functions               ; 0               ;
-; Logic element usage by number of LUT inputs ;                 ;
-;     -- 4 input functions                    ; 0               ;
-;     -- 3 input functions                    ; 0               ;
-;     -- <=2 input functions                  ; 0               ;
-;                                             ;                 ;
-; Logic elements by mode                      ;                 ;
-;     -- normal mode                          ; 0               ;
-;     -- arithmetic mode                      ; 0               ;
-;                                             ;                 ;
-; Total registers                             ; 0               ;
-;     -- Dedicated logic registers            ; 0               ;
-;     -- I/O registers                        ; 0               ;
-;                                             ;                 ;
-; I/O pins                                    ; 400             ;
-;                                             ;                 ;
-; Embedded Multiplier 9-bit elements          ; 0               ;
-;                                             ;                 ;
-; Maximum fan-out node                        ; EX_IO[0]~output ;
-; Maximum fan-out                             ; 1               ;
-; Total fan-out                               ; 503             ;
-; Average fan-out                             ; 0.56            ;
-+---------------------------------------------+-----------------+
++---------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary             ;
++---------------------------------------------+-----------+
+; Resource                                    ; Usage     ;
++---------------------------------------------+-----------+
+; Estimated Total logic elements              ; 574       ;
+;                                             ;           ;
+; Total combinational functions               ; 536       ;
+; Logic element usage by number of LUT inputs ;           ;
+;     -- 4 input functions                    ; 320       ;
+;     -- 3 input functions                    ; 53        ;
+;     -- <=2 input functions                  ; 163       ;
+;                                             ;           ;
+; Logic elements by mode                      ;           ;
+;     -- normal mode                          ; 423       ;
+;     -- arithmetic mode                      ; 113       ;
+;                                             ;           ;
+; Total registers                             ; 259       ;
+;     -- Dedicated logic registers            ; 259       ;
+;     -- I/O registers                        ; 0         ;
+;                                             ;           ;
+; I/O pins                                    ; 18        ;
+;                                             ;           ;
+; Embedded Multiplier 9-bit elements          ; 0         ;
+;                                             ;           ;
+; Maximum fan-out node                        ; clk~input ;
+; Maximum fan-out                             ; 259       ;
+; Total fan-out                               ; 2803      ;
+; Average fan-out                             ; 3.37      ;
++---------------------------------------------+-----------+
 
 
 +----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -207,9 +222,140 @@ refer to the applicable agreement for further details.
 +----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+-------------+--------------+
 ; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name ; Entity Name ; Library Name ;
 +----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+-------------+--------------+
-; |LCD                       ; 0 (0)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 400  ; 0            ; |LCD                ; LCD         ; work         ;
+; |LCD                       ; 536 (416)           ; 259 (175)                 ; 0           ; 0            ; 0       ; 0         ; 18   ; 0            ; |LCD                ; LCD         ; work         ;
+;    |key_filter:K1|         ; 30 (30)             ; 21 (21)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |LCD|key_filter:K1  ; key_filter  ; work         ;
+;    |key_filter:K2|         ; 30 (30)             ; 21 (21)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |LCD|key_filter:K2  ; key_filter  ; work         ;
+;    |key_filter:K3|         ; 30 (30)             ; 21 (21)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |LCD|key_filter:K3  ; key_filter  ; work         ;
+;    |key_filter:K4|         ; 30 (30)             ; 21 (21)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |LCD|key_filter:K4  ; key_filter  ; work         ;
 +----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+-------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
+Encoding Type:  One-Hot
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |LCD|currentstate                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              ;
++---------------------------+---------------------+---------------------+---------------------+---------------------+---------------------+---------------------+---------------------+---------------------+---------------------+---------------------+---------------------+------------------------+---------------------+---------------------+---------------------+---------------------+---------------------+---------------------+---------------------+---------------------+---------------------+---------------------+---------------------+---------------------+---------------------+---------------------+---------------------+---------------------+---------------------+---------------------+---------------------+---------------------+----------------------+-------------------------+------------------------+---------------------+-----------------------+-------------------------+---------------------------+-------------------+
+; Name                      ; currentstate.ROW2_D ; currentstate.ROW2_C ; currentstate.ROW2_E ; currentstate.ROW2_F ; currentstate.ROW2_A ; currentstate.ROW2_B ; currentstate.ROW2_9 ; currentstate.ROW2_8 ; currentstate.ROW1_E ; currentstate.ROW1_D ; currentstate.ROW1_F ; currentstate.ROW2_ADDR ; currentstate.ROW1_B ; currentstate.ROW1_C ; currentstate.ROW1_A ; currentstate.ROW1_9 ; currentstate.ROW2_2 ; currentstate.ROW2_3 ; currentstate.ROW2_1 ; currentstate.ROW2_0 ; currentstate.ROW2_5 ; currentstate.ROW2_4 ; currentstate.ROW2_6 ; currentstate.ROW2_7 ; currentstate.ROW1_3 ; currentstate.ROW1_4 ; currentstate.ROW1_2 ; currentstate.ROW1_1 ; currentstate.ROW1_6 ; currentstate.ROW1_5 ; currentstate.ROW1_7 ; currentstate.ROW1_8 ; currentstate.DISP_ON ; currentstate.ENTRY_MODE ; currentstate.ROW1_ADDR ; currentstate.ROW1_0 ; currentstate.DISP_OFF ; currentstate.DISP_CLEAR ; currentstate.SET_FUNCTION ; currentstate.IDLE ;
++---------------------------+---------------------+---------------------+---------------------+---------------------+---------------------+---------------------+---------------------+---------------------+---------------------+---------------------+---------------------+------------------------+---------------------+---------------------+---------------------+---------------------+---------------------+---------------------+---------------------+---------------------+---------------------+---------------------+---------------------+---------------------+---------------------+---------------------+---------------------+---------------------+---------------------+---------------------+---------------------+---------------------+----------------------+-------------------------+------------------------+---------------------+-----------------------+-------------------------+---------------------------+-------------------+
+; currentstate.IDLE         ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                      ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                    ; 0                       ; 0                      ; 0                   ; 0                     ; 0                       ; 0                         ; 0                 ;
+; currentstate.SET_FUNCTION ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                      ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                    ; 0                       ; 0                      ; 0                   ; 0                     ; 0                       ; 1                         ; 1                 ;
+; currentstate.DISP_CLEAR   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                      ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                    ; 0                       ; 0                      ; 0                   ; 0                     ; 1                       ; 0                         ; 1                 ;
+; currentstate.DISP_OFF     ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                      ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                    ; 0                       ; 0                      ; 0                   ; 1                     ; 0                       ; 0                         ; 1                 ;
+; currentstate.ROW1_0       ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                      ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                    ; 0                       ; 0                      ; 1                   ; 0                     ; 0                       ; 0                         ; 1                 ;
+; currentstate.ROW1_ADDR    ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                      ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                    ; 0                       ; 1                      ; 0                   ; 0                     ; 0                       ; 0                         ; 1                 ;
+; currentstate.ENTRY_MODE   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                      ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                    ; 1                       ; 0                      ; 0                   ; 0                     ; 0                       ; 0                         ; 1                 ;
+; currentstate.DISP_ON      ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                      ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 1                    ; 0                       ; 0                      ; 0                   ; 0                     ; 0                       ; 0                         ; 1                 ;
+; currentstate.ROW1_8       ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                      ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 1                   ; 0                    ; 0                       ; 0                      ; 0                   ; 0                     ; 0                       ; 0                         ; 1                 ;
+; currentstate.ROW1_7       ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                      ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 1                   ; 0                   ; 0                    ; 0                       ; 0                      ; 0                   ; 0                     ; 0                       ; 0                         ; 1                 ;
+; currentstate.ROW1_5       ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                      ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 1                   ; 0                   ; 0                   ; 0                    ; 0                       ; 0                      ; 0                   ; 0                     ; 0                       ; 0                         ; 1                 ;
+; currentstate.ROW1_6       ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                      ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 1                   ; 0                   ; 0                   ; 0                   ; 0                    ; 0                       ; 0                      ; 0                   ; 0                     ; 0                       ; 0                         ; 1                 ;
+; currentstate.ROW1_1       ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                      ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 1                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                    ; 0                       ; 0                      ; 0                   ; 0                     ; 0                       ; 0                         ; 1                 ;
+; currentstate.ROW1_2       ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                      ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 1                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                    ; 0                       ; 0                      ; 0                   ; 0                     ; 0                       ; 0                         ; 1                 ;
+; currentstate.ROW1_4       ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                      ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 1                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                    ; 0                       ; 0                      ; 0                   ; 0                     ; 0                       ; 0                         ; 1                 ;
+; currentstate.ROW1_3       ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                      ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 1                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                    ; 0                       ; 0                      ; 0                   ; 0                     ; 0                       ; 0                         ; 1                 ;
+; currentstate.ROW2_7       ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                      ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 1                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                    ; 0                       ; 0                      ; 0                   ; 0                     ; 0                       ; 0                         ; 1                 ;
+; currentstate.ROW2_6       ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                      ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 1                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                    ; 0                       ; 0                      ; 0                   ; 0                     ; 0                       ; 0                         ; 1                 ;
+; currentstate.ROW2_4       ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                      ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 1                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                    ; 0                       ; 0                      ; 0                   ; 0                     ; 0                       ; 0                         ; 1                 ;
+; currentstate.ROW2_5       ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                      ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 1                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                    ; 0                       ; 0                      ; 0                   ; 0                     ; 0                       ; 0                         ; 1                 ;
+; currentstate.ROW2_0       ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                      ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 1                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                    ; 0                       ; 0                      ; 0                   ; 0                     ; 0                       ; 0                         ; 1                 ;
+; currentstate.ROW2_1       ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                      ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 1                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                    ; 0                       ; 0                      ; 0                   ; 0                     ; 0                       ; 0                         ; 1                 ;
+; currentstate.ROW2_3       ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                      ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 1                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                    ; 0                       ; 0                      ; 0                   ; 0                     ; 0                       ; 0                         ; 1                 ;
+; currentstate.ROW2_2       ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                      ; 0                   ; 0                   ; 0                   ; 0                   ; 1                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                    ; 0                       ; 0                      ; 0                   ; 0                     ; 0                       ; 0                         ; 1                 ;
+; currentstate.ROW1_9       ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                      ; 0                   ; 0                   ; 0                   ; 1                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                    ; 0                       ; 0                      ; 0                   ; 0                     ; 0                       ; 0                         ; 1                 ;
+; currentstate.ROW1_A       ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                      ; 0                   ; 0                   ; 1                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                    ; 0                       ; 0                      ; 0                   ; 0                     ; 0                       ; 0                         ; 1                 ;
+; currentstate.ROW1_C       ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                      ; 0                   ; 1                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                    ; 0                       ; 0                      ; 0                   ; 0                     ; 0                       ; 0                         ; 1                 ;
+; currentstate.ROW1_B       ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                      ; 1                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                    ; 0                       ; 0                      ; 0                   ; 0                     ; 0                       ; 0                         ; 1                 ;
+; currentstate.ROW2_ADDR    ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 1                      ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                    ; 0                       ; 0                      ; 0                   ; 0                     ; 0                       ; 0                         ; 1                 ;
+; currentstate.ROW1_F       ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 1                   ; 0                      ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                    ; 0                       ; 0                      ; 0                   ; 0                     ; 0                       ; 0                         ; 1                 ;
+; currentstate.ROW1_D       ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 1                   ; 0                   ; 0                      ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                    ; 0                       ; 0                      ; 0                   ; 0                     ; 0                       ; 0                         ; 1                 ;
+; currentstate.ROW1_E       ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 1                   ; 0                   ; 0                   ; 0                      ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                    ; 0                       ; 0                      ; 0                   ; 0                     ; 0                       ; 0                         ; 1                 ;
+; currentstate.ROW2_8       ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 1                   ; 0                   ; 0                   ; 0                   ; 0                      ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                    ; 0                       ; 0                      ; 0                   ; 0                     ; 0                       ; 0                         ; 1                 ;
+; currentstate.ROW2_9       ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 1                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                      ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                    ; 0                       ; 0                      ; 0                   ; 0                     ; 0                       ; 0                         ; 1                 ;
+; currentstate.ROW2_B       ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 1                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                      ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                    ; 0                       ; 0                      ; 0                   ; 0                     ; 0                       ; 0                         ; 1                 ;
+; currentstate.ROW2_A       ; 0                   ; 0                   ; 0                   ; 0                   ; 1                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                      ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                    ; 0                       ; 0                      ; 0                   ; 0                     ; 0                       ; 0                         ; 1                 ;
+; currentstate.ROW2_F       ; 0                   ; 0                   ; 0                   ; 1                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                      ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                    ; 0                       ; 0                      ; 0                   ; 0                     ; 0                       ; 0                         ; 1                 ;
+; currentstate.ROW2_E       ; 0                   ; 0                   ; 1                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                      ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                    ; 0                       ; 0                      ; 0                   ; 0                     ; 0                       ; 0                         ; 1                 ;
+; currentstate.ROW2_C       ; 0                   ; 1                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                      ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                    ; 0                       ; 0                      ; 0                   ; 0                     ; 0                       ; 0                         ; 1                 ;
+; currentstate.ROW2_D       ; 1                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                      ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                    ; 0                       ; 0                      ; 0                   ; 0                     ; 0                       ; 0                         ; 1                 ;
++---------------------------+---------------------+---------------------+---------------------+---------------------+---------------------+---------------------+---------------------+---------------------+---------------------+---------------------+---------------------+------------------------+---------------------+---------------------+---------------------+---------------------+---------------------+---------------------+---------------------+---------------------+---------------------+---------------------+---------------------+---------------------+---------------------+---------------------+---------------------+---------------------+---------------------+---------------------+---------------------+---------------------+----------------------+-------------------------+------------------------+---------------------+-----------------------+-------------------------+---------------------------+-------------------+
+
+
+Encoding Type:  One-Hot
++---------------------------------------------------------------+
+; State Machine - |LCD|KEY                                      ;
++----------+----------+----------+----------+---------+---------+
+; Name     ; KEY.key4 ; KEY.key3 ; KEY.key2 ; KEY.000 ; KEY.100 ;
++----------+----------+----------+----------+---------+---------+
+; KEY.000  ; 0        ; 0        ; 0        ; 0       ; 0       ;
+; KEY.key2 ; 0        ; 0        ; 1        ; 1       ; 0       ;
+; KEY.key3 ; 0        ; 1        ; 0        ; 1       ; 0       ;
+; KEY.key4 ; 1        ; 0        ; 0        ; 1       ; 0       ;
+; KEY.100  ; 0        ; 0        ; 0        ; 1       ; 1       ;
++----------+----------+----------+----------+---------+---------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                                                                ;
++----------------------------------------------------------------------------------------------------------+----------------------------------------+
+; Register name                                                                                            ; Reason for Removal                     ;
++----------------------------------------------------------------------------------------------------------+----------------------------------------+
+; row_2[0,71,79,87,92,95,103,111,119,127]                                                                  ; Stuck at GND due to stuck port data_in ;
+; row_2[69]                                                                                                ; Stuck at VCC due to stuck port data_in ;
+; row_2[63,67]                                                                                             ; Stuck at GND due to stuck port data_in ;
+; row_2[61]                                                                                                ; Stuck at VCC due to stuck port data_in ;
+; row_2[55]                                                                                                ; Stuck at GND due to stuck port data_in ;
+; row_2[53]                                                                                                ; Stuck at VCC due to stuck port data_in ;
+; row_2[47,50,51]                                                                                          ; Stuck at GND due to stuck port data_in ;
+; row_2[45]                                                                                                ; Stuck at VCC due to stuck port data_in ;
+; row_2[39..41,44]                                                                                         ; Stuck at GND due to stuck port data_in ;
+; row_2[37]                                                                                                ; Stuck at VCC due to stuck port data_in ;
+; row_2[31,33,35,36]                                                                                       ; Stuck at GND due to stuck port data_in ;
+; row_2[29]                                                                                                ; Stuck at VCC due to stuck port data_in ;
+; row_2[22..24,26,27]                                                                                      ; Stuck at GND due to stuck port data_in ;
+; row_2[21]                                                                                                ; Stuck at VCC due to stuck port data_in ;
+; row_2[14..20]                                                                                            ; Stuck at GND due to stuck port data_in ;
+; row_2[13]                                                                                                ; Stuck at VCC due to stuck port data_in ;
+; row_2[6..12]                                                                                             ; Stuck at GND due to stuck port data_in ;
+; row_2[5]                                                                                                 ; Stuck at VCC due to stuck port data_in ;
+; row_2[1..4]                                                                                              ; Stuck at GND due to stuck port data_in ;
+; row_1[0..4,6..12,14..20,22..24,26,27,31,33,35,36,39..41,44,47,50,51,55,63,67,71,79,87,92,95,103,111,119] ; Merged with row_1[127]                 ;
+; row_1[5,13,21,29,37,45,53,61]                                                                            ; Merged with row_1[69]                  ;
+; row_2[102,110,118]                                                                                       ; Merged with row_2[126]                 ;
+; row_2[101,109,117]                                                                                       ; Merged with row_2[125]                 ;
+; row_2[123]                                                                                               ; Merged with row_2[124]                 ;
+; row_2[90]                                                                                                ; Merged with row_2[121]                 ;
+; row_2[91]                                                                                                ; Merged with row_2[107]                 ;
+; row_2[43,48,60,70]                                                                                       ; Merged with row_2[97]                  ;
+; row_2[80]                                                                                                ; Merged with row_2[86]                  ;
+; row_2[81]                                                                                                ; Merged with row_2[84]                  ;
+; row_2[74,75]                                                                                             ; Merged with row_2[78]                  ;
+; row_2[68]                                                                                                ; Merged with row_2[77]                  ;
+; row_2[32,34,38,42,46,49,54,56,59]                                                                        ; Merged with row_2[62]                  ;
+; row_2[25,28,30,52,57]                                                                                    ; Merged with row_2[58]                  ;
+; row_1[86]                                                                                                ; Merged with row_1[80]                  ;
+; row_1[34,38,42,46,49,54,56,59,62]                                                                        ; Merged with row_1[32]                  ;
+; row_1[48,60,70,97]                                                                                       ; Merged with row_1[43]                  ;
+; row_1[90]                                                                                                ; Merged with row_1[121]                 ;
+; row_1[84]                                                                                                ; Merged with row_1[81]                  ;
+; row_1[28,30,52,57,58]                                                                                    ; Merged with row_1[25]                  ;
+; row_1[75,78]                                                                                             ; Merged with row_1[74]                  ;
+; row_1[91]                                                                                                ; Merged with row_1[107]                 ;
+; row_1[109,117,125]                                                                                       ; Merged with row_1[101]                 ;
+; row_1[110,118,126]                                                                                       ; Merged with row_1[102]                 ;
+; row_1[127]                                                                                               ; Stuck at GND due to stuck port data_in ;
+; row_1[69]                                                                                                ; Stuck at VCC due to stuck port data_in ;
+; KEY.100                                                                                                  ; Lost fanout                            ;
+; currentstate~44                                                                                          ; Lost fanout                            ;
+; currentstate~45                                                                                          ; Lost fanout                            ;
+; currentstate~46                                                                                          ; Lost fanout                            ;
+; currentstate~47                                                                                          ; Lost fanout                            ;
+; currentstate~48                                                                                          ; Lost fanout                            ;
+; currentstate~49                                                                                          ; Lost fanout                            ;
+; KEY~4                                                                                                    ; Lost fanout                            ;
+; KEY~5                                                                                                    ; Lost fanout                            ;
+; row_1[77]                                                                                                ; Merged with row_1[68]                  ;
+; Total Number of Removed Registers = 184                                                                  ;                                        ;
++----------------------------------------------------------------------------------------------------------+----------------------------------------+
 
 
 +------------------------------------------------------+
@@ -217,14 +363,184 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 0     ;
-; Number of registers using Synchronous Clear  ; 0     ;
-; Number of registers using Synchronous Load   ; 0     ;
-; Number of registers using Asynchronous Clear ; 0     ;
+; Total registers                              ; 259   ;
+; Number of registers using Synchronous Clear  ; 20    ;
+; Number of registers using Synchronous Load   ; 80    ;
+; Number of registers using Asynchronous Clear ; 259   ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 0     ;
+; Number of registers using Clock Enable       ; 68    ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
+
+
++---------------------------------------------------+
+; Inverted Register Statistics                      ;
++-----------------------------------------+---------+
+; Inverted Register                       ; Fan out ;
++-----------------------------------------+---------+
+; row_2[96]                               ; 1       ;
+; row_2[112]                              ; 1       ;
+; row_2[120]                              ; 1       ;
+; row_1[88]                               ; 5       ;
+; row_1[96]                               ; 5       ;
+; row_1[104]                              ; 7       ;
+; row_1[112]                              ; 6       ;
+; row_1[120]                              ; 6       ;
+; row_2[113]                              ; 1       ;
+; row_1[89]                               ; 4       ;
+; row_1[105]                              ; 8       ;
+; row_2[98]                               ; 1       ;
+; row_2[106]                              ; 1       ;
+; row_2[114]                              ; 1       ;
+; row_2[122]                              ; 1       ;
+; row_1[114]                              ; 6       ;
+; row_1[122]                              ; 5       ;
+; row_2[115]                              ; 1       ;
+; row_1[99]                               ; 5       ;
+; row_1[123]                              ; 4       ;
+; row_2[77]                               ; 2       ;
+; row_1[108]                              ; 6       ;
+; row_1[116]                              ; 6       ;
+; row_2[85]                               ; 1       ;
+; row_2[93]                               ; 1       ;
+; row_1[85]                               ; 5       ;
+; row_2[126]                              ; 1       ;
+; row_1[102]                              ; 5       ;
+; row_1[94]                               ; 5       ;
+; Total number of inverted registers = 29 ;         ;
++-----------------------------------------+---------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                           ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
+; 3:1                ; 20 bits   ; 40 LEs        ; 20 LEs               ; 20 LEs                 ; Yes        ; |LCD|cnt_500hz[19]         ;
+; 3:1                ; 20 bits   ; 40 LEs        ; 40 LEs               ; 0 LEs                  ; Yes        ; |LCD|key_filter:K1|cnt[0]  ;
+; 3:1                ; 20 bits   ; 40 LEs        ; 40 LEs               ; 0 LEs                  ; Yes        ; |LCD|key_filter:K2|cnt[0]  ;
+; 3:1                ; 20 bits   ; 40 LEs        ; 40 LEs               ; 0 LEs                  ; Yes        ; |LCD|key_filter:K3|cnt[9]  ;
+; 3:1                ; 20 bits   ; 40 LEs        ; 40 LEs               ; 0 LEs                  ; Yes        ; |LCD|key_filter:K4|cnt[18] ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; No         ; |LCD|row_1                 ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; No         ; |LCD|KEY                   ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
+
+
++---------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Top-level Entity: |LCD ;
++----------------+------------------+---------------------------------+
+; Parameter Name ; Value            ; Type                            ;
++----------------+------------------+---------------------------------+
+; show_0         ; MUSIC            ; String                          ;
+; show_1         ; MODE             ; String                          ;
+; show_2         ; SPEED            ; String                          ;
+; show_3         ; VOLUME           ; String                          ;
+; show_4         ; music_1          ; String                          ;
+; show_5         ; music_2          ; String                          ;
+; show_6         ; play in order    ; String                          ;
+; show_7         ; single cycle     ; String                          ;
+; show_8         ; 1                ; String                          ;
+; show_9         ; 1.25             ; String                          ;
+; show_A         ; 0.75             ; String                          ;
+; show_B         ; VOLUME_1         ; String                          ;
+; show_C         ; VOLUME_2         ; String                          ;
+; show_D         ; VOLUME_3         ; String                          ;
+; show_E         ; VOLUME_4         ; String                          ;
+; show_F         ; VOLUME_5         ; String                          ;
+; show_F1        ; music_3          ; String                          ;
+; arrow          ; 01111111         ; Unsigned Binary                 ;
+; TIME_15MS      ; 750000           ; Signed Integer                  ;
+; TIME_500HZ     ; 100000           ; Signed Integer                  ;
+; key1           ; 00               ; Unsigned Binary                 ;
+; key2           ; 01               ; Unsigned Binary                 ;
+; key3           ; 10               ; Unsigned Binary                 ;
+; key4           ; 11               ; Unsigned Binary                 ;
+; IDLE           ; 00000000         ; Unsigned Binary                 ;
+; SET_FUNCTION   ; 00000001         ; Unsigned Binary                 ;
+; DISP_OFF       ; 00000011         ; Unsigned Binary                 ;
+; DISP_CLEAR     ; 00000010         ; Unsigned Binary                 ;
+; ENTRY_MODE     ; 00000110         ; Unsigned Binary                 ;
+; DISP_ON        ; 00000111         ; Unsigned Binary                 ;
+; ROW1_ADDR      ; 00000101         ; Unsigned Binary                 ;
+; ROW1_0         ; 00000100         ; Unsigned Binary                 ;
+; ROW1_1         ; 00001100         ; Unsigned Binary                 ;
+; ROW1_2         ; 00001101         ; Unsigned Binary                 ;
+; ROW1_3         ; 00001111         ; Unsigned Binary                 ;
+; ROW1_4         ; 00001110         ; Unsigned Binary                 ;
+; ROW1_5         ; 00001010         ; Unsigned Binary                 ;
+; ROW1_6         ; 00001011         ; Unsigned Binary                 ;
+; ROW1_7         ; 00001001         ; Unsigned Binary                 ;
+; ROW1_8         ; 00001000         ; Unsigned Binary                 ;
+; ROW1_9         ; 00011000         ; Unsigned Binary                 ;
+; ROW1_A         ; 00011001         ; Unsigned Binary                 ;
+; ROW1_B         ; 00011011         ; Unsigned Binary                 ;
+; ROW1_C         ; 00011010         ; Unsigned Binary                 ;
+; ROW1_D         ; 00011110         ; Unsigned Binary                 ;
+; ROW1_E         ; 00011111         ; Unsigned Binary                 ;
+; ROW1_F         ; 00011101         ; Unsigned Binary                 ;
+; ROW2_ADDR      ; 00011100         ; Unsigned Binary                 ;
+; ROW2_0         ; 00010100         ; Unsigned Binary                 ;
+; ROW2_1         ; 00010101         ; Unsigned Binary                 ;
+; ROW2_2         ; 00010111         ; Unsigned Binary                 ;
+; ROW2_3         ; 00010110         ; Unsigned Binary                 ;
+; ROW2_4         ; 00010010         ; Unsigned Binary                 ;
+; ROW2_5         ; 00010011         ; Unsigned Binary                 ;
+; ROW2_6         ; 00010001         ; Unsigned Binary                 ;
+; ROW2_7         ; 00010000         ; Unsigned Binary                 ;
+; ROW2_8         ; 00110000         ; Unsigned Binary                 ;
+; ROW2_9         ; 00110001         ; Unsigned Binary                 ;
+; ROW2_A         ; 00110011         ; Unsigned Binary                 ;
+; ROW2_B         ; 00110010         ; Unsigned Binary                 ;
+; ROW2_C         ; 00110110         ; Unsigned Binary                 ;
+; ROW2_D         ; 00110111         ; Unsigned Binary                 ;
+; ROW2_E         ; 00110101         ; Unsigned Binary                 ;
+; ROW2_F         ; 00110100         ; Unsigned Binary                 ;
++----------------+------------------+---------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: key_filter:K1 ;
++----------------+----------------------+--------------------+
+; Parameter Name ; Value                ; Type               ;
++----------------+----------------------+--------------------+
+; CNT_MAX        ; 11110100001001000000 ; Unsigned Binary    ;
+; FLAG_CNT_MAX   ; 100100100111110000   ; Unsigned Binary    ;
++----------------+----------------------+--------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: key_filter:K2 ;
++----------------+----------------------+--------------------+
+; Parameter Name ; Value                ; Type               ;
++----------------+----------------------+--------------------+
+; CNT_MAX        ; 11110100001001000000 ; Unsigned Binary    ;
+; FLAG_CNT_MAX   ; 100100100111110000   ; Unsigned Binary    ;
++----------------+----------------------+--------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: key_filter:K3 ;
++----------------+----------------------+--------------------+
+; Parameter Name ; Value                ; Type               ;
++----------------+----------------------+--------------------+
+; CNT_MAX        ; 11110100001001000000 ; Unsigned Binary    ;
+; FLAG_CNT_MAX   ; 100100100111110000   ; Unsigned Binary    ;
++----------------+----------------------+--------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: key_filter:K4 ;
++----------------+----------------------+--------------------+
+; Parameter Name ; Value                ; Type               ;
++----------------+----------------------+--------------------+
+; CNT_MAX        ; 11110100001001000000 ; Unsigned Binary    ;
+; FLAG_CNT_MAX   ; 100100100111110000   ; Unsigned Binary    ;
++----------------+----------------------+--------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
 +-----------------------------------------------------+
@@ -232,14 +548,25 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; boundary_port         ; 400                         ;
-; cycloneiii_io_obuf    ; 103                         ;
-; cycloneiii_lcell_comb ; 1                           ;
-;     normal            ; 1                           ;
-;         0 data inputs ; 1                           ;
+; boundary_port         ; 18                          ;
+; cycloneiii_ff         ; 259                         ;
+;     CLR               ; 91                          ;
+;     CLR SCLR          ; 20                          ;
+;     CLR SLD           ; 80                          ;
+;     ENA CLR           ; 68                          ;
+; cycloneiii_lcell_comb ; 538                         ;
+;     arith             ; 113                         ;
+;         2 data inputs ; 112                         ;
+;         3 data inputs ; 1                           ;
+;     normal            ; 425                         ;
+;         0 data inputs ; 2                           ;
+;         1 data inputs ; 13                          ;
+;         2 data inputs ; 38                          ;
+;         3 data inputs ; 52                          ;
+;         4 data inputs ; 320                         ;
 ;                       ;                             ;
-; Max LUT depth         ; 0.00                        ;
-; Average LUT depth     ; 0.00                        ;
+; Max LUT depth         ; 8.00                        ;
+; Average LUT depth     ; 4.11                        ;
 +-----------------------+-----------------------------+
 
 
@@ -248,7 +575,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:00     ;
+; Top            ; 00:00:01     ;
 +----------------+--------------+
 
 
@@ -258,499 +585,44 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
-    Info: Processing started: Sun Oct 30 10:49:40 2022
+    Info: Processing started: Mon Oct 31 20:35:51 2022
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off LCD -c LCD
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20032): Parallel compilation is enabled and will use up to 4 processors
+Info (12021): Found 1 design units, including 1 entities, in source file /quartusprojects/music_player/rtl/key_filter.v
+    Info (12023): Found entity 1: key_filter File: D:/QuartusProjects/music_player/rtl/key_filter.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file /quartusprojects/music_player/sim/tb_lcd.v
+    Info (12023): Found entity 1: tb_LCD File: D:/QuartusProjects/music_player/sim/tb_LCD.v Line: 3
 Info (12021): Found 1 design units, including 1 entities, in source file /quartusprojects/music_player/rtl/lcd.v
-    Info (12023): Found entity 1: LCD1602 File: D:/QuartusProjects/music_player/rtl/LCD.v Line: 1
-Warning (12125): Using design file lcd.v, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
-    Info (12023): Found entity 1: LCD File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 6
+    Info (12023): Found entity 1: LCD File: D:/QuartusProjects/music_player/rtl/LCD.v Line: 1
 Info (12127): Elaborating entity "LCD" for the top level hierarchy
-Warning (10034): Output port "LEDG" at lcd.v(18) has no driver File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 18
-Warning (10034): Output port "LEDR" at lcd.v(19) has no driver File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 19
-Warning (10034): Output port "HEX0" at lcd.v(31) has no driver File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 31
-Warning (10034): Output port "HEX1" at lcd.v(32) has no driver File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 32
-Warning (10034): Output port "HEX2" at lcd.v(33) has no driver File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 33
-Warning (10034): Output port "HEX3" at lcd.v(34) has no driver File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 34
-Warning (10034): Output port "HEX4" at lcd.v(35) has no driver File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 35
-Warning (10034): Output port "HEX5" at lcd.v(36) has no driver File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 36
-Warning (10034): Output port "HEX6" at lcd.v(37) has no driver File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 37
-Warning (10034): Output port "HEX7" at lcd.v(38) has no driver File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 38
-Warning (10034): Output port "VGA_B" at lcd.v(67) has no driver File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 67
-Warning (10034): Output port "VGA_G" at lcd.v(70) has no driver File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 70
-Warning (10034): Output port "VGA_R" at lcd.v(72) has no driver File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 72
-Warning (10034): Output port "ENET0_TX_DATA" at lcd.v(106) has no driver File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 106
-Warning (10034): Output port "ENET1_TX_DATA" at lcd.v(125) has no driver File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 125
-Warning (10034): Output port "OTG_ADDR" at lcd.v(137) has no driver File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 137
-Warning (10034): Output port "DRAM_ADDR" at lcd.v(149) has no driver File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 149
-Warning (10034): Output port "DRAM_BA" at lcd.v(150) has no driver File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 150
-Warning (10034): Output port "DRAM_DQM" at lcd.v(156) has no driver File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 156
-Warning (10034): Output port "SRAM_ADDR" at lcd.v(161) has no driver File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 161
-Warning (10034): Output port "FL_ADDR" at lcd.v(170) has no driver File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 170
-Warning (10034): Output port "SMA_CLKOUT" at lcd.v(15) has no driver File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 15
-Warning (10034): Output port "LCD_BLON" at lcd.v(41) has no driver File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 41
-Warning (10034): Output port "LCD_EN" at lcd.v(43) has no driver File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 43
-Warning (10034): Output port "LCD_ON" at lcd.v(44) has no driver File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 44
-Warning (10034): Output port "LCD_RS" at lcd.v(45) has no driver File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 45
-Warning (10034): Output port "LCD_RW" at lcd.v(46) has no driver File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 46
-Warning (10034): Output port "UART_RTS" at lcd.v(50) has no driver File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 50
-Warning (10034): Output port "UART_TXD" at lcd.v(52) has no driver File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 52
-Warning (10034): Output port "SD_CLK" at lcd.v(61) has no driver File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 61
-Warning (10034): Output port "VGA_BLANK_N" at lcd.v(68) has no driver File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 68
-Warning (10034): Output port "VGA_CLK" at lcd.v(69) has no driver File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 69
-Warning (10034): Output port "VGA_HS" at lcd.v(71) has no driver File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 71
-Warning (10034): Output port "VGA_SYNC_N" at lcd.v(73) has no driver File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 73
-Warning (10034): Output port "VGA_VS" at lcd.v(74) has no driver File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 74
-Warning (10034): Output port "AUD_DACDAT" at lcd.v(80) has no driver File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 80
-Warning (10034): Output port "AUD_XCK" at lcd.v(82) has no driver File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 82
-Warning (10034): Output port "EEP_I2C_SCLK" at lcd.v(85) has no driver File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 85
-Warning (10034): Output port "I2C_SCLK" at lcd.v(89) has no driver File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 89
-Warning (10034): Output port "ENET0_GTX_CLK" at lcd.v(93) has no driver File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 93
-Warning (10034): Output port "ENET0_MDC" at lcd.v(96) has no driver File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 96
-Warning (10034): Output port "ENET0_RST_N" at lcd.v(98) has no driver File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 98
-Warning (10034): Output port "ENET0_TX_EN" at lcd.v(107) has no driver File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 107
-Warning (10034): Output port "ENET0_TX_ER" at lcd.v(108) has no driver File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 108
-Warning (10034): Output port "ENET1_GTX_CLK" at lcd.v(112) has no driver File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 112
-Warning (10034): Output port "ENET1_MDC" at lcd.v(115) has no driver File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 115
-Warning (10034): Output port "ENET1_RST_N" at lcd.v(117) has no driver File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 117
-Warning (10034): Output port "ENET1_TX_EN" at lcd.v(126) has no driver File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 126
-Warning (10034): Output port "ENET1_TX_ER" at lcd.v(127) has no driver File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 127
-Warning (10034): Output port "TD_RESET_N" at lcd.v(133) has no driver File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 133
-Warning (10034): Output port "OTG_CS_N" at lcd.v(138) has no driver File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 138
-Warning (10034): Output port "OTG_RD_N" at lcd.v(141) has no driver File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 141
-Warning (10034): Output port "OTG_RST_N" at lcd.v(142) has no driver File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 142
-Warning (10034): Output port "OTG_WE_N" at lcd.v(143) has no driver File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 143
-Warning (10034): Output port "DRAM_CAS_N" at lcd.v(151) has no driver File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 151
-Warning (10034): Output port "DRAM_CKE" at lcd.v(152) has no driver File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 152
-Warning (10034): Output port "DRAM_CLK" at lcd.v(153) has no driver File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 153
-Warning (10034): Output port "DRAM_CS_N" at lcd.v(154) has no driver File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 154
-Warning (10034): Output port "DRAM_RAS_N" at lcd.v(157) has no driver File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 157
-Warning (10034): Output port "DRAM_WE_N" at lcd.v(158) has no driver File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 158
-Warning (10034): Output port "SRAM_CE_N" at lcd.v(162) has no driver File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 162
-Warning (10034): Output port "SRAM_LB_N" at lcd.v(164) has no driver File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 164
-Warning (10034): Output port "SRAM_OE_N" at lcd.v(165) has no driver File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 165
-Warning (10034): Output port "SRAM_UB_N" at lcd.v(166) has no driver File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 166
-Warning (10034): Output port "SRAM_WE_N" at lcd.v(167) has no driver File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 167
-Warning (10034): Output port "FL_CE_N" at lcd.v(171) has no driver File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 171
-Warning (10034): Output port "FL_OE_N" at lcd.v(173) has no driver File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 173
-Warning (10034): Output port "FL_RST_N" at lcd.v(174) has no driver File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 174
-Warning (10034): Output port "FL_WE_N" at lcd.v(176) has no driver File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 176
-Warning (10034): Output port "FL_WP_N" at lcd.v(178) has no driver File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 178
-Warning (13039): The following bidirectional pins have no drivers
-    Warning (13040): bidirectional pin "EX_IO[0]" has no driver File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 25
-    Warning (13040): bidirectional pin "EX_IO[1]" has no driver File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 25
-    Warning (13040): bidirectional pin "EX_IO[2]" has no driver File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 25
-    Warning (13040): bidirectional pin "EX_IO[3]" has no driver File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 25
-    Warning (13040): bidirectional pin "EX_IO[4]" has no driver File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 25
-    Warning (13040): bidirectional pin "EX_IO[5]" has no driver File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 25
-    Warning (13040): bidirectional pin "EX_IO[6]" has no driver File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 25
-    Warning (13040): bidirectional pin "LCD_DATA[0]" has no driver File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 42
-    Warning (13040): bidirectional pin "LCD_DATA[1]" has no driver File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 42
-    Warning (13040): bidirectional pin "LCD_DATA[2]" has no driver File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 42
-    Warning (13040): bidirectional pin "LCD_DATA[3]" has no driver File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 42
-    Warning (13040): bidirectional pin "LCD_DATA[4]" has no driver File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 42
-    Warning (13040): bidirectional pin "LCD_DATA[5]" has no driver File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 42
-    Warning (13040): bidirectional pin "LCD_DATA[6]" has no driver File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 42
-    Warning (13040): bidirectional pin "LCD_DATA[7]" has no driver File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 42
-    Warning (13040): bidirectional pin "PS2_CLK" has no driver File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 55
-    Warning (13040): bidirectional pin "PS2_CLK2" has no driver File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 56
-    Warning (13040): bidirectional pin "PS2_DAT" has no driver File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 57
-    Warning (13040): bidirectional pin "PS2_DAT2" has no driver File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 58
-    Warning (13040): bidirectional pin "SD_CMD" has no driver File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 62
-    Warning (13040): bidirectional pin "SD_DAT[0]" has no driver File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 63
-    Warning (13040): bidirectional pin "SD_DAT[1]" has no driver File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 63
-    Warning (13040): bidirectional pin "SD_DAT[2]" has no driver File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 63
-    Warning (13040): bidirectional pin "SD_DAT[3]" has no driver File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 63
-    Warning (13040): bidirectional pin "AUD_ADCLRCK" has no driver File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 78
-    Warning (13040): bidirectional pin "AUD_BCLK" has no driver File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 79
-    Warning (13040): bidirectional pin "AUD_DACLRCK" has no driver File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 81
-    Warning (13040): bidirectional pin "EEP_I2C_SDAT" has no driver File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 86
-    Warning (13040): bidirectional pin "I2C_SDAT" has no driver File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 90
-    Warning (13040): bidirectional pin "ENET0_MDIO" has no driver File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 97
-    Warning (13040): bidirectional pin "ENET1_MDIO" has no driver File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 116
-    Warning (13040): bidirectional pin "OTG_DATA[0]" has no driver File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 139
-    Warning (13040): bidirectional pin "OTG_DATA[1]" has no driver File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 139
-    Warning (13040): bidirectional pin "OTG_DATA[2]" has no driver File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 139
-    Warning (13040): bidirectional pin "OTG_DATA[3]" has no driver File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 139
-    Warning (13040): bidirectional pin "OTG_DATA[4]" has no driver File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 139
-    Warning (13040): bidirectional pin "OTG_DATA[5]" has no driver File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 139
-    Warning (13040): bidirectional pin "OTG_DATA[6]" has no driver File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 139
-    Warning (13040): bidirectional pin "OTG_DATA[7]" has no driver File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 139
-    Warning (13040): bidirectional pin "OTG_DATA[8]" has no driver File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 139
-    Warning (13040): bidirectional pin "OTG_DATA[9]" has no driver File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 139
-    Warning (13040): bidirectional pin "OTG_DATA[10]" has no driver File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 139
-    Warning (13040): bidirectional pin "OTG_DATA[11]" has no driver File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 139
-    Warning (13040): bidirectional pin "OTG_DATA[12]" has no driver File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 139
-    Warning (13040): bidirectional pin "OTG_DATA[13]" has no driver File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 139
-    Warning (13040): bidirectional pin "OTG_DATA[14]" has no driver File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 139
-    Warning (13040): bidirectional pin "OTG_DATA[15]" has no driver File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 139
-    Warning (13040): bidirectional pin "DRAM_DQ[0]" has no driver File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 155
-    Warning (13040): bidirectional pin "DRAM_DQ[1]" has no driver File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 155
-    Warning (13040): bidirectional pin "DRAM_DQ[2]" has no driver File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 155
-    Warning (13040): bidirectional pin "DRAM_DQ[3]" has no driver File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 155
-    Warning (13040): bidirectional pin "DRAM_DQ[4]" has no driver File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 155
-    Warning (13040): bidirectional pin "DRAM_DQ[5]" has no driver File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 155
-    Warning (13040): bidirectional pin "DRAM_DQ[6]" has no driver File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 155
-    Warning (13040): bidirectional pin "DRAM_DQ[7]" has no driver File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 155
-    Warning (13040): bidirectional pin "DRAM_DQ[8]" has no driver File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 155
-    Warning (13040): bidirectional pin "DRAM_DQ[9]" has no driver File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 155
-    Warning (13040): bidirectional pin "DRAM_DQ[10]" has no driver File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 155
-    Warning (13040): bidirectional pin "DRAM_DQ[11]" has no driver File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 155
-    Warning (13040): bidirectional pin "DRAM_DQ[12]" has no driver File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 155
-    Warning (13040): bidirectional pin "DRAM_DQ[13]" has no driver File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 155
-    Warning (13040): bidirectional pin "DRAM_DQ[14]" has no driver File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 155
-    Warning (13040): bidirectional pin "DRAM_DQ[15]" has no driver File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 155
-    Warning (13040): bidirectional pin "DRAM_DQ[16]" has no driver File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 155
-    Warning (13040): bidirectional pin "DRAM_DQ[17]" has no driver File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 155
-    Warning (13040): bidirectional pin "DRAM_DQ[18]" has no driver File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 155
-    Warning (13040): bidirectional pin "DRAM_DQ[19]" has no driver File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 155
-    Warning (13040): bidirectional pin "DRAM_DQ[20]" has no driver File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 155
-    Warning (13040): bidirectional pin "DRAM_DQ[21]" has no driver File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 155
-    Warning (13040): bidirectional pin "DRAM_DQ[22]" has no driver File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 155
-    Warning (13040): bidirectional pin "DRAM_DQ[23]" has no driver File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 155
-    Warning (13040): bidirectional pin "DRAM_DQ[24]" has no driver File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 155
-    Warning (13040): bidirectional pin "DRAM_DQ[25]" has no driver File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 155
-    Warning (13040): bidirectional pin "DRAM_DQ[26]" has no driver File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 155
-    Warning (13040): bidirectional pin "DRAM_DQ[27]" has no driver File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 155
-    Warning (13040): bidirectional pin "DRAM_DQ[28]" has no driver File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 155
-    Warning (13040): bidirectional pin "DRAM_DQ[29]" has no driver File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 155
-    Warning (13040): bidirectional pin "DRAM_DQ[30]" has no driver File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 155
-    Warning (13040): bidirectional pin "DRAM_DQ[31]" has no driver File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 155
-    Warning (13040): bidirectional pin "SRAM_DQ[0]" has no driver File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 163
-    Warning (13040): bidirectional pin "SRAM_DQ[1]" has no driver File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 163
-    Warning (13040): bidirectional pin "SRAM_DQ[2]" has no driver File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 163
-    Warning (13040): bidirectional pin "SRAM_DQ[3]" has no driver File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 163
-    Warning (13040): bidirectional pin "SRAM_DQ[4]" has no driver File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 163
-    Warning (13040): bidirectional pin "SRAM_DQ[5]" has no driver File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 163
-    Warning (13040): bidirectional pin "SRAM_DQ[6]" has no driver File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 163
-    Warning (13040): bidirectional pin "SRAM_DQ[7]" has no driver File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 163
-    Warning (13040): bidirectional pin "SRAM_DQ[8]" has no driver File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 163
-    Warning (13040): bidirectional pin "SRAM_DQ[9]" has no driver File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 163
-    Warning (13040): bidirectional pin "SRAM_DQ[10]" has no driver File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 163
-    Warning (13040): bidirectional pin "SRAM_DQ[11]" has no driver File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 163
-    Warning (13040): bidirectional pin "SRAM_DQ[12]" has no driver File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 163
-    Warning (13040): bidirectional pin "SRAM_DQ[13]" has no driver File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 163
-    Warning (13040): bidirectional pin "SRAM_DQ[14]" has no driver File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 163
-    Warning (13040): bidirectional pin "SRAM_DQ[15]" has no driver File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 163
-    Warning (13040): bidirectional pin "FL_DQ[0]" has no driver File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 172
-    Warning (13040): bidirectional pin "FL_DQ[1]" has no driver File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 172
-    Warning (13040): bidirectional pin "FL_DQ[2]" has no driver File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 172
-    Warning (13040): bidirectional pin "FL_DQ[3]" has no driver File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 172
-    Warning (13040): bidirectional pin "FL_DQ[4]" has no driver File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 172
-    Warning (13040): bidirectional pin "FL_DQ[5]" has no driver File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 172
-    Warning (13040): bidirectional pin "FL_DQ[6]" has no driver File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 172
-    Warning (13040): bidirectional pin "FL_DQ[7]" has no driver File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 172
+Warning (10762): Verilog HDL Case Statement warning at LCD.v(317): can't check case statement for completeness because the case expression has too many possible states File: D:/QuartusProjects/music_player/rtl/LCD.v Line: 317
+Warning (10762): Verilog HDL Case Statement warning at LCD.v(427): can't check case statement for completeness because the case expression has too many possible states File: D:/QuartusProjects/music_player/rtl/LCD.v Line: 427
+Info (12128): Elaborating entity "key_filter" for hierarchy "key_filter:K1" File: D:/QuartusProjects/music_player/rtl/LCD.v Line: 34
+Warning (10036): Verilog HDL or VHDL warning at key_filter.v(12): object "key_flag" assigned a value but never read File: D:/QuartusProjects/music_player/rtl/key_filter.v Line: 12
+Warning (10230): Verilog HDL assignment warning at key_filter.v(24): truncated value with size 32 to match size of target (20) File: D:/QuartusProjects/music_player/rtl/key_filter.v Line: 24
+Warning (12069): Ignored assignment(s) for "KEY[0]" because "KEY" is not a bus or array File: D:/QuartusProjects/music_player/rtl/LCD.v Line: 126
+Warning (12069): Ignored assignment(s) for "KEY[1]" because "KEY" is not a bus or array File: D:/QuartusProjects/music_player/rtl/LCD.v Line: 126
+Warning (12069): Ignored assignment(s) for "KEY[2]" because "KEY" is not a bus or array File: D:/QuartusProjects/music_player/rtl/LCD.v Line: 126
+Warning (12069): Ignored assignment(s) for "KEY[3]" because "KEY" is not a bus or array File: D:/QuartusProjects/music_player/rtl/LCD.v Line: 126
+Info (13000): Registers with preset signals will power-up high File: D:/QuartusProjects/music_player/rtl/LCD.v Line: 427
+Info (13003): DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
 Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "SMA_CLKOUT" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 15
-    Warning (13410): Pin "LEDG[0]" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 18
-    Warning (13410): Pin "LEDG[1]" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 18
-    Warning (13410): Pin "LEDG[2]" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 18
-    Warning (13410): Pin "LEDG[3]" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 18
-    Warning (13410): Pin "LEDG[4]" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 18
-    Warning (13410): Pin "LEDG[5]" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 18
-    Warning (13410): Pin "LEDG[6]" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 18
-    Warning (13410): Pin "LEDG[7]" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 18
-    Warning (13410): Pin "LEDG[8]" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 18
-    Warning (13410): Pin "LEDR[0]" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 19
-    Warning (13410): Pin "LEDR[1]" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 19
-    Warning (13410): Pin "LEDR[2]" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 19
-    Warning (13410): Pin "LEDR[3]" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 19
-    Warning (13410): Pin "LEDR[4]" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 19
-    Warning (13410): Pin "LEDR[5]" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 19
-    Warning (13410): Pin "LEDR[6]" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 19
-    Warning (13410): Pin "LEDR[7]" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 19
-    Warning (13410): Pin "LEDR[8]" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 19
-    Warning (13410): Pin "LEDR[9]" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 19
-    Warning (13410): Pin "LEDR[10]" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 19
-    Warning (13410): Pin "LEDR[11]" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 19
-    Warning (13410): Pin "LEDR[12]" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 19
-    Warning (13410): Pin "LEDR[13]" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 19
-    Warning (13410): Pin "LEDR[14]" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 19
-    Warning (13410): Pin "LEDR[15]" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 19
-    Warning (13410): Pin "LEDR[16]" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 19
-    Warning (13410): Pin "LEDR[17]" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 19
-    Warning (13410): Pin "HEX0[0]" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 31
-    Warning (13410): Pin "HEX0[1]" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 31
-    Warning (13410): Pin "HEX0[2]" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 31
-    Warning (13410): Pin "HEX0[3]" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 31
-    Warning (13410): Pin "HEX0[4]" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 31
-    Warning (13410): Pin "HEX0[5]" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 31
-    Warning (13410): Pin "HEX0[6]" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 31
-    Warning (13410): Pin "HEX1[0]" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 32
-    Warning (13410): Pin "HEX1[1]" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 32
-    Warning (13410): Pin "HEX1[2]" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 32
-    Warning (13410): Pin "HEX1[3]" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 32
-    Warning (13410): Pin "HEX1[4]" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 32
-    Warning (13410): Pin "HEX1[5]" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 32
-    Warning (13410): Pin "HEX1[6]" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 32
-    Warning (13410): Pin "HEX2[0]" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 33
-    Warning (13410): Pin "HEX2[1]" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 33
-    Warning (13410): Pin "HEX2[2]" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 33
-    Warning (13410): Pin "HEX2[3]" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 33
-    Warning (13410): Pin "HEX2[4]" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 33
-    Warning (13410): Pin "HEX2[5]" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 33
-    Warning (13410): Pin "HEX2[6]" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 33
-    Warning (13410): Pin "HEX3[0]" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 34
-    Warning (13410): Pin "HEX3[1]" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 34
-    Warning (13410): Pin "HEX3[2]" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 34
-    Warning (13410): Pin "HEX3[3]" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 34
-    Warning (13410): Pin "HEX3[4]" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 34
-    Warning (13410): Pin "HEX3[5]" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 34
-    Warning (13410): Pin "HEX3[6]" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 34
-    Warning (13410): Pin "HEX4[0]" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 35
-    Warning (13410): Pin "HEX4[1]" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 35
-    Warning (13410): Pin "HEX4[2]" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 35
-    Warning (13410): Pin "HEX4[3]" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 35
-    Warning (13410): Pin "HEX4[4]" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 35
-    Warning (13410): Pin "HEX4[5]" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 35
-    Warning (13410): Pin "HEX4[6]" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 35
-    Warning (13410): Pin "HEX5[0]" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 36
-    Warning (13410): Pin "HEX5[1]" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 36
-    Warning (13410): Pin "HEX5[2]" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 36
-    Warning (13410): Pin "HEX5[3]" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 36
-    Warning (13410): Pin "HEX5[4]" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 36
-    Warning (13410): Pin "HEX5[5]" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 36
-    Warning (13410): Pin "HEX5[6]" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 36
-    Warning (13410): Pin "HEX6[0]" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 37
-    Warning (13410): Pin "HEX6[1]" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 37
-    Warning (13410): Pin "HEX6[2]" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 37
-    Warning (13410): Pin "HEX6[3]" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 37
-    Warning (13410): Pin "HEX6[4]" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 37
-    Warning (13410): Pin "HEX6[5]" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 37
-    Warning (13410): Pin "HEX6[6]" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 37
-    Warning (13410): Pin "HEX7[0]" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 38
-    Warning (13410): Pin "HEX7[1]" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 38
-    Warning (13410): Pin "HEX7[2]" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 38
-    Warning (13410): Pin "HEX7[3]" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 38
-    Warning (13410): Pin "HEX7[4]" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 38
-    Warning (13410): Pin "HEX7[5]" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 38
-    Warning (13410): Pin "HEX7[6]" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 38
-    Warning (13410): Pin "LCD_BLON" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 41
-    Warning (13410): Pin "LCD_EN" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 43
-    Warning (13410): Pin "LCD_ON" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 44
-    Warning (13410): Pin "LCD_RS" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 45
-    Warning (13410): Pin "LCD_RW" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 46
-    Warning (13410): Pin "UART_RTS" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 50
-    Warning (13410): Pin "UART_TXD" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 52
-    Warning (13410): Pin "SD_CLK" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 61
-    Warning (13410): Pin "VGA_B[0]" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 67
-    Warning (13410): Pin "VGA_B[1]" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 67
-    Warning (13410): Pin "VGA_B[2]" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 67
-    Warning (13410): Pin "VGA_B[3]" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 67
-    Warning (13410): Pin "VGA_B[4]" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 67
-    Warning (13410): Pin "VGA_B[5]" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 67
-    Warning (13410): Pin "VGA_B[6]" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 67
-    Warning (13410): Pin "VGA_B[7]" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 67
-    Warning (13410): Pin "VGA_BLANK_N" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 68
-    Warning (13410): Pin "VGA_CLK" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 69
-    Warning (13410): Pin "VGA_G[0]" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 70
-    Warning (13410): Pin "VGA_G[1]" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 70
-    Warning (13410): Pin "VGA_G[2]" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 70
-    Warning (13410): Pin "VGA_G[3]" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 70
-    Warning (13410): Pin "VGA_G[4]" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 70
-    Warning (13410): Pin "VGA_G[5]" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 70
-    Warning (13410): Pin "VGA_G[6]" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 70
-    Warning (13410): Pin "VGA_G[7]" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 70
-    Warning (13410): Pin "VGA_HS" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 71
-    Warning (13410): Pin "VGA_R[0]" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 72
-    Warning (13410): Pin "VGA_R[1]" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 72
-    Warning (13410): Pin "VGA_R[2]" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 72
-    Warning (13410): Pin "VGA_R[3]" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 72
-    Warning (13410): Pin "VGA_R[4]" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 72
-    Warning (13410): Pin "VGA_R[5]" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 72
-    Warning (13410): Pin "VGA_R[6]" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 72
-    Warning (13410): Pin "VGA_R[7]" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 72
-    Warning (13410): Pin "VGA_SYNC_N" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 73
-    Warning (13410): Pin "VGA_VS" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 74
-    Warning (13410): Pin "AUD_DACDAT" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 80
-    Warning (13410): Pin "AUD_XCK" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 82
-    Warning (13410): Pin "EEP_I2C_SCLK" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 85
-    Warning (13410): Pin "I2C_SCLK" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 89
-    Warning (13410): Pin "ENET0_GTX_CLK" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 93
-    Warning (13410): Pin "ENET0_MDC" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 96
-    Warning (13410): Pin "ENET0_RST_N" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 98
-    Warning (13410): Pin "ENET0_TX_DATA[0]" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 106
-    Warning (13410): Pin "ENET0_TX_DATA[1]" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 106
-    Warning (13410): Pin "ENET0_TX_DATA[2]" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 106
-    Warning (13410): Pin "ENET0_TX_DATA[3]" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 106
-    Warning (13410): Pin "ENET0_TX_EN" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 107
-    Warning (13410): Pin "ENET0_TX_ER" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 108
-    Warning (13410): Pin "ENET1_GTX_CLK" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 112
-    Warning (13410): Pin "ENET1_MDC" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 115
-    Warning (13410): Pin "ENET1_RST_N" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 117
-    Warning (13410): Pin "ENET1_TX_DATA[0]" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 125
-    Warning (13410): Pin "ENET1_TX_DATA[1]" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 125
-    Warning (13410): Pin "ENET1_TX_DATA[2]" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 125
-    Warning (13410): Pin "ENET1_TX_DATA[3]" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 125
-    Warning (13410): Pin "ENET1_TX_EN" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 126
-    Warning (13410): Pin "ENET1_TX_ER" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 127
-    Warning (13410): Pin "TD_RESET_N" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 133
-    Warning (13410): Pin "OTG_ADDR[0]" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 137
-    Warning (13410): Pin "OTG_ADDR[1]" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 137
-    Warning (13410): Pin "OTG_CS_N" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 138
-    Warning (13410): Pin "OTG_RD_N" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 141
-    Warning (13410): Pin "OTG_RST_N" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 142
-    Warning (13410): Pin "OTG_WE_N" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 143
-    Warning (13410): Pin "DRAM_ADDR[0]" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 149
-    Warning (13410): Pin "DRAM_ADDR[1]" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 149
-    Warning (13410): Pin "DRAM_ADDR[2]" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 149
-    Warning (13410): Pin "DRAM_ADDR[3]" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 149
-    Warning (13410): Pin "DRAM_ADDR[4]" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 149
-    Warning (13410): Pin "DRAM_ADDR[5]" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 149
-    Warning (13410): Pin "DRAM_ADDR[6]" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 149
-    Warning (13410): Pin "DRAM_ADDR[7]" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 149
-    Warning (13410): Pin "DRAM_ADDR[8]" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 149
-    Warning (13410): Pin "DRAM_ADDR[9]" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 149
-    Warning (13410): Pin "DRAM_ADDR[10]" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 149
-    Warning (13410): Pin "DRAM_ADDR[11]" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 149
-    Warning (13410): Pin "DRAM_ADDR[12]" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 149
-    Warning (13410): Pin "DRAM_BA[0]" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 150
-    Warning (13410): Pin "DRAM_BA[1]" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 150
-    Warning (13410): Pin "DRAM_CAS_N" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 151
-    Warning (13410): Pin "DRAM_CKE" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 152
-    Warning (13410): Pin "DRAM_CLK" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 153
-    Warning (13410): Pin "DRAM_CS_N" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 154
-    Warning (13410): Pin "DRAM_DQM[0]" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 156
-    Warning (13410): Pin "DRAM_DQM[1]" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 156
-    Warning (13410): Pin "DRAM_DQM[2]" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 156
-    Warning (13410): Pin "DRAM_DQM[3]" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 156
-    Warning (13410): Pin "DRAM_RAS_N" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 157
-    Warning (13410): Pin "DRAM_WE_N" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 158
-    Warning (13410): Pin "SRAM_ADDR[0]" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 161
-    Warning (13410): Pin "SRAM_ADDR[1]" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 161
-    Warning (13410): Pin "SRAM_ADDR[2]" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 161
-    Warning (13410): Pin "SRAM_ADDR[3]" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 161
-    Warning (13410): Pin "SRAM_ADDR[4]" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 161
-    Warning (13410): Pin "SRAM_ADDR[5]" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 161
-    Warning (13410): Pin "SRAM_ADDR[6]" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 161
-    Warning (13410): Pin "SRAM_ADDR[7]" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 161
-    Warning (13410): Pin "SRAM_ADDR[8]" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 161
-    Warning (13410): Pin "SRAM_ADDR[9]" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 161
-    Warning (13410): Pin "SRAM_ADDR[10]" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 161
-    Warning (13410): Pin "SRAM_ADDR[11]" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 161
-    Warning (13410): Pin "SRAM_ADDR[12]" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 161
-    Warning (13410): Pin "SRAM_ADDR[13]" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 161
-    Warning (13410): Pin "SRAM_ADDR[14]" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 161
-    Warning (13410): Pin "SRAM_ADDR[15]" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 161
-    Warning (13410): Pin "SRAM_ADDR[16]" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 161
-    Warning (13410): Pin "SRAM_ADDR[17]" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 161
-    Warning (13410): Pin "SRAM_ADDR[18]" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 161
-    Warning (13410): Pin "SRAM_ADDR[19]" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 161
-    Warning (13410): Pin "SRAM_CE_N" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 162
-    Warning (13410): Pin "SRAM_LB_N" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 164
-    Warning (13410): Pin "SRAM_OE_N" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 165
-    Warning (13410): Pin "SRAM_UB_N" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 166
-    Warning (13410): Pin "SRAM_WE_N" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 167
-    Warning (13410): Pin "FL_ADDR[0]" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 170
-    Warning (13410): Pin "FL_ADDR[1]" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 170
-    Warning (13410): Pin "FL_ADDR[2]" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 170
-    Warning (13410): Pin "FL_ADDR[3]" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 170
-    Warning (13410): Pin "FL_ADDR[4]" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 170
-    Warning (13410): Pin "FL_ADDR[5]" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 170
-    Warning (13410): Pin "FL_ADDR[6]" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 170
-    Warning (13410): Pin "FL_ADDR[7]" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 170
-    Warning (13410): Pin "FL_ADDR[8]" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 170
-    Warning (13410): Pin "FL_ADDR[9]" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 170
-    Warning (13410): Pin "FL_ADDR[10]" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 170
-    Warning (13410): Pin "FL_ADDR[11]" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 170
-    Warning (13410): Pin "FL_ADDR[12]" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 170
-    Warning (13410): Pin "FL_ADDR[13]" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 170
-    Warning (13410): Pin "FL_ADDR[14]" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 170
-    Warning (13410): Pin "FL_ADDR[15]" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 170
-    Warning (13410): Pin "FL_ADDR[16]" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 170
-    Warning (13410): Pin "FL_ADDR[17]" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 170
-    Warning (13410): Pin "FL_ADDR[18]" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 170
-    Warning (13410): Pin "FL_ADDR[19]" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 170
-    Warning (13410): Pin "FL_ADDR[20]" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 170
-    Warning (13410): Pin "FL_ADDR[21]" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 170
-    Warning (13410): Pin "FL_ADDR[22]" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 170
-    Warning (13410): Pin "FL_CE_N" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 171
-    Warning (13410): Pin "FL_OE_N" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 173
-    Warning (13410): Pin "FL_RST_N" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 174
-    Warning (13410): Pin "FL_WE_N" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 176
-    Warning (13410): Pin "FL_WP_N" is stuck at GND File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 178
+    Warning (13410): Pin "LCD_ON" is stuck at VCC File: D:/QuartusProjects/music_player/rtl/LCD.v Line: 12
+    Warning (13410): Pin "LCD_RW" is stuck at GND File: D:/QuartusProjects/music_player/rtl/LCD.v Line: 14
+Info (286030): Timing-Driven Synthesis is running
+Info (17049): 9 registers lost all their fanouts during netlist optimizations.
 Info (144001): Generated suppressed messages file D:/QuartusProjects/music_player/quartus_prj/LCD/LCD.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Warning (21074): Design contains 69 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "CLOCK_50" File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 9
-    Warning (15610): No output dependent on input pin "CLOCK2_50" File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 10
-    Warning (15610): No output dependent on input pin "CLOCK3_50" File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 11
-    Warning (15610): No output dependent on input pin "SMA_CLKIN" File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 14
-    Warning (15610): No output dependent on input pin "KEY[0]" File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 22
-    Warning (15610): No output dependent on input pin "KEY[1]" File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 22
-    Warning (15610): No output dependent on input pin "KEY[2]" File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 22
-    Warning (15610): No output dependent on input pin "KEY[3]" File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 22
-    Warning (15610): No output dependent on input pin "SW[0]" File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 28
-    Warning (15610): No output dependent on input pin "SW[1]" File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 28
-    Warning (15610): No output dependent on input pin "SW[2]" File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 28
-    Warning (15610): No output dependent on input pin "SW[3]" File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 28
-    Warning (15610): No output dependent on input pin "SW[4]" File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 28
-    Warning (15610): No output dependent on input pin "SW[5]" File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 28
-    Warning (15610): No output dependent on input pin "SW[6]" File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 28
-    Warning (15610): No output dependent on input pin "SW[7]" File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 28
-    Warning (15610): No output dependent on input pin "SW[8]" File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 28
-    Warning (15610): No output dependent on input pin "SW[9]" File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 28
-    Warning (15610): No output dependent on input pin "SW[10]" File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 28
-    Warning (15610): No output dependent on input pin "SW[11]" File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 28
-    Warning (15610): No output dependent on input pin "SW[12]" File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 28
-    Warning (15610): No output dependent on input pin "SW[13]" File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 28
-    Warning (15610): No output dependent on input pin "SW[14]" File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 28
-    Warning (15610): No output dependent on input pin "SW[15]" File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 28
-    Warning (15610): No output dependent on input pin "SW[16]" File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 28
-    Warning (15610): No output dependent on input pin "SW[17]" File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 28
-    Warning (15610): No output dependent on input pin "UART_CTS" File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 49
-    Warning (15610): No output dependent on input pin "UART_RXD" File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 51
-    Warning (15610): No output dependent on input pin "SD_WP_N" File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 64
-    Warning (15610): No output dependent on input pin "AUD_ADCDAT" File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 77
-    Warning (15610): No output dependent on input pin "ENET0_INT_N" File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 94
-    Warning (15610): No output dependent on input pin "ENET0_LINK100" File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 95
-    Warning (15610): No output dependent on input pin "ENET0_RX_CLK" File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 99
-    Warning (15610): No output dependent on input pin "ENET0_RX_COL" File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 100
-    Warning (15610): No output dependent on input pin "ENET0_RX_CRS" File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 101
-    Warning (15610): No output dependent on input pin "ENET0_RX_DATA[0]" File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 102
-    Warning (15610): No output dependent on input pin "ENET0_RX_DATA[1]" File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 102
-    Warning (15610): No output dependent on input pin "ENET0_RX_DATA[2]" File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 102
-    Warning (15610): No output dependent on input pin "ENET0_RX_DATA[3]" File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 102
-    Warning (15610): No output dependent on input pin "ENET0_RX_DV" File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 103
-    Warning (15610): No output dependent on input pin "ENET0_RX_ER" File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 104
-    Warning (15610): No output dependent on input pin "ENET0_TX_CLK" File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 105
-    Warning (15610): No output dependent on input pin "ENETCLK_25" File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 109
-    Warning (15610): No output dependent on input pin "ENET1_INT_N" File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 113
-    Warning (15610): No output dependent on input pin "ENET1_LINK100" File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 114
-    Warning (15610): No output dependent on input pin "ENET1_RX_CLK" File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 118
-    Warning (15610): No output dependent on input pin "ENET1_RX_COL" File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 119
-    Warning (15610): No output dependent on input pin "ENET1_RX_CRS" File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 120
-    Warning (15610): No output dependent on input pin "ENET1_RX_DATA[0]" File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 121
-    Warning (15610): No output dependent on input pin "ENET1_RX_DATA[1]" File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 121
-    Warning (15610): No output dependent on input pin "ENET1_RX_DATA[2]" File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 121
-    Warning (15610): No output dependent on input pin "ENET1_RX_DATA[3]" File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 121
-    Warning (15610): No output dependent on input pin "ENET1_RX_DV" File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 122
-    Warning (15610): No output dependent on input pin "ENET1_RX_ER" File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 123
-    Warning (15610): No output dependent on input pin "ENET1_TX_CLK" File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 124
-    Warning (15610): No output dependent on input pin "TD_CLK27" File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 130
-    Warning (15610): No output dependent on input pin "TD_DATA[0]" File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 131
-    Warning (15610): No output dependent on input pin "TD_DATA[1]" File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 131
-    Warning (15610): No output dependent on input pin "TD_DATA[2]" File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 131
-    Warning (15610): No output dependent on input pin "TD_DATA[3]" File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 131
-    Warning (15610): No output dependent on input pin "TD_DATA[4]" File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 131
-    Warning (15610): No output dependent on input pin "TD_DATA[5]" File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 131
-    Warning (15610): No output dependent on input pin "TD_DATA[6]" File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 131
-    Warning (15610): No output dependent on input pin "TD_DATA[7]" File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 131
-    Warning (15610): No output dependent on input pin "TD_HS" File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 132
-    Warning (15610): No output dependent on input pin "TD_VS" File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 134
-    Warning (15610): No output dependent on input pin "OTG_INT" File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 140
-    Warning (15610): No output dependent on input pin "IRDA_RXD" File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 146
-    Warning (15610): No output dependent on input pin "FL_RY" File: D:/QuartusProjects/music_player/quartus_prj/LCD/lcd.v Line: 175
-Info (21057): Implemented 400 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 69 input pins
-    Info (21059): Implemented 228 output pins
-    Info (21060): Implemented 103 bidirectional pins
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 475 warnings
-    Info: Peak virtual memory: 4737 megabytes
-    Info: Processing ended: Sun Oct 30 10:49:55 2022
-    Info: Elapsed time: 00:00:15
+Info (21057): Implemented 609 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 6 input pins
+    Info (21059): Implemented 12 output pins
+    Info (21061): Implemented 591 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 12 warnings
+    Info: Peak virtual memory: 4771 megabytes
+    Info: Processing ended: Mon Oct 31 20:36:08 2022
+    Info: Elapsed time: 00:00:17
     Info: Total CPU time (on all processors): 00:00:31
 
 

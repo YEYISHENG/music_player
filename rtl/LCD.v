@@ -1,16 +1,94 @@
-module LCD1602(
+module LCD
+	(
 	input 				clk			,
 	input 				rst_n		,
-    input               key1_flag   ,
-    input               key2_flag   ,
-    input               key3_flag   ,
-    input               key4_flag   ,
+    input               KEY1   		,
+    input               KEY2   		,
+    input               KEY3  		,
+    input               KEY4  		,
 	output 				LCD_E 		,
-	output 	reg 		LCD_RS		,
-	output 	reg[7:0]	LCD_DATA	
+	output reg 			LCD_RS		,
+	output reg[7:0]	    LCD_DATA	,
+    output wire         LCD_ON		,
+    output wire         LCD_RW	
 	);
+	
+	assign LCD_ON = 1'b1;     //打开LED电源
+	assign LCD_RW = 1'b0;	  //因为没有读操作，所以LCD_RW一直是低电平
+	
+	//配置想要输出的字符数据，共16*8=128bit
+    reg[127:0]  row_1;
+	reg[127:0]  row_2;
+	
+	wire key1_flag;
+	wire key2_flag;
+	wire key3_flag;
+	wire key4_flag;
+	
+key_filter K1(
+.key        (KEY1) ,
+.sys_clk    (clk) ,
+.sys_rst_n  (rst_n) ,
 
-    
+.temp_key_flag   (key1_flag)
+);
+
+key_filter K2(
+.key        (KEY2) ,
+.sys_clk    (clk) ,
+.sys_rst_n  (rst_n) ,
+
+.temp_key_flag   (key2_flag)
+);
+
+key_filter K3(
+.key        (KEY3) ,
+.sys_clk    (clk) ,
+.sys_rst_n  (rst_n) ,
+
+.temp_key_flag   (key3_flag)
+);
+
+key_filter K4(
+.key        (KEY4) ,
+.sys_clk    (clk) ,
+.sys_rst_n  (rst_n) ,
+
+.temp_key_flag  (key4_flag)
+);
+	
+	
+	
+		
+    //输出字符数据
+    parameter show_0 = "MUSIC           ";
+    parameter show_1 = "MODE            ";
+    parameter show_2 = "SPEED           ";
+    parameter show_3 = "VOLUME          ";
+    parameter show_4 = "music_1         ";
+    parameter show_5 = "music_2         ";
+    parameter show_6 = "play in order   ";
+    parameter show_7 = "single cycle    ";
+    parameter show_8 = "1               ";
+    parameter show_9 = "1.25            ";
+    parameter show_A = "0.75            ";
+    parameter show_B = "VOLUME_1        ";
+    parameter show_C = "VOLUME_2        ";
+    parameter show_D = "VOLUME_3        ";
+    parameter show_E = "VOLUME_4        ";
+    parameter show_F = "VOLUME_5        ";
+	parameter show_F1= "music_3         ";
+	parameter show_F2= "    music_1     ";
+	parameter show_F3= "    music_2     ";
+	parameter show_F4= "    music_3     ";
+	parameter show_F5= "            1m23";
+	parameter show_F6= "            2m34";
+	parameter show_F7= "            3m45";
+	parameter show_F8= 128'h11_19_1d_1f_1f_1d_19_11;  //下一曲符号，须在CGRAM中自定义
+	parameter show_F9= 128'h11_13_17_1f_1f_17_13_11;  //上一曲符号，须在CGRAM中自定义
+	parameter show_FA= 128'h1b_2b_3b_4b_5b_6b_7b_8b;  //下正在播放符号，须在CGRAM中自定义
+	parameter show_FB= 128'b10_18_1c_1f_1e_1c_18_10;  //暂停播放符号，须在CGRAM中自定义
+    parameter arrow = 8'b0111_1111;
 
 	//上电稳定阶段
 	parameter TIME_15MS=750_000;//需要15ms以达上电稳定(初始化)
@@ -34,7 +112,7 @@ module LCD1602(
 		if(!rst_n)
 			cnt_500hz <= 1'b0;
 		else if(delay_done)
-			if(cnt_500hz == TIME_500HZ/2-1'b1)
+			if(cnt_500hz == TIME_500HZ-1'b1)
 				cnt_500hz <= 1'b0;
 			else
 				cnt_500hz <= cnt_500hz+1'b1;
@@ -42,8 +120,16 @@ module LCD1602(
 			cnt_500hz <= 1'b0;
 	
 	assign LCD_E=(cnt_500hz>(TIME_500HZ-1'b1)/2)?1'b0:1'b1;//使能端,每个工作周期一次下降沿,执行一次命令
-	wire write_flag=(cnt_500hz==TIME_500HZ-1'b1)?1'b1:1'b0;//每到一个工作周期,write_flag置高一周期
-
+	//wire write_flag=(cnt_500hz==TIME_500HZ-1'b1)?1'b1:1'b0;//每到一个工作周期,write_flag置高一周期
+	
+	reg write_flag;
+		always@(posedge clk or negedge rst_n)
+			if(!rst_n)
+				write_flag <= 1'b0;
+			else if(cnt_500hz == TIME_500HZ-1'b1)
+			   write_flag <= 1'b1;
+			else
+				write_flag <= 1'b0;
 
     //根据按键进行显示界面的切换
     parameter key1 = 2'b00, key2 = 2'b01, key3 = 2'b10, key4 = 2'b11;                   //按键的flag标志
@@ -65,12 +151,12 @@ module LCD1602(
 
 
 	//状态机有40种状态,此处用了格雷码,一次只有一位变化(在二进制下)
-	parameter IDLE = 8'h00;						//闲置状态
-	parameter SET_FUNCTION = 8'h01;				//工作方式设置，用来设置8(4)数据接口、2(1)行显示、5*8(5*10)dot
-	parameter DISP_OFF = 8'h03;					//显示开关设置关，设置是否显示字符和光标
+	parameter IDLE = 8'h00;							//闲置状态
+	parameter SET_FUNCTION = 8'h01;					//工作方式设置，用来设置8(4)数据接口、2(1)行显示、5*8(5*10)dot
+	parameter DISP_OFF = 8'h03;						//显示开关设置关，设置是否显示字符和光标
 	parameter DISP_CLEAR = 8'h02;					//清屏
 	parameter ENTRY_MODE = 8'h06;					//进入模式设置，写入新数据后光标是否移动？移动方向？
-	parameter DISP_ON = 8'h07;					//显示开关设置开
+	parameter DISP_ON = 8'h07;						//显示开关设置开
 	parameter ROW1_ADDR = 8'h05;					//第一行显示首地址(DDRAM地址)
 	parameter ROW1_0 = 8'h04;						//显示字符数据(DDRAM中的数据)
 	parameter ROW1_1 = 8'h0C;
@@ -159,7 +245,7 @@ module LCD1602(
 			ROW2_D:					nextstate = ROW2_E;
 			ROW2_E:					nextstate = ROW2_F;
 			ROW2_F:					nextstate = ROW1_ADDR;//循环到1-1进行扫描显示
-			default:;
+			default:				nextstate = ROW1_0;
 		endcase
 
 
@@ -170,7 +256,7 @@ module LCD1602(
 			LCD_RS <= 1'b0;//为0时输入指令,为1时输入数据
 		else if(write_flag)
 			//当状态为七个指令任意一个,将RS置为指令输入状态
-			if((nextstate == SET_FUNCTION)||(nextstate==DISP_OFF)||(nextstate==DISP_CLEAR)||(nextstate==ENTRY_MODE)||(nextstate==DISP_ON)||(nextstate==ROW1_ADDR)||(nextstate==ROW2_ADDR))
+			if((currentstate == SET_FUNCTION)||(currentstate==DISP_OFF)||(currentstate==DISP_CLEAR)||(currentstate==ENTRY_MODE)||(currentstate==DISP_ON)||(currentstate==ROW1_ADDR)||(currentstate==ROW2_ADDR))
 				LCD_RS <= 1'b0; 
 			else
 				LCD_RS <= 1'b1;
@@ -181,9 +267,9 @@ module LCD1602(
 	//显示输出
 	always@(posedge clk or negedge rst_n)
 		if(!rst_n)
-			LCD_DATA<=1'b0;
+			LCD_DATA <= 1'b0;
 		else if(write_flag)
-			case(nextstate)
+			case(currentstate)
 				IDLE:					LCD_DATA <= 8'hxx;
 				SET_FUNCTION:			LCD_DATA <= 8'h38;//8'b0011_1000,工作方式设置:DL=1(DB4,8位数据接口),N=1(DB3,两行显示),L=0(DB2,5x8点阵显示).
 				DISP_OFF:				LCD_DATA <= 8'h08;//8'b0000_1000,显示开关设置:D=0(DB2,显示关),C=0(DB1,光标不显示),D=0(DB0,光标不闪烁)
@@ -225,33 +311,14 @@ module LCD1602(
 				ROW2_D:					LCD_DATA <= row_2[ 23: 16];
 				ROW2_E:					LCD_DATA <= row_2[ 15:  8];
 				ROW2_F:					LCD_DATA <= row_2[  7:  0];
+				default:				LCD_DATA <= 8'b0011_1111;
 			endcase
 		else
 			LCD_DATA<=LCD_DATA;
 
 
 
-	//配置想要输出的字符数据，共16*8=128bit
-	reg[127:0]  row_1;
-	reg[127:0]  row_2;
-        
-    parameter show_0 = "MUSIC           ";
-    parameter show_1 = "MODE            ";
-    parameter show_2 = "SPEED           ";
-    parameter show_3 = "VOLUME          ";
-    parameter show_4 = "music_1         ";
-    parameter show_5 = "music_2         ";
-    parameter show_6 = "play in order   ";
-    parameter show_7 = "single cycle    ";
-    parameter show_8 = "1               ";
-    parameter show_9 = "1.25            ";
-    parameter show_A = "0.75            ";
-    parameter show_B = "VOLUME_1        ";
-    parameter show_C = "VOLUME_2        ";
-    parameter show_D = "VOLUME_3        ";
-    parameter show_E = "VOLUME_4        ";
-    parameter show_F = "VOLUME_5        ";
-    parameter arrow = 8'b0111_1111;
+
     
     always@(posedge clk or negedge rst_n)
         if(!rst_n)
@@ -261,82 +328,103 @@ module LCD1602(
                 show_0: if(KEY == key1) row_1 <=show_0;
                         else if(KEY == key2) row_1 <=show_4;
                         else if(KEY == key3) row_1 <=show_1;
-                        else row_1 <= show_3;
+                        else if(KEY == key4) row_1 <= show_3;
+								else row_1 <= row_1;
 
                 show_1: if(KEY == key1) row_1 <=show_1;
                         else if(KEY == key2) row_1 <=show_6;
                         else if(KEY == key3) row_1 <=show_2;
-                        else row_1 <= show_0;
-                
+                        else if(KEY == key4) row_1 <= show_0;
+								else row_1 <= row_1;
+								
                 show_2: if(KEY == key1) row_1 <=show_2;
                         else if(KEY == key2) row_1 <=show_8;
                         else if(KEY == key3) row_1 <=show_3;
-                        else row_1 <= show_1;
+                        else if(KEY == key4) row_1 <= show_1;
 
                 show_3: if(KEY == key1) row_1 <=show_3;
                         else if(KEY == key2) row_1 <=show_B;
                         else if(KEY == key3) row_1 <=show_0;
-                        else row_1 <= show_2;
+                        else if(KEY == key4) row_1 <= show_2;
+								else row_1 <= row_1;
 
                 show_4: if(KEY == key1) row_1 <=show_0;
                         else if(KEY == key2) row_1 <=show_0;
                         else if(KEY == key3) row_1 <=show_5;
-                        else row_1 <= show_5;
-
+                        else if(KEY == key4) row_1 <= show_F1;
+								else row_1 <= row_1;
+	
                 show_5: if(KEY == key1) row_1 <=show_0;
                         else if(KEY == key2) row_1 <=show_0;
-                        else if(KEY == key3) row_1 <=show_4;
-                        else row_1 <= show_4;
+                        else if(KEY == key3) row_1 <=show_F1;
+                        else if(KEY == key4) row_1 <= show_4;
+								else row_1 <= row_1;
 
                 show_6: if(KEY == key1) row_1 <=show_1;
                         else if(KEY == key2) row_1 <=show_1;
                         else if(KEY == key3) row_1 <=show_7;
-                        else row_1 <= show_7;
+                        else if(KEY == key4) row_1 <= show_7;
+								else row_1 <= row_1;
 
                 show_7: if(KEY == key1) row_1 <=show_1;
                         else if(KEY == key2) row_1 <=show_1;
                         else if(KEY == key3) row_1 <=show_6;
-                        else row_1 <= show_6;
+                        else if(KEY == key4) row_1 <= show_6;
+								else row_1 <= row_1;
 
                 show_8: if(KEY == key1) row_1 <=show_2;
                         else if(KEY == key2) row_1 <=show_2;
                         else if(KEY == key3) row_1 <=show_9;
-                        else row_1 <= show_A;
+                        else if(KEY == key4) row_1 <= show_A;
+								else row_1 <= row_1;
 
                 show_9: if(KEY == key1) row_1 <=show_2;
                         else if(KEY == key2) row_1 <=show_2;
                         else if(KEY == key3) row_1 <=show_A;
-                        else row_1 <= show_8;
+                        else if(KEY == key4)row_1 <= show_8;
+								else row_1 <= row_1;
 
                 show_A: if(KEY == key1) row_1 <=show_2;
                         else if(KEY == key2) row_1 <=show_2;
                         else if(KEY == key3) row_1 <=show_8;
-                        else row_1 <= show_9;
+                        else if(KEY == key4) row_1 <= show_9;
+								else row_1 <= row_1;
 
                 show_B: if(KEY == key1) row_1 <=show_3;
                         else if(KEY == key2) row_1 <=show_3;
                         else if(KEY == key3) row_1 <=show_C;
-                        else row_1 <= show_F;
+                        else if(KEY == key4) row_1 <= show_F;
+								else row_1 <= row_1;
 
                 show_C: if(KEY == key1) row_1 <=show_3;
                         else if(KEY == key2) row_1 <=show_3;
                         else if(KEY == key3) row_1 <=show_D;
-                        else row_1 <= show_B;
+                        else if(KEY == key4) row_1 <= show_B;
+								else row_1 <= row_1;
 
                 show_D: if(KEY == key1) row_1 <=show_3;
                         else if(KEY == key2) row_1 <=show_3;
                         else if(KEY == key3) row_1 <=show_E;
-                        else row_1 <= show_C;
+                        else if(KEY == key4) row_1 <= show_C;
+								else row_1 <= row_1;
 
                 show_E: if(KEY == key1) row_1 <=show_3;
                         else if(KEY == key2) row_1 <=show_3;
                         else if(KEY == key3) row_1 <=show_F;
-                        else row_1 <= show_D;
+                        else if(KEY == key4) row_1 <= show_D;
+								else row_1 <= row_1;
 
                 show_F: if(KEY == key1) row_1 <=show_3;
                         else if(KEY == key2) row_1 <=show_3;
                         else if(KEY == key3) row_1 <=show_B;
-                        else row_1 <= show_E;
+                        else if(KEY == key4) row_1 <= show_E;
+								else row_1 <= row_1;
+
+				show_F1: if(KEY == key1) row_1 <=show_0;
+                        else if(KEY == key2) row_1 <=show_0;
+                        else if(KEY == key3) row_1 <=show_4;
+                        else if(KEY == key4) row_1 <= show_5;
+								else row_1 <= row_1;
 
                 default: row_1 <= show_0;
             endcase 
@@ -352,7 +440,7 @@ module LCD1602(
                 show_2: row_2 <= show_3;
                 show_3: row_2 <= show_0;
                 show_4: row_2 <= show_5;
-                show_5: row_2 <= show_4;
+                show_5: row_2 <= show_F1;
                 show_6: row_2 <= show_7;
                 show_7: row_2 <= show_6;
                 show_8: row_2 <= show_9;
@@ -363,6 +451,7 @@ module LCD1602(
                 show_D: row_2 <= show_E;
                 show_E: row_2 <= show_F;
                 show_F: row_2 <= show_B;
+				show_F1: row_2<= show_4;
                 default: row_2 <=show_1;              
             endcase
 

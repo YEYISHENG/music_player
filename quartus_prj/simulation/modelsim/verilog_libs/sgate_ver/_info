@@ -10,7 +10,7 @@ z2
 cModel Technology
 Z0 dD:/QuartusProjects/music_player/quartus_prj/simulation/modelsim
 vio_buf_opdrn
-Z1 !s110 1666529832
+Z1 !s110 1666625875
 !i10b 1
 !s100 o>nz1>Xc50eF;H7j8]Lef2
 Z2 !s11b Dg1SIo80bB@j0V0VzS_@n1
@@ -19,14 +19,14 @@ R0
 Z3 w1536815359
 Z4 8d:/quartusprime/quartus/eda/sim_lib/sgate.v
 Z5 Fd:/quartusprime/quartus/eda/sim_lib/sgate.v
-!i122 3
+!i122 5
 L0 248 22
 Z6 VDg1SIo80bB@j0V0VzS_@n1
 Z7 OL;L;2020.4;71
 r1
 !s85 0
 31
-Z8 !s108 1666529832.000000
+Z8 !s108 1666625875.000000
 !s107 d:/quartusprime/quartus/eda/sim_lib/sgate.v|
 Z9 !s90 -reportprogress|300|-vlog01compat|-work|sgate_ver|d:/quartusprime/quartus/eda/sim_lib/sgate.v|
 !i113 0
@@ -42,7 +42,7 @@ R0
 R3
 R4
 R5
-!i122 3
+!i122 5
 L0 220 23
 R6
 R7
@@ -65,7 +65,7 @@ R0
 R3
 R4
 R5
-!i122 3
+!i122 5
 L0 190 26
 R6
 R7
@@ -88,7 +88,7 @@ R0
 R3
 R4
 R5
-!i122 3
+!i122 5
 L0 18 74
 R6
 R7
@@ -111,7 +111,7 @@ R0
 R3
 R4
 R5
-!i122 3
+!i122 5
 L0 95 91
 R6
 R7
@@ -134,7 +134,7 @@ R0
 R3
 R4
 R5
-!i122 3
+!i122 5
 L0 1072 59
 R6
 R7
@@ -157,7 +157,7 @@ R0
 R3
 R4
 R5
-!i122 3
+!i122 5
 L0 1036 32
 R6
 R7
@@ -180,7 +180,7 @@ R0
 R3
 R4
 R5
-!i122 3
+!i122 5
 L0 394 85
 R6
 R7
@@ -203,7 +203,7 @@ R0
 R3
 R4
 R5
-!i122 3
+!i122 5
 L0 1135 17
 R6
 R7
@@ -226,7 +226,7 @@ R0
 R3
 R4
 R5
-!i122 3
+!i122 5
 L0 572 72
 R6
 R7
@@ -249,7 +249,7 @@ R0
 R3
 R4
 R5
-!i122 3
+!i122 5
 L0 853 88
 R6
 R7
@@ -272,7 +272,7 @@ R0
 R3
 R4
 R5
-!i122 3
+!i122 5
 L0 483 85
 R6
 R7
@@ -295,7 +295,7 @@ R0
 R3
 R4
 R5
-!i122 3
+!i122 5
 L0 274 68
 R6
 R7
@@ -318,7 +318,7 @@ R0
 R3
 R4
 R5
-!i122 3
+!i122 5
 L0 945 42
 R6
 R7
@@ -341,7 +341,7 @@ R0
 R3
 R4
 R5
-!i122 3
+!i122 5
 L0 649 79
 R6
 R7
@@ -364,7 +364,7 @@ R0
 R3
 R4
 R5
-!i122 3
+!i122 5
 L0 732 57
 R6
 R7
@@ -387,7 +387,7 @@ R0
 R3
 R4
 R5
-!i122 3
+!i122 5
 L0 793 56
 R6
 R7
@@ -410,7 +410,7 @@ R0
 R3
 R4
 R5
-!i122 3
+!i122 5
 L0 991 41
 R6
 R7
@@ -433,7 +433,7 @@ R0
 R3
 R4
 R5
-!i122 3
+!i122 5
 L0 347 43
 R6
 R7
