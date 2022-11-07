@@ -9,7 +9,6 @@ output   reg        temp_key_flag
 parameter CNT_MAX = 20'd1_000_000;      //延时20ms
 parameter FLAG_CNT_MAX = 18'd150_000;   //产生一个延时2ms的key_flag信号
 
-reg   key_flag;
 reg     [19:0]      cnt;
 reg		[17:0]	flag_cnt;
 reg				flag_cnt_en;
@@ -34,15 +33,6 @@ always @(posedge sys_clk or negedge sys_rst_n)
     else
         temp_key_flag <= 1'b0;
 
-
-
-always @(posedge sys_clk or negedge sys_rst_n) 
-    if(sys_rst_n == 1'b0)
-		key_flag <= 1'b0;
-	else if(flag_cnt_en)
-		key_flag <= 1'b1;
-	else
-		key_flag <= 1'b0;
 	
 always @(posedge sys_clk or negedge sys_rst_n) 
     if(sys_rst_n == 1'b0)

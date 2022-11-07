@@ -60,6 +60,10 @@
 					"strict" : false
 				},
 				{
+					"name" : "KEY4",
+					"strict" : false
+				},
+				{
 					"name" : "KEY3",
 					"strict" : false
 				}

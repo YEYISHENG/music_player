@@ -1,5 +1,5 @@
 Fitter report for LCD
-Mon Oct 31 00:22:55 2022
+Fri Nov 04 09:14:26 2022
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
 
 
@@ -65,17 +65,17 @@ refer to the applicable agreement for further details.
 +--------------------------------------------------------------------------------------+
 ; Fitter Summary                                                                       ;
 +------------------------------------+-------------------------------------------------+
-; Fitter Status                      ; Successful - Mon Oct 31 00:22:55 2022           ;
+; Fitter Status                      ; Successful - Fri Nov 04 09:14:26 2022           ;
 ; Quartus Prime Version              ; 18.1.0 Build 625 09/12/2018 SJ Standard Edition ;
 ; Revision Name                      ; LCD                                             ;
 ; Top-level Entity Name              ; LCD                                             ;
 ; Family                             ; Cyclone IV E                                    ;
 ; Device                             ; EP4CE115F29C7                                   ;
 ; Timing Models                      ; Final                                           ;
-; Total logic elements               ; 508 / 114,480 ( < 1 % )                         ;
-;     Total combinational functions  ; 503 / 114,480 ( < 1 % )                         ;
-;     Dedicated logic registers      ; 236 / 114,480 ( < 1 % )                         ;
-; Total registers                    ; 236                                             ;
+; Total logic elements               ; 551 / 114,480 ( < 1 % )                         ;
+;     Total combinational functions  ; 540 / 114,480 ( < 1 % )                         ;
+;     Dedicated logic registers      ; 267 / 114,480 ( < 1 % )                         ;
+; Total registers                    ; 267                                             ;
 ; Total pins                         ; 18 / 529 ( 3 % )                                ;
 ; Total virtual pins                 ; 0                                               ;
 ; Total memory bits                  ; 0 / 3,981,312 ( 0 % )                           ;
@@ -157,7 +157,7 @@ refer to the applicable agreement for further details.
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   0.4%      ;
+;     Processor 2            ;   0.5%      ;
 ;     Processor 3            ;   0.4%      ;
 ;     Processor 4            ;   0.4%      ;
 +----------------------------+-------------+
@@ -169,8 +169,8 @@ refer to the applicable agreement for further details.
 ; Type                ; Total [A + B]      ; From Design Partitions [A] ; From Rapid Recompile [B] ;
 +---------------------+--------------------+----------------------------+--------------------------+
 ; Placement (by node) ;                    ;                            ;                          ;
-;     -- Requested    ; 0.00 % ( 0 / 786 ) ; 0.00 % ( 0 / 786 )         ; 0.00 % ( 0 / 786 )       ;
-;     -- Achieved     ; 0.00 % ( 0 / 786 ) ; 0.00 % ( 0 / 786 )         ; 0.00 % ( 0 / 786 )       ;
+;     -- Requested    ; 0.00 % ( 0 / 854 ) ; 0.00 % ( 0 / 854 )         ; 0.00 % ( 0 / 854 )       ;
+;     -- Achieved     ; 0.00 % ( 0 / 854 ) ; 0.00 % ( 0 / 854 )         ; 0.00 % ( 0 / 854 )       ;
 ;                     ;                    ;                            ;                          ;
 ; Routing (by net)    ;                    ;                            ;                          ;
 ;     -- Requested    ; 0.00 % ( 0 / 0 )   ; 0.00 % ( 0 / 0 )           ; 0.00 % ( 0 / 0 )         ;
@@ -193,7 +193,7 @@ refer to the applicable agreement for further details.
 +--------------------------------+-----------------------+-------------------------+-------------------+---------------------+-------+
 ; Partition Name                 ; Preservation Achieved ; Preservation Level Used ; Netlist Type Used ; Preservation Method ; Notes ;
 +--------------------------------+-----------------------+-------------------------+-------------------+---------------------+-------+
-; Top                            ; 0.00 % ( 0 / 776 )    ; N/A                     ; Source File       ; N/A                 ;       ;
+; Top                            ; 0.00 % ( 0 / 844 )    ; N/A                     ; Source File       ; N/A                 ;       ;
 ; hard_block:auto_generated_inst ; 0.00 % ( 0 / 10 )     ; N/A                     ; Source File       ; N/A                 ;       ;
 +--------------------------------+-----------------------+-------------------------+-------------------+---------------------+-------+
 
@@ -209,26 +209,26 @@ The pin-out file can be found in D:/QuartusProjects/music_player/quartus_prj/LCD
 +---------------------------------------------+-------------------------+
 ; Resource                                    ; Usage                   ;
 +---------------------------------------------+-------------------------+
-; Total logic elements                        ; 508 / 114,480 ( < 1 % ) ;
-;     -- Combinational with no register       ; 272                     ;
-;     -- Register only                        ; 5                       ;
-;     -- Combinational with a register        ; 231                     ;
+; Total logic elements                        ; 551 / 114,480 ( < 1 % ) ;
+;     -- Combinational with no register       ; 284                     ;
+;     -- Register only                        ; 11                      ;
+;     -- Combinational with a register        ; 256                     ;
 ;                                             ;                         ;
 ; Logic element usage by number of LUT inputs ;                         ;
-;     -- 4 input functions                    ; 307                     ;
-;     -- 3 input functions                    ; 62                      ;
-;     -- <=2 input functions                  ; 134                     ;
-;     -- Register only                        ; 5                       ;
+;     -- 4 input functions                    ; 306                     ;
+;     -- 3 input functions                    ; 71                      ;
+;     -- <=2 input functions                  ; 163                     ;
+;     -- Register only                        ; 11                      ;
 ;                                             ;                         ;
 ; Logic elements by mode                      ;                         ;
-;     -- normal mode                          ; 409                     ;
-;     -- arithmetic mode                      ; 94                      ;
+;     -- normal mode                          ; 427                     ;
+;     -- arithmetic mode                      ; 113                     ;
 ;                                             ;                         ;
-; Total registers*                            ; 236 / 117,053 ( < 1 % ) ;
-;     -- Dedicated logic registers            ; 236 / 114,480 ( < 1 % ) ;
+; Total registers*                            ; 267 / 117,053 ( < 1 % ) ;
+;     -- Dedicated logic registers            ; 267 / 114,480 ( < 1 % ) ;
 ;     -- I/O registers                        ; 0 / 2,573 ( 0 % )       ;
 ;                                             ;                         ;
-; Total LABs:  partially or completely used   ; 37 / 7,155 ( < 1 % )    ;
+; Total LABs:  partially or completely used   ; 41 / 7,155 ( < 1 % )    ;
 ; Virtual pins                                ; 0                       ;
 ; I/O pins                                    ; 18 / 529 ( 3 % )        ;
 ;     -- Clock pins                           ; 2 / 7 ( 29 % )          ;
@@ -246,12 +246,12 @@ The pin-out file can be found in D:/QuartusProjects/music_player/quartus_prj/LCD
 ; ASMI blocks                                 ; 0 / 1 ( 0 % )           ;
 ; Oscillator blocks                           ; 0 / 1 ( 0 % )           ;
 ; Impedance control blocks                    ; 0 / 4 ( 0 % )           ;
-; Average interconnect usage (total/H/V)      ; 0.2% / 0.1% / 0.2%      ;
-; Peak interconnect usage (total/H/V)         ; 5.5% / 5.0% / 6.2%      ;
-; Maximum fan-out                             ; 236                     ;
-; Highest non-global fan-out                  ; 50                      ;
-; Total fan-out                               ; 2624                    ;
-; Average fan-out                             ; 3.31                    ;
+; Average interconnect usage (total/H/V)      ; 0.1% / 0.1% / 0.2%      ;
+; Peak interconnect usage (total/H/V)         ; 5.9% / 5.0% / 7.1%      ;
+; Maximum fan-out                             ; 267                     ;
+; Highest non-global fan-out                  ; 57                      ;
+; Total fan-out                               ; 2848                    ;
+; Average fan-out                             ; 3.30                    ;
 +---------------------------------------------+-------------------------+
 *  Register count does not include registers inside RAM blocks or DSP blocks.
 
@@ -264,26 +264,26 @@ The pin-out file can be found in D:/QuartusProjects/music_player/quartus_prj/LCD
 +---------------------------------------------+------------------------+--------------------------------+
 ; Difficulty Clustering Region                ; Low                    ; Low                            ;
 ;                                             ;                        ;                                ;
-; Total logic elements                        ; 508 / 114480 ( < 1 % ) ; 0 / 114480 ( 0 % )             ;
-;     -- Combinational with no register       ; 272                    ; 0                              ;
-;     -- Register only                        ; 5                      ; 0                              ;
-;     -- Combinational with a register        ; 231                    ; 0                              ;
+; Total logic elements                        ; 551 / 114480 ( < 1 % ) ; 0 / 114480 ( 0 % )             ;
+;     -- Combinational with no register       ; 284                    ; 0                              ;
+;     -- Register only                        ; 11                     ; 0                              ;
+;     -- Combinational with a register        ; 256                    ; 0                              ;
 ;                                             ;                        ;                                ;
 ; Logic element usage by number of LUT inputs ;                        ;                                ;
-;     -- 4 input functions                    ; 307                    ; 0                              ;
-;     -- 3 input functions                    ; 62                     ; 0                              ;
-;     -- <=2 input functions                  ; 134                    ; 0                              ;
-;     -- Register only                        ; 5                      ; 0                              ;
+;     -- 4 input functions                    ; 306                    ; 0                              ;
+;     -- 3 input functions                    ; 71                     ; 0                              ;
+;     -- <=2 input functions                  ; 163                    ; 0                              ;
+;     -- Register only                        ; 11                     ; 0                              ;
 ;                                             ;                        ;                                ;
 ; Logic elements by mode                      ;                        ;                                ;
-;     -- normal mode                          ; 409                    ; 0                              ;
-;     -- arithmetic mode                      ; 94                     ; 0                              ;
+;     -- normal mode                          ; 427                    ; 0                              ;
+;     -- arithmetic mode                      ; 113                    ; 0                              ;
 ;                                             ;                        ;                                ;
-; Total registers                             ; 236                    ; 0                              ;
-;     -- Dedicated logic registers            ; 236 / 114480 ( < 1 % ) ; 0 / 114480 ( 0 % )             ;
+; Total registers                             ; 267                    ; 0                              ;
+;     -- Dedicated logic registers            ; 267 / 114480 ( < 1 % ) ; 0 / 114480 ( 0 % )             ;
 ;     -- I/O registers                        ; 0                      ; 0                              ;
 ;                                             ;                        ;                                ;
-; Total LABs:  partially or completely used   ; 37 / 7155 ( < 1 % )    ; 0 / 7155 ( 0 % )               ;
+; Total LABs:  partially or completely used   ; 41 / 7155 ( < 1 % )    ; 0 / 7155 ( 0 % )               ;
 ;                                             ;                        ;                                ;
 ; Virtual pins                                ; 0                      ; 0                              ;
 ; I/O pins                                    ; 18                     ; 0                              ;
@@ -299,8 +299,8 @@ The pin-out file can be found in D:/QuartusProjects/music_player/quartus_prj/LCD
 ;     -- Registered Output Connections        ; 0                      ; 0                              ;
 ;                                             ;                        ;                                ;
 ; Internal Connections                        ;                        ;                                ;
-;     -- Total Connections                    ; 2619                   ; 5                              ;
-;     -- Registered Connections               ; 842                    ; 0                              ;
+;     -- Total Connections                    ; 2843                   ; 5                              ;
+;     -- Registered Connections               ; 954                    ; 0                              ;
 ;                                             ;                        ;                                ;
 ; External Connections                        ;                        ;                                ;
 ;     -- Top                                  ; 0                      ; 0                              ;
@@ -332,12 +332,12 @@ The pin-out file can be found in D:/QuartusProjects/music_player/quartus_prj/LCD
 +-------+-------+----------+--------------+--------------+--------------+-----------------------+--------------------+--------+----------------+---------------+-----------------+----------+--------------+--------------+---------------------------+----------------------+-----------+
 ; Name  ; Pin # ; I/O Bank ; X coordinate ; Y coordinate ; Z coordinate ; Combinational Fan-Out ; Registered Fan-Out ; Global ; Input Register ; Power Up High ; PCI I/O Enabled ; Bus Hold ; Weak Pull Up ; I/O Standard ; Termination Control Block ; Location assigned by ; Slew Rate ;
 +-------+-------+----------+--------------+--------------+--------------+-----------------------+--------------------+--------+----------------+---------------+-----------------+----------+--------------+--------------+---------------------------+----------------------+-----------+
-; KEY1  ; M21   ; 6        ; 115          ; 53           ; 14           ; 2                     ; 0                  ; no     ; no             ; no            ; yes             ; no       ; Off          ; 2.5 V        ; --                        ; Fitter               ; no        ;
-; KEY2  ; G27   ; 6        ; 115          ; 52           ; 0            ; 2                     ; 0                  ; no     ; no             ; no            ; yes             ; no       ; Off          ; 2.5 V        ; --                        ; Fitter               ; no        ;
-; KEY3  ; L25   ; 6        ; 115          ; 54           ; 14           ; 2                     ; 0                  ; no     ; no             ; no            ; yes             ; no       ; Off          ; 2.5 V        ; --                        ; Fitter               ; no        ;
-; KEY4  ; D7    ; 8        ; 13           ; 73           ; 0            ; 0                     ; 0                  ; no     ; no             ; no            ; yes             ; no       ; Off          ; 2.5 V        ; --                        ; Fitter               ; no        ;
-; clk   ; J1    ; 1        ; 0            ; 36           ; 7            ; 236                   ; 0                  ; yes    ; no             ; no            ; yes             ; no       ; Off          ; 2.5 V        ; --                        ; Fitter               ; no        ;
-; rst_n ; Y2    ; 2        ; 0            ; 36           ; 14           ; 236                   ; 0                  ; yes    ; no             ; no            ; yes             ; no       ; Off          ; 2.5 V        ; --                        ; Fitter               ; no        ;
+; KEY1  ; C15   ; 7        ; 58           ; 73           ; 14           ; 2                     ; 0                  ; no     ; no             ; no            ; yes             ; no       ; Off          ; 2.5 V        ; --                        ; Fitter               ; no        ;
+; KEY2  ; D16   ; 7        ; 62           ; 73           ; 21           ; 2                     ; 0                  ; no     ; no             ; no            ; yes             ; no       ; Off          ; 2.5 V        ; --                        ; Fitter               ; no        ;
+; KEY3  ; A17   ; 7        ; 60           ; 73           ; 0            ; 2                     ; 0                  ; no     ; no             ; no            ; yes             ; no       ; Off          ; 2.5 V        ; --                        ; Fitter               ; no        ;
+; KEY4  ; F15   ; 7        ; 58           ; 73           ; 0            ; 2                     ; 0                  ; no     ; no             ; no            ; yes             ; no       ; Off          ; 2.5 V        ; --                        ; Fitter               ; no        ;
+; clk   ; J1    ; 1        ; 0            ; 36           ; 7            ; 267                   ; 0                  ; yes    ; no             ; no            ; yes             ; no       ; Off          ; 2.5 V        ; --                        ; Fitter               ; no        ;
+; rst_n ; Y2    ; 2        ; 0            ; 36           ; 14           ; 267                   ; 0                  ; yes    ; no             ; no            ; yes             ; no       ; Off          ; 2.5 V        ; --                        ; Fitter               ; no        ;
 +-------+-------+----------+--------------+--------------+--------------+-----------------------+--------------------+--------+----------------+---------------+-----------------+----------+--------------+--------------+---------------------------+----------------------+-----------+
 
 
@@ -346,48 +346,46 @@ The pin-out file can be found in D:/QuartusProjects/music_player/quartus_prj/LCD
 +-------------+-------+----------+--------------+--------------+--------------+-----------------+------------------------+---------------+-----------+-----------------+------------+---------------+----------+--------------+--------------+------------------+-----------------------------------+---------------------------+----------------------------+-----------------------------+----------------------+----------------------+---------------------+
 ; Name        ; Pin # ; I/O Bank ; X coordinate ; Y coordinate ; Z coordinate ; Output Register ; Output Enable Register ; Power Up High ; Slew Rate ; PCI I/O Enabled ; Open Drain ; TRI Primitive ; Bus Hold ; Weak Pull Up ; I/O Standard ; Current Strength ; Termination                       ; Termination Control Block ; Output Buffer Pre-emphasis ; Voltage Output Differential ; Location assigned by ; Output Enable Source ; Output Enable Group ;
 +-------------+-------+----------+--------------+--------------+--------------+-----------------+------------------------+---------------+-----------+-----------------+------------+---------------+----------+--------------+--------------+------------------+-----------------------------------+---------------------------+----------------------------+-----------------------------+----------------------+----------------------+---------------------+
-; LCD_DATA[0] ; B18   ; 7        ; 79           ; 73           ; 7            ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
-; LCD_DATA[1] ; C17   ; 7        ; 81           ; 73           ; 0            ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
-; LCD_DATA[2] ; D17   ; 7        ; 81           ; 73           ; 7            ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
-; LCD_DATA[3] ; B19   ; 7        ; 81           ; 73           ; 21           ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
-; LCD_DATA[4] ; A19   ; 7        ; 81           ; 73           ; 14           ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
-; LCD_DATA[5] ; C19   ; 7        ; 83           ; 73           ; 7            ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
-; LCD_DATA[6] ; A18   ; 7        ; 79           ; 73           ; 0            ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
-; LCD_DATA[7] ; D19   ; 7        ; 83           ; 73           ; 14           ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
-; LCD_E       ; E24   ; 7        ; 85           ; 73           ; 21           ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
-; LCD_ON      ; U25   ; 5        ; 115          ; 27           ; 0            ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
-; LCD_RS      ; G17   ; 7        ; 83           ; 73           ; 21           ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
-; LCD_RW      ; V2    ; 2        ; 0            ; 28           ; 14           ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
+; LCD_DATA[0] ; H16   ; 7        ; 65           ; 73           ; 21           ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
+; LCD_DATA[1] ; J16   ; 7        ; 65           ; 73           ; 14           ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
+; LCD_DATA[2] ; H15   ; 7        ; 60           ; 73           ; 14           ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
+; LCD_DATA[3] ; J15   ; 7        ; 60           ; 73           ; 21           ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
+; LCD_DATA[4] ; E17   ; 7        ; 67           ; 73           ; 21           ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
+; LCD_DATA[5] ; F17   ; 7        ; 67           ; 73           ; 14           ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
+; LCD_DATA[6] ; B17   ; 7        ; 60           ; 73           ; 7            ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
+; LCD_DATA[7] ; C16   ; 7        ; 62           ; 73           ; 14           ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
+; LCD_E       ; D15   ; 7        ; 58           ; 73           ; 21           ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
+; LCD_ON      ; U22   ; 5        ; 115          ; 26           ; 14           ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
+; LCD_RS      ; G15   ; 7        ; 65           ; 73           ; 7            ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
+; LCD_RW      ; V1    ; 2        ; 0            ; 28           ; 21           ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
 +-------------+-------+----------+--------------+--------------+--------------+-----------------+------------------------+---------------+-----------+-----------------+------------+---------------+----------+--------------+--------------+------------------+-----------------------------------+---------------------------+----------------------------+-----------------------------+----------------------+----------------------+---------------------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------------------+
-; Dual Purpose and Dedicated Pins                                                                                                   ;
-+----------+---------------------------------------+--------------------------+-------------------------+---------------------------+
-; Location ; Pin Name                              ; Reserved As              ; User Signal Name        ; Pin Type                  ;
-+----------+---------------------------------------+--------------------------+-------------------------+---------------------------+
-; F4       ; DIFFIO_L5n, DATA1, ASDO               ; As input tri-stated      ; ~ALTERA_ASDO_DATA1~     ; Dual Purpose Pin          ;
-; E2       ; DIFFIO_L8p, FLASH_nCE, nCSO           ; As input tri-stated      ; ~ALTERA_FLASH_nCE_nCSO~ ; Dual Purpose Pin          ;
-; M6       ; nSTATUS                               ; -                        ; -                       ; Dedicated Programming Pin ;
-; P3       ; DCLK                                  ; As output driving ground ; ~ALTERA_DCLK~           ; Dual Purpose Pin          ;
-; N7       ; DATA0                                 ; As input tri-stated      ; ~ALTERA_DATA0~          ; Dual Purpose Pin          ;
-; P4       ; nCONFIG                               ; -                        ; -                       ; Dedicated Programming Pin ;
-; R8       ; nCE                                   ; -                        ; -                       ; Dedicated Programming Pin ;
-; P24      ; CONF_DONE                             ; -                        ; -                       ; Dedicated Programming Pin ;
-; N22      ; MSEL0                                 ; -                        ; -                       ; Dedicated Programming Pin ;
-; P23      ; MSEL1                                 ; -                        ; -                       ; Dedicated Programming Pin ;
-; M22      ; MSEL2                                 ; -                        ; -                       ; Dedicated Programming Pin ;
-; P22      ; MSEL3                                 ; -                        ; -                       ; Dedicated Programming Pin ;
-; P28      ; DIFFIO_R23n, nCEO                     ; Use as programming pin   ; ~ALTERA_nCEO~           ; Dual Purpose Pin          ;
-; G27      ; DIFFIO_R15p, nOE                      ; Use as regular IO        ; KEY2                    ; Dual Purpose Pin          ;
-; C17      ; DIFFIO_T46n, PADD3                    ; Use as regular IO        ; LCD_DATA[1]             ; Dual Purpose Pin          ;
-; D17      ; DIFFIO_T46p, PADD4, DQS2T/CQ3T,DPCLK8 ; Use as regular IO        ; LCD_DATA[2]             ; Dual Purpose Pin          ;
-; A19      ; DIFFIO_T45n, PADD5                    ; Use as regular IO        ; LCD_DATA[4]             ; Dual Purpose Pin          ;
-; B19      ; DIFFIO_T45p, PADD6                    ; Use as regular IO        ; LCD_DATA[3]             ; Dual Purpose Pin          ;
-; A18      ; DIFFIO_T44n, PADD7                    ; Use as regular IO        ; LCD_DATA[6]             ; Dual Purpose Pin          ;
-; B18      ; DIFFIO_T44p, PADD8                    ; Use as regular IO        ; LCD_DATA[0]             ; Dual Purpose Pin          ;
-; D7       ; DIFFIO_T9p, DATA11                    ; Use as regular IO        ; KEY4                    ; Dual Purpose Pin          ;
-+----------+---------------------------------------+--------------------------+-------------------------+---------------------------+
++------------------------------------------------------------------------------------------------------------------------------------+
+; Dual Purpose and Dedicated Pins                                                                                                    ;
++----------+----------------------------------------+--------------------------+-------------------------+---------------------------+
+; Location ; Pin Name                               ; Reserved As              ; User Signal Name        ; Pin Type                  ;
++----------+----------------------------------------+--------------------------+-------------------------+---------------------------+
+; F4       ; DIFFIO_L5n, DATA1, ASDO                ; As input tri-stated      ; ~ALTERA_ASDO_DATA1~     ; Dual Purpose Pin          ;
+; E2       ; DIFFIO_L8p, FLASH_nCE, nCSO            ; As input tri-stated      ; ~ALTERA_FLASH_nCE_nCSO~ ; Dual Purpose Pin          ;
+; M6       ; nSTATUS                                ; -                        ; -                       ; Dedicated Programming Pin ;
+; P3       ; DCLK                                   ; As output driving ground ; ~ALTERA_DCLK~           ; Dual Purpose Pin          ;
+; N7       ; DATA0                                  ; As input tri-stated      ; ~ALTERA_DATA0~          ; Dual Purpose Pin          ;
+; P4       ; nCONFIG                                ; -                        ; -                       ; Dedicated Programming Pin ;
+; R8       ; nCE                                    ; -                        ; -                       ; Dedicated Programming Pin ;
+; P24      ; CONF_DONE                              ; -                        ; -                       ; Dedicated Programming Pin ;
+; N22      ; MSEL0                                  ; -                        ; -                       ; Dedicated Programming Pin ;
+; P23      ; MSEL1                                  ; -                        ; -                       ; Dedicated Programming Pin ;
+; M22      ; MSEL2                                  ; -                        ; -                       ; Dedicated Programming Pin ;
+; P22      ; MSEL3                                  ; -                        ; -                       ; Dedicated Programming Pin ;
+; P28      ; DIFFIO_R23n, nCEO                      ; Use as programming pin   ; ~ALTERA_nCEO~           ; Dual Purpose Pin          ;
+; C16      ; DIFFIO_T36n, PADD9                     ; Use as regular IO        ; LCD_DATA[7]             ; Dual Purpose Pin          ;
+; D16      ; DIFFIO_T36p, PADD10                    ; Use as regular IO        ; KEY2                    ; Dual Purpose Pin          ;
+; A17      ; DIFFIO_T35n, PADD11                    ; Use as regular IO        ; KEY3                    ; Dual Purpose Pin          ;
+; B17      ; DIFFIO_T35p, PADD12, DQS4T/CQ5T,DPCLK9 ; Use as regular IO        ; LCD_DATA[6]             ; Dual Purpose Pin          ;
+; C15      ; DIFFIO_T32n, PADD13                    ; Use as regular IO        ; KEY1                    ; Dual Purpose Pin          ;
+; D15      ; DIFFIO_T32p, PADD14                    ; Use as regular IO        ; LCD_E                   ; Dual Purpose Pin          ;
++----------+----------------------------------------+--------------------------+-------------------------+---------------------------+
 
 
 +------------------------------------------------------------+
@@ -400,9 +398,9 @@ The pin-out file can be found in D:/QuartusProjects/music_player/quartus_prj/LCD
 ; 3        ; 0 / 73 ( 0 % )   ; 2.5V          ; --           ;
 ; 4        ; 0 / 71 ( 0 % )   ; 2.5V          ; --           ;
 ; 5        ; 1 / 65 ( 2 % )   ; 2.5V          ; --           ;
-; 6        ; 4 / 58 ( 7 % )   ; 2.5V          ; --           ;
-; 7        ; 10 / 72 ( 14 % ) ; 2.5V          ; --           ;
-; 8        ; 1 / 71 ( 1 % )   ; 2.5V          ; --           ;
+; 6        ; 1 / 58 ( 2 % )   ; 2.5V          ; --           ;
+; 7        ; 14 / 72 ( 19 % ) ; 2.5V          ; --           ;
+; 8        ; 0 / 71 ( 0 % )   ; 2.5V          ; --           ;
 +----------+------------------+---------------+--------------+
 
 
@@ -426,9 +424,9 @@ The pin-out file can be found in D:/QuartusProjects/music_player/quartus_prj/LCD
 ; A14      ; 472        ; 8        ; GND+                                                      ;        ;              ;         ; Column I/O ;                 ; --       ; --           ;
 ; A15      ; 470        ; 7        ; GND+                                                      ;        ;              ;         ; Column I/O ;                 ; --       ; --           ;
 ; A16      ;            ; 7        ; VCCIO7                                                    ; power  ;              ; 2.5V    ; --         ;                 ; --       ; --           ;
-; A17      ; 462        ; 7        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Column I/O ;                 ; no       ; On           ;
-; A18      ; 442        ; 7        ; LCD_DATA[6]                                               ; output ; 2.5 V        ;         ; Column I/O ; N               ; no       ; Off          ;
-; A19      ; 440        ; 7        ; LCD_DATA[4]                                               ; output ; 2.5 V        ;         ; Column I/O ; N               ; no       ; Off          ;
+; A17      ; 462        ; 7        ; KEY3                                                      ; input  ; 2.5 V        ;         ; Column I/O ; N               ; no       ; Off          ;
+; A18      ; 442        ; 7        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Column I/O ;                 ; no       ; On           ;
+; A19      ; 440        ; 7        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Column I/O ;                 ; no       ; On           ;
 ; A20      ;            ; 7        ; VCCIO7                                                    ; power  ;              ; 2.5V    ; --         ;                 ; --       ; --           ;
 ; A21      ; 425        ; 7        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Column I/O ;                 ; no       ; On           ;
 ; A22      ; 423        ; 7        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Column I/O ;                 ; no       ; On           ;
@@ -675,9 +673,9 @@ The pin-out file can be found in D:/QuartusProjects/music_player/quartus_prj/LCD
 ; B14      ; 473        ; 8        ; GND+                                                      ;        ;              ;         ; Column I/O ;                 ; --       ; --           ;
 ; B15      ; 471        ; 7        ; GND+                                                      ;        ;              ;         ; Column I/O ;                 ; --       ; --           ;
 ; B16      ;            ;          ; GND                                                       ; gnd    ;              ;         ; --         ;                 ; --       ; --           ;
-; B17      ; 463        ; 7        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Column I/O ;                 ; no       ; On           ;
-; B18      ; 443        ; 7        ; LCD_DATA[0]                                               ; output ; 2.5 V        ;         ; Column I/O ; N               ; no       ; Off          ;
-; B19      ; 441        ; 7        ; LCD_DATA[3]                                               ; output ; 2.5 V        ;         ; Column I/O ; N               ; no       ; Off          ;
+; B17      ; 463        ; 7        ; LCD_DATA[6]                                               ; output ; 2.5 V        ;         ; Column I/O ; N               ; no       ; Off          ;
+; B18      ; 443        ; 7        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Column I/O ;                 ; no       ; On           ;
+; B19      ; 441        ; 7        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Column I/O ;                 ; no       ; On           ;
 ; B20      ;            ;          ; GND                                                       ; gnd    ;              ;         ; --         ;                 ; --       ; --           ;
 ; B21      ; 426        ; 7        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Column I/O ;                 ; no       ; On           ;
 ; B22      ; 424        ; 7        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Column I/O ;                 ; no       ; On           ;
@@ -701,11 +699,11 @@ The pin-out file can be found in D:/QuartusProjects/music_player/quartus_prj/LCD
 ; C12      ; 478        ; 8        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Column I/O ;                 ; no       ; On           ;
 ; C13      ; 474        ; 8        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Column I/O ;                 ; no       ; On           ;
 ; C14      ; 476        ; 8        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Column I/O ;                 ; no       ; On           ;
-; C15      ; 468        ; 7        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Column I/O ;                 ; no       ; On           ;
-; C16      ; 460        ; 7        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Column I/O ;                 ; no       ; On           ;
-; C17      ; 438        ; 7        ; LCD_DATA[1]                                               ; output ; 2.5 V        ;         ; Column I/O ; N               ; no       ; Off          ;
+; C15      ; 468        ; 7        ; KEY1                                                      ; input  ; 2.5 V        ;         ; Column I/O ; N               ; no       ; Off          ;
+; C16      ; 460        ; 7        ; LCD_DATA[7]                                               ; output ; 2.5 V        ;         ; Column I/O ; N               ; no       ; Off          ;
+; C17      ; 438        ; 7        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Column I/O ;                 ; no       ; On           ;
 ; C18      ; 429        ; 7        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Column I/O ;                 ; no       ; On           ;
-; C19      ; 435        ; 7        ; LCD_DATA[5]                                               ; output ; 2.5 V        ;         ; Column I/O ; N               ; no       ; Off          ;
+; C19      ; 435        ; 7        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Column I/O ;                 ; no       ; On           ;
 ; C20      ; 431        ; 7        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Column I/O ;                 ; no       ; On           ;
 ; C21      ; 422        ; 7        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Column I/O ;                 ; no       ; On           ;
 ; C22      ; 418        ; 7        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Column I/O ;                 ; no       ; On           ;
@@ -721,7 +719,7 @@ The pin-out file can be found in D:/QuartusProjects/music_player/quartus_prj/LCD
 ; D4       ; 540        ; 8        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Column I/O ;                 ; no       ; On           ;
 ; D5       ; 537        ; 8        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Column I/O ;                 ; no       ; On           ;
 ; D6       ; 524        ; 8        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Column I/O ;                 ; no       ; On           ;
-; D7       ; 522        ; 8        ; KEY4                                                      ; input  ; 2.5 V        ;         ; Column I/O ; N               ; no       ; Off          ;
+; D7       ; 522        ; 8        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Column I/O ;                 ; no       ; On           ;
 ; D8       ; 520        ; 8        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Column I/O ;                 ; no       ; On           ;
 ; D9       ; 511        ; 8        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Column I/O ;                 ; no       ; On           ;
 ; D10      ; 496        ; 8        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Column I/O ;                 ; no       ; On           ;
@@ -729,11 +727,11 @@ The pin-out file can be found in D:/QuartusProjects/music_player/quartus_prj/LCD
 ; D12      ; 479        ; 8        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Column I/O ;                 ; no       ; On           ;
 ; D13      ; 475        ; 8        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Column I/O ;                 ; no       ; On           ;
 ; D14      ; 477        ; 8        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Column I/O ;                 ; no       ; On           ;
-; D15      ; 469        ; 7        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Column I/O ;                 ; no       ; On           ;
-; D16      ; 461        ; 7        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Column I/O ;                 ; no       ; On           ;
-; D17      ; 439        ; 7        ; LCD_DATA[2]                                               ; output ; 2.5 V        ;         ; Column I/O ; N               ; no       ; Off          ;
+; D15      ; 469        ; 7        ; LCD_E                                                     ; output ; 2.5 V        ;         ; Column I/O ; N               ; no       ; Off          ;
+; D16      ; 461        ; 7        ; KEY2                                                      ; input  ; 2.5 V        ;         ; Column I/O ; N               ; no       ; Off          ;
+; D17      ; 439        ; 7        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Column I/O ;                 ; no       ; On           ;
 ; D18      ; 430        ; 7        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Column I/O ;                 ; no       ; On           ;
-; D19      ; 436        ; 7        ; LCD_DATA[7]                                               ; output ; 2.5 V        ;         ; Column I/O ; N               ; no       ; Off          ;
+; D19      ; 436        ; 7        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Column I/O ;                 ; no       ; On           ;
 ; D20      ; 432        ; 7        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Column I/O ;                 ; no       ; On           ;
 ; D21      ; 419        ; 7        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Column I/O ;                 ; no       ; On           ;
 ; D22      ; 402        ; 7        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Column I/O ;                 ; no       ; On           ;
@@ -759,14 +757,14 @@ The pin-out file can be found in D:/QuartusProjects/music_player/quartus_prj/LCD
 ; E14      ; 486        ; 8        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Column I/O ;                 ; no       ; On           ;
 ; E15      ; 467        ; 7        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Column I/O ;                 ; no       ; On           ;
 ; E16      ;            ; 7        ; VCCIO7                                                    ; power  ;              ; 2.5V    ; --         ;                 ; --       ; --           ;
-; E17      ; 456        ; 7        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Column I/O ;                 ; no       ; On           ;
+; E17      ; 456        ; 7        ; LCD_DATA[4]                                               ; output ; 2.5 V        ;         ; Column I/O ; N               ; no       ; Off          ;
 ; E18      ; 427        ; 7        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Column I/O ;                 ; no       ; On           ;
 ; E19      ; 421        ; 7        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Column I/O ;                 ; no       ; On           ;
 ; E20      ;            ; 7        ; VCCIO7                                                    ; power  ;              ; 2.5V    ; --         ;                 ; --       ; --           ;
 ; E21      ; 407        ; 7        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Column I/O ;                 ; no       ; On           ;
 ; E22      ; 403        ; 7        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Column I/O ;                 ; no       ; On           ;
 ; E23      ;            ; 7        ; VCCIO7                                                    ; power  ;              ; 2.5V    ; --         ;                 ; --       ; --           ;
-; E24      ; 433        ; 7        ; LCD_E                                                     ; output ; 2.5 V        ;         ; Column I/O ; N               ; no       ; Off          ;
+; E24      ; 433        ; 7        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Column I/O ;                 ; no       ; On           ;
 ; E25      ; 434        ; 7        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Column I/O ;                 ; no       ; On           ;
 ; E26      ; 378        ; 6        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Row I/O    ;                 ; no       ; On           ;
 ; E27      ; 375        ; 6        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Row I/O    ;                 ; no       ; On           ;
@@ -785,9 +783,9 @@ The pin-out file can be found in D:/QuartusProjects/music_player/quartus_prj/LCD
 ; F12      ; 498        ; 8        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Column I/O ;                 ; no       ; On           ;
 ; F13      ;            ;          ; GND                                                       ; gnd    ;              ;         ; --         ;                 ; --       ; --           ;
 ; F14      ; 485        ; 8        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Column I/O ;                 ; no       ; On           ;
-; F15      ; 466        ; 7        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Column I/O ;                 ; no       ; On           ;
+; F15      ; 466        ; 7        ; KEY4                                                      ; input  ; 2.5 V        ;         ; Column I/O ; N               ; no       ; Off          ;
 ; F16      ;            ;          ; GND                                                       ; gnd    ;              ;         ; --         ;                 ; --       ; --           ;
-; F17      ; 455        ; 7        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Column I/O ;                 ; no       ; On           ;
+; F17      ; 455        ; 7        ; LCD_DATA[5]                                               ; output ; 2.5 V        ;         ; Column I/O ; N               ; no       ; Off          ;
 ; F18      ; 428        ; 7        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Column I/O ;                 ; no       ; On           ;
 ; F19      ; 420        ; 7        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Column I/O ;                 ; no       ; On           ;
 ; F20      ;            ;          ; GND                                                       ; gnd    ;              ;         ; --         ;                 ; --       ; --           ;
@@ -813,9 +811,9 @@ The pin-out file can be found in D:/QuartusProjects/music_player/quartus_prj/LCD
 ; G12      ; 503        ; 8        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Column I/O ;                 ; --       ; --           ;
 ; G13      ; 493        ; 8        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Column I/O ;                 ; no       ; On           ;
 ; G14      ; 484        ; 8        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Column I/O ;                 ; --       ; --           ;
-; G15      ; 457        ; 7        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Column I/O ;                 ; --       ; --           ;
+; G15      ; 457        ; 7        ; LCD_RS                                                    ; output ; 2.5 V        ;         ; Column I/O ; N               ; no       ; Off          ;
 ; G16      ; 453        ; 7        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Column I/O ;                 ; no       ; On           ;
-; G17      ; 437        ; 7        ; LCD_RS                                                    ; output ; 2.5 V        ;         ; Column I/O ; N               ; no       ; Off          ;
+; G17      ; 437        ; 7        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Column I/O ;                 ; --       ; --           ;
 ; G18      ; 452        ; 7        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Column I/O ;                 ; no       ; On           ;
 ; G19      ; 451        ; 7        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Column I/O ;                 ; no       ; On           ;
 ; G20      ; 444        ; 7        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Column I/O ;                 ; no       ; On           ;
@@ -825,7 +823,7 @@ The pin-out file can be found in D:/QuartusProjects/music_player/quartus_prj/LCD
 ; G24      ; 397        ; 6        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Row I/O    ;                 ; no       ; On           ;
 ; G25      ; 393        ; 6        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Row I/O    ;                 ; no       ; On           ;
 ; G26      ; 392        ; 6        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Row I/O    ;                 ; no       ; On           ;
-; G27      ; 367        ; 6        ; KEY2                                                      ; input  ; 2.5 V        ;         ; Row I/O    ; N               ; no       ; Off          ;
+; G27      ; 367        ; 6        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Row I/O    ;                 ; no       ; On           ;
 ; G28      ; 366        ; 6        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Row I/O    ;                 ; no       ; On           ;
 ; H1       ;            ; 1        ; VCCIO1                                                    ; power  ;              ; 2.5V    ; --         ;                 ; --       ; --           ;
 ; H2       ;            ;          ; GND                                                       ; gnd    ;              ;         ; --         ;                 ; --       ; --           ;
@@ -841,8 +839,8 @@ The pin-out file can be found in D:/QuartusProjects/music_player/quartus_prj/LCD
 ; H12      ; 507        ; 8        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Column I/O ;                 ; no       ; On           ;
 ; H13      ; 494        ; 8        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Column I/O ;                 ; no       ; On           ;
 ; H14      ; 480        ; 8        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Column I/O ;                 ; no       ; On           ;
-; H15      ; 464        ; 7        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Column I/O ;                 ; no       ; On           ;
-; H16      ; 459        ; 7        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Column I/O ;                 ; no       ; On           ;
+; H15      ; 464        ; 7        ; LCD_DATA[2]                                               ; output ; 2.5 V        ;         ; Column I/O ; N               ; no       ; Off          ;
+; H16      ; 459        ; 7        ; LCD_DATA[0]                                               ; output ; 2.5 V        ;         ; Column I/O ; N               ; no       ; Off          ;
 ; H17      ; 454        ; 7        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Column I/O ;                 ; no       ; On           ;
 ; H18      ;            ; 7        ; VCCIO7                                                    ; power  ;              ; 2.5V    ; --         ;                 ; --       ; --           ;
 ; H19      ; 446        ; 7        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Column I/O ;                 ; no       ; On           ;
@@ -869,8 +867,8 @@ The pin-out file can be found in D:/QuartusProjects/music_player/quartus_prj/LCD
 ; J12      ; 490        ; 8        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Column I/O ;                 ; no       ; On           ;
 ; J13      ; 489        ; 8        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Column I/O ;                 ; no       ; On           ;
 ; J14      ; 481        ; 8        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Column I/O ;                 ; no       ; On           ;
-; J15      ; 465        ; 7        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Column I/O ;                 ; no       ; On           ;
-; J16      ; 458        ; 7        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Column I/O ;                 ; no       ; On           ;
+; J15      ; 465        ; 7        ; LCD_DATA[3]                                               ; output ; 2.5 V        ;         ; Column I/O ; N               ; no       ; Off          ;
+; J16      ; 458        ; 7        ; LCD_DATA[1]                                               ; output ; 2.5 V        ;         ; Column I/O ; N               ; no       ; Off          ;
 ; J17      ; 450        ; 7        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Column I/O ;                 ; no       ; On           ;
 ; J18      ;            ;          ; GND                                                       ; gnd    ;              ;         ; --         ;                 ; --       ; --           ;
 ; J19      ; 447        ; 7        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Column I/O ;                 ; no       ; On           ;
@@ -935,7 +933,7 @@ The pin-out file can be found in D:/QuartusProjects/music_player/quartus_prj/LCD
 ; L22      ; 384        ; 6        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Row I/O    ;                 ; no       ; On           ;
 ; L23      ; 360        ; 6        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Row I/O    ;                 ; no       ; On           ;
 ; L24      ; 359        ; 6        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Row I/O    ;                 ; no       ; On           ;
-; L25      ; 369        ; 6        ; KEY3                                                      ; input  ; 2.5 V        ;         ; Row I/O    ; N               ; no       ; Off          ;
+; L25      ; 369        ; 6        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Row I/O    ;                 ; no       ; On           ;
 ; L26      ; 363        ; 6        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Row I/O    ;                 ; no       ; On           ;
 ; L27      ; 358        ; 6        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Row I/O    ;                 ; no       ; On           ;
 ; L28      ; 357        ; 6        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Row I/O    ;                 ; no       ; On           ;
@@ -959,7 +957,7 @@ The pin-out file can be found in D:/QuartusProjects/music_player/quartus_prj/LCD
 ; M18      ;            ;          ; GND                                                       ; gnd    ;              ;         ; --         ;                 ; --       ; --           ;
 ; M19      ;            ;          ; VCCINT                                                    ; power  ;              ; 1.2V    ; --         ;                 ; --       ; --           ;
 ; M20      ;            ;          ; GND                                                       ; gnd    ;              ;         ; --         ;                 ; --       ; --           ;
-; M21      ; 368        ; 6        ; KEY1                                                      ; input  ; 2.5 V        ;         ; Row I/O    ; N               ; no       ; Off          ;
+; M21      ; 368        ; 6        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Row I/O    ;                 ; --       ; --           ;
 ; M22      ; 342        ; 6        ; ^MSEL2                                                    ;        ;              ;         ; --         ;                 ; --       ; --           ;
 ; M23      ; 344        ; 6        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Row I/O    ;                 ; no       ; On           ;
 ; M24      ; 347        ; 6        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Row I/O    ;                 ; no       ; On           ;
@@ -1100,15 +1098,15 @@ The pin-out file can be found in D:/QuartusProjects/music_player/quartus_prj/LCD
 ; U19      ;            ;          ; GND                                                       ; gnd    ;              ;         ; --         ;                 ; --       ; --           ;
 ; U20      ;            ;          ; VCCINT                                                    ; power  ;              ; 1.2V    ; --         ;                 ; --       ; --           ;
 ; U21      ; 319        ; 5        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Row I/O    ;                 ; no       ; On           ;
-; U22      ; 313        ; 5        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Row I/O    ;                 ; no       ; On           ;
+; U22      ; 313        ; 5        ; LCD_ON                                                    ; output ; 2.5 V        ;         ; Row I/O    ; N               ; no       ; Off          ;
 ; U23      ; 305        ; 5        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Row I/O    ;                 ; --       ; --           ;
 ; U24      ; 316        ; 5        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Row I/O    ;                 ; --       ; --           ;
-; U25      ; 315        ; 5        ; LCD_ON                                                    ; output ; 2.5 V        ;         ; Row I/O    ; N               ; no       ; Off          ;
+; U25      ; 315        ; 5        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Row I/O    ;                 ; no       ; On           ;
 ; U26      ; 314        ; 5        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Row I/O    ;                 ; no       ; On           ;
 ; U27      ; 318        ; 5        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Row I/O    ;                 ; no       ; On           ;
 ; U28      ; 317        ; 5        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Row I/O    ;                 ; no       ; On           ;
-; V1       ; 84         ; 2        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Row I/O    ;                 ; no       ; On           ;
-; V2       ; 83         ; 2        ; LCD_RW                                                    ; output ; 2.5 V        ;         ; Row I/O    ; N               ; no       ; Off          ;
+; V1       ; 84         ; 2        ; LCD_RW                                                    ; output ; 2.5 V        ;         ; Row I/O    ; N               ; no       ; Off          ;
+; V2       ; 83         ; 2        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Row I/O    ;                 ; no       ; On           ;
 ; V3       ; 82         ; 2        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Row I/O    ;                 ; no       ; On           ;
 ; V4       ; 81         ; 2        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Row I/O    ;                 ; no       ; On           ;
 ; V5       ; 108        ; 2        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Row I/O    ;                 ; no       ; On           ;
@@ -1212,11 +1210,11 @@ Note: Pin directions (input, output or bidir) are based on device operating in u
 ; LCD_DATA[7] ; Incomplete set of assignments ;
 ; LCD_ON      ; Incomplete set of assignments ;
 ; LCD_RW      ; Incomplete set of assignments ;
-; KEY4        ; Incomplete set of assignments ;
 ; clk         ; Incomplete set of assignments ;
 ; rst_n       ; Incomplete set of assignments ;
 ; KEY2        ; Incomplete set of assignments ;
 ; KEY1        ; Incomplete set of assignments ;
+; KEY4        ; Incomplete set of assignments ;
 ; KEY3        ; Incomplete set of assignments ;
 ; LCD_E       ; Missing location assignment   ;
 ; LCD_RS      ; Missing location assignment   ;
@@ -1230,11 +1228,11 @@ Note: Pin directions (input, output or bidir) are based on device operating in u
 ; LCD_DATA[7] ; Missing location assignment   ;
 ; LCD_ON      ; Missing location assignment   ;
 ; LCD_RW      ; Missing location assignment   ;
-; KEY4        ; Missing location assignment   ;
 ; clk         ; Missing location assignment   ;
 ; rst_n       ; Missing location assignment   ;
 ; KEY2        ; Missing location assignment   ;
 ; KEY1        ; Missing location assignment   ;
+; KEY4        ; Missing location assignment   ;
 ; KEY3        ; Missing location assignment   ;
 +-------------+-------------------------------+
 
@@ -1244,10 +1242,11 @@ Note: Pin directions (input, output or bidir) are based on device operating in u
 +----------------------------+-------------+---------------------------+---------------+-------------+------+--------------+---------+-----------+------+--------------+--------------+-------------------+------------------+---------------------+-------------+--------------+
 ; Compilation Hierarchy Node ; Logic Cells ; Dedicated Logic Registers ; I/O Registers ; Memory Bits ; M9Ks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; LUT-Only LCs ; Register-Only LCs ; LUT/Register LCs ; Full Hierarchy Name ; Entity Name ; Library Name ;
 +----------------------------+-------------+---------------------------+---------------+-------------+------+--------------+---------+-----------+------+--------------+--------------+-------------------+------------------+---------------------+-------------+--------------+
-; |LCD                       ; 508 (418)   ; 236 (173)                 ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 18   ; 0            ; 272 (245)    ; 5 (5)             ; 231 (168)        ; |LCD                ; LCD         ; work         ;
+; |LCD                       ; 551 (431)   ; 267 (183)                 ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 18   ; 0            ; 284 (248)    ; 11 (11)           ; 256 (172)        ; |LCD                ; LCD         ; work         ;
 ;    |key_filter:K1|         ; 30 (30)     ; 21 (21)                   ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 9 (9)        ; 0 (0)             ; 21 (21)          ; |LCD|key_filter:K1  ; key_filter  ; work         ;
 ;    |key_filter:K2|         ; 30 (30)     ; 21 (21)                   ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 9 (9)        ; 0 (0)             ; 21 (21)          ; |LCD|key_filter:K2  ; key_filter  ; work         ;
 ;    |key_filter:K3|         ; 30 (30)     ; 21 (21)                   ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 9 (9)        ; 0 (0)             ; 21 (21)          ; |LCD|key_filter:K3  ; key_filter  ; work         ;
+;    |key_filter:K4|         ; 30 (30)     ; 21 (21)                   ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 9 (9)        ; 0 (0)             ; 21 (21)          ; |LCD|key_filter:K4  ; key_filter  ; work         ;
 +----------------------------+-------------+---------------------------+---------------+-------------+------+--------------+---------+-----------+------+--------------+--------------+-------------------+------------------+---------------------+-------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
@@ -1269,11 +1268,11 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; LCD_DATA[7] ; Output   ; --            ; --            ; --                    ; --  ; --   ;
 ; LCD_ON      ; Output   ; --            ; --            ; --                    ; --  ; --   ;
 ; LCD_RW      ; Output   ; --            ; --            ; --                    ; --  ; --   ;
-; KEY4        ; Input    ; --            ; --            ; --                    ; --  ; --   ;
 ; clk         ; Input    ; (0) 0 ps      ; --            ; --                    ; --  ; --   ;
 ; rst_n       ; Input    ; (0) 0 ps      ; --            ; --                    ; --  ; --   ;
-; KEY2        ; Input    ; (6) 1314 ps   ; --            ; --                    ; --  ; --   ;
+; KEY2        ; Input    ; --            ; (6) 1314 ps   ; --                    ; --  ; --   ;
 ; KEY1        ; Input    ; (6) 1314 ps   ; --            ; --                    ; --  ; --   ;
+; KEY4        ; Input    ; (6) 1314 ps   ; --            ; --                    ; --  ; --   ;
 ; KEY3        ; Input    ; (6) 1314 ps   ; --            ; --                    ; --  ; --   ;
 +-------------+----------+---------------+---------------+-----------------------+-----+------+
 
@@ -1283,35 +1282,38 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +---------------------------------+-------------------+---------+
 ; Source Pin / Fanout             ; Pad To Core Index ; Setting ;
 +---------------------------------+-------------------+---------+
-; KEY4                            ;                   ;         ;
 ; clk                             ;                   ;         ;
 ; rst_n                           ;                   ;         ;
 ; KEY2                            ;                   ;         ;
-;      - key_filter:K2|cnt[17]~24 ; 0                 ; 6       ;
-;      - KEY2~_wirecell           ; 0                 ; 6       ;
+;      - key_filter:K2|cnt[4]~24  ; 1                 ; 6       ;
+;      - KEY2~_wirecell           ; 1                 ; 6       ;
 ; KEY1                            ;                   ;         ;
-;      - key_filter:K1|cnt[10]~24 ; 0                 ; 6       ;
+;      - key_filter:K1|cnt[5]~24  ; 0                 ; 6       ;
 ;      - KEY1~_wirecell           ; 0                 ; 6       ;
+; KEY4                            ;                   ;         ;
+;      - key_filter:K4|cnt[2]~24  ; 0                 ; 6       ;
+;      - KEY4~_wirecell           ; 0                 ; 6       ;
 ; KEY3                            ;                   ;         ;
-;      - key_filter:K3|cnt[4]~24  ; 0                 ; 6       ;
+;      - key_filter:K3|cnt[19]~24 ; 0                 ; 6       ;
 ;      - KEY3~_wirecell           ; 0                 ; 6       ;
 +---------------------------------+-------------------+---------+
 
 
-+--------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Control Signals                                                                                                                                        ;
-+--------------------------+---------------------+---------+--------------+--------+----------------------+------------------+---------------------------+
-; Name                     ; Location            ; Fan-Out ; Usage        ; Global ; Global Resource Used ; Global Line Name ; Enable Signal Source Name ;
-+--------------------------+---------------------+---------+--------------+--------+----------------------+------------------+---------------------------+
-; Equal0~6                 ; LCCOMB_X81_Y63_N2   ; 21      ; Clock enable ; no     ; --                   ; --               ; --                        ;
-; Equal1~6                 ; LCCOMB_X82_Y63_N2   ; 50      ; Clock enable ; no     ; --                   ; --               ; --                        ;
-; clk                      ; PIN_J1              ; 236     ; Clock        ; yes    ; Global Clock         ; GCLK2            ; --                        ;
-; cnt_500hz[11]~50         ; LCCOMB_X82_Y62_N30  ; 20      ; Sync. clear  ; no     ; --                   ; --               ; --                        ;
-; key_filter:K1|cnt[10]~24 ; LCCOMB_X107_Y53_N20 ; 20      ; Sync. load   ; no     ; --                   ; --               ; --                        ;
-; key_filter:K2|cnt[17]~24 ; LCCOMB_X111_Y53_N20 ; 20      ; Sync. load   ; no     ; --                   ; --               ; --                        ;
-; key_filter:K3|cnt[4]~24  ; LCCOMB_X109_Y53_N30 ; 20      ; Sync. load   ; no     ; --                   ; --               ; --                        ;
-; rst_n                    ; PIN_Y2              ; 236     ; Async. clear ; yes    ; Global Clock         ; GCLK4            ; --                        ;
-+--------------------------+---------------------+---------+--------------+--------+----------------------+------------------+---------------------------+
++-------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Control Signals                                                                                                                                       ;
++--------------------------+--------------------+---------+--------------+--------+----------------------+------------------+---------------------------+
+; Name                     ; Location           ; Fan-Out ; Usage        ; Global ; Global Resource Used ; Global Line Name ; Enable Signal Source Name ;
++--------------------------+--------------------+---------+--------------+--------+----------------------+------------------+---------------------------+
+; Equal0~6                 ; LCCOMB_X60_Y68_N22 ; 21      ; Clock enable ; no     ; --                   ; --               ; --                        ;
+; clk                      ; PIN_J1             ; 267     ; Clock        ; yes    ; Global Clock         ; GCLK2            ; --                        ;
+; cnt_500hz[2]~50          ; LCCOMB_X59_Y68_N26 ; 20      ; Sync. clear  ; no     ; --                   ; --               ; --                        ;
+; key_filter:K1|cnt[5]~24  ; LCCOMB_X59_Y70_N26 ; 20      ; Sync. load   ; no     ; --                   ; --               ; --                        ;
+; key_filter:K2|cnt[4]~24  ; LCCOMB_X62_Y70_N26 ; 20      ; Sync. load   ; no     ; --                   ; --               ; --                        ;
+; key_filter:K3|cnt[19]~24 ; LCCOMB_X60_Y70_N24 ; 20      ; Sync. load   ; no     ; --                   ; --               ; --                        ;
+; key_filter:K4|cnt[2]~24  ; LCCOMB_X58_Y70_N30 ; 20      ; Sync. load   ; no     ; --                   ; --               ; --                        ;
+; rst_n                    ; PIN_Y2             ; 267     ; Async. clear ; yes    ; Global Clock         ; GCLK4            ; --                        ;
+; write_flag               ; FF_X59_Y69_N7      ; 57      ; Clock enable ; no     ; --                   ; --               ; --                        ;
++--------------------------+--------------------+---------+--------------+--------+----------------------+------------------+---------------------------+
 
 
 +-----------------------------------------------------------------------------------------------------------------------------------------+
@@ -1319,8 +1321,8 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +-------+----------+---------+--------------------------------------+----------------------+------------------+---------------------------+
 ; Name  ; Location ; Fan-Out ; Fan-Out Using Intentional Clock Skew ; Global Resource Used ; Global Line Name ; Enable Signal Source Name ;
 +-------+----------+---------+--------------------------------------+----------------------+------------------+---------------------------+
-; clk   ; PIN_J1   ; 236     ; 25                                   ; Global Clock         ; GCLK2            ; --                        ;
-; rst_n ; PIN_Y2   ; 236     ; 0                                    ; Global Clock         ; GCLK4            ; --                        ;
+; clk   ; PIN_J1   ; 267     ; 22                                   ; Global Clock         ; GCLK2            ; --                        ;
+; rst_n ; PIN_Y2   ; 267     ; 0                                    ; Global Clock         ; GCLK4            ; --                        ;
 +-------+----------+---------+--------------------------------------+----------------------+------------------+---------------------------+
 
 
@@ -1329,37 +1331,37 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +-----------------------+-------------------------+
 ; Routing Resource Type ; Usage                   ;
 +-----------------------+-------------------------+
-; Block interconnects   ; 771 / 342,891 ( < 1 % ) ;
-; C16 interconnects     ; 4 / 10,120 ( < 1 % )    ;
-; C4 interconnects      ; 449 / 209,544 ( < 1 % ) ;
-; Direct links          ; 115 / 342,891 ( < 1 % ) ;
+; Block interconnects   ; 734 / 342,891 ( < 1 % ) ;
+; C16 interconnects     ; 1 / 10,120 ( < 1 % )    ;
+; C4 interconnects      ; 365 / 209,544 ( < 1 % ) ;
+; Direct links          ; 116 / 342,891 ( < 1 % ) ;
 ; Global clocks         ; 2 / 20 ( 10 % )         ;
-; Local interconnects   ; 341 / 119,088 ( < 1 % ) ;
-; R24 interconnects     ; 4 / 9,963 ( < 1 % )     ;
-; R4 interconnects      ; 397 / 289,782 ( < 1 % ) ;
+; Local interconnects   ; 387 / 119,088 ( < 1 % ) ;
+; R24 interconnects     ; 1 / 9,963 ( < 1 % )     ;
+; R4 interconnects      ; 362 / 289,782 ( < 1 % ) ;
 +-----------------------+-------------------------+
 
 
 +----------------------------------------------------------------------------+
 ; LAB Logic Elements                                                         ;
 +---------------------------------------------+------------------------------+
-; Number of Logic Elements  (Average = 13.73) ; Number of LABs  (Total = 37) ;
+; Number of Logic Elements  (Average = 13.44) ; Number of LABs  (Total = 41) ;
 +---------------------------------------------+------------------------------+
-; 1                                           ; 4                            ;
+; 1                                           ; 5                            ;
 ; 2                                           ; 0                            ;
 ; 3                                           ; 0                            ;
 ; 4                                           ; 0                            ;
-; 5                                           ; 0                            ;
-; 6                                           ; 1                            ;
+; 5                                           ; 1                            ;
+; 6                                           ; 0                            ;
 ; 7                                           ; 0                            ;
 ; 8                                           ; 0                            ;
 ; 9                                           ; 0                            ;
-; 10                                          ; 0                            ;
-; 11                                          ; 1                            ;
-; 12                                          ; 1                            ;
-; 13                                          ; 0                            ;
+; 10                                          ; 1                            ;
+; 11                                          ; 0                            ;
+; 12                                          ; 0                            ;
+; 13                                          ; 2                            ;
 ; 14                                          ; 1                            ;
-; 15                                          ; 3                            ;
+; 15                                          ; 5                            ;
 ; 16                                          ; 26                           ;
 +---------------------------------------------+------------------------------+
 
@@ -1367,74 +1369,76 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +-------------------------------------------------------------------+
 ; LAB-wide Signals                                                  ;
 +------------------------------------+------------------------------+
-; LAB-wide Signals  (Average = 2.24) ; Number of LABs  (Total = 37) ;
+; LAB-wide Signals  (Average = 2.02) ; Number of LABs  (Total = 41) ;
 +------------------------------------+------------------------------+
-; 1 Async. clear                     ; 33                           ;
-; 1 Clock                            ; 33                           ;
-; 1 Clock enable                     ; 13                           ;
+; 1 Async. clear                     ; 35                           ;
+; 1 Clock                            ; 35                           ;
+; 1 Clock enable                     ; 8                            ;
 ; 1 Sync. clear                      ; 1                            ;
-; 1 Sync. load                       ; 3                            ;
+; 1 Sync. load                       ; 4                            ;
 +------------------------------------+------------------------------+
 
 
 +-----------------------------------------------------------------------------+
 ; LAB Signals Sourced                                                         ;
 +----------------------------------------------+------------------------------+
-; Number of Signals Sourced  (Average = 20.11) ; Number of LABs  (Total = 37) ;
+; Number of Signals Sourced  (Average = 19.90) ; Number of LABs  (Total = 41) ;
 +----------------------------------------------+------------------------------+
 ; 0                                            ; 0                            ;
-; 1                                            ; 4                            ;
-; 2                                            ; 0                            ;
+; 1                                            ; 3                            ;
+; 2                                            ; 2                            ;
 ; 3                                            ; 0                            ;
 ; 4                                            ; 0                            ;
-; 5                                            ; 0                            ;
+; 5                                            ; 1                            ;
 ; 6                                            ; 0                            ;
 ; 7                                            ; 0                            ;
 ; 8                                            ; 0                            ;
-; 9                                            ; 1                            ;
-; 10                                           ; 0                            ;
+; 9                                            ; 0                            ;
+; 10                                           ; 1                            ;
 ; 11                                           ; 0                            ;
 ; 12                                           ; 0                            ;
 ; 13                                           ; 0                            ;
 ; 14                                           ; 0                            ;
-; 15                                           ; 1                            ;
-; 16                                           ; 0                            ;
-; 17                                           ; 1                            ;
-; 18                                           ; 0                            ;
-; 19                                           ; 3                            ;
-; 20                                           ; 5                            ;
+; 15                                           ; 0                            ;
+; 16                                           ; 1                            ;
+; 17                                           ; 0                            ;
+; 18                                           ; 3                            ;
+; 19                                           ; 2                            ;
+; 20                                           ; 4                            ;
 ; 21                                           ; 1                            ;
-; 22                                           ; 2                            ;
+; 22                                           ; 1                            ;
 ; 23                                           ; 5                            ;
 ; 24                                           ; 1                            ;
-; 25                                           ; 5                            ;
-; 26                                           ; 4                            ;
-; 27                                           ; 3                            ;
-; 28                                           ; 1                            ;
+; 25                                           ; 6                            ;
+; 26                                           ; 2                            ;
+; 27                                           ; 6                            ;
+; 28                                           ; 0                            ;
+; 29                                           ; 0                            ;
+; 30                                           ; 2                            ;
 +----------------------------------------------+------------------------------+
 
 
 +--------------------------------------------------------------------------------+
 ; LAB Signals Sourced Out                                                        ;
 +-------------------------------------------------+------------------------------+
-; Number of Signals Sourced Out  (Average = 8.51) ; Number of LABs  (Total = 37) ;
+; Number of Signals Sourced Out  (Average = 7.98) ; Number of LABs  (Total = 41) ;
 +-------------------------------------------------+------------------------------+
 ; 0                                               ; 0                            ;
-; 1                                               ; 5                            ;
-; 2                                               ; 2                            ;
-; 3                                               ; 0                            ;
-; 4                                               ; 2                            ;
-; 5                                               ; 3                            ;
-; 6                                               ; 1                            ;
-; 7                                               ; 3                            ;
+; 1                                               ; 6                            ;
+; 2                                               ; 3                            ;
+; 3                                               ; 3                            ;
+; 4                                               ; 0                            ;
+; 5                                               ; 8                            ;
+; 6                                               ; 0                            ;
+; 7                                               ; 0                            ;
 ; 8                                               ; 1                            ;
 ; 9                                               ; 1                            ;
-; 10                                              ; 2                            ;
+; 10                                              ; 1                            ;
 ; 11                                              ; 4                            ;
-; 12                                              ; 5                            ;
-; 13                                              ; 2                            ;
-; 14                                              ; 2                            ;
-; 15                                              ; 3                            ;
+; 12                                              ; 2                            ;
+; 13                                              ; 3                            ;
+; 14                                              ; 4                            ;
+; 15                                              ; 4                            ;
 ; 16                                              ; 1                            ;
 +-------------------------------------------------+------------------------------+
 
@@ -1442,47 +1446,47 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +-----------------------------------------------------------------------------+
 ; LAB Distinct Inputs                                                         ;
 +----------------------------------------------+------------------------------+
-; Number of Distinct Inputs  (Average = 20.14) ; Number of LABs  (Total = 37) ;
+; Number of Distinct Inputs  (Average = 17.49) ; Number of LABs  (Total = 41) ;
 +----------------------------------------------+------------------------------+
 ; 0                                            ; 0                            ;
 ; 1                                            ; 0                            ;
-; 2                                            ; 0                            ;
-; 3                                            ; 0                            ;
-; 4                                            ; 6                            ;
+; 2                                            ; 1                            ;
+; 3                                            ; 2                            ;
+; 4                                            ; 2                            ;
 ; 5                                            ; 3                            ;
-; 6                                            ; 3                            ;
+; 6                                            ; 5                            ;
 ; 7                                            ; 0                            ;
-; 8                                            ; 0                            ;
+; 8                                            ; 1                            ;
 ; 9                                            ; 0                            ;
 ; 10                                           ; 3                            ;
-; 11                                           ; 0                            ;
+; 11                                           ; 1                            ;
 ; 12                                           ; 0                            ;
-; 13                                           ; 0                            ;
+; 13                                           ; 1                            ;
 ; 14                                           ; 0                            ;
 ; 15                                           ; 0                            ;
 ; 16                                           ; 0                            ;
 ; 17                                           ; 1                            ;
-; 18                                           ; 1                            ;
-; 19                                           ; 0                            ;
+; 18                                           ; 2                            ;
+; 19                                           ; 1                            ;
 ; 20                                           ; 0                            ;
 ; 21                                           ; 0                            ;
-; 22                                           ; 0                            ;
-; 23                                           ; 3                            ;
-; 24                                           ; 0                            ;
-; 25                                           ; 0                            ;
-; 26                                           ; 0                            ;
-; 27                                           ; 2                            ;
-; 28                                           ; 2                            ;
-; 29                                           ; 0                            ;
+; 22                                           ; 2                            ;
+; 23                                           ; 2                            ;
+; 24                                           ; 1                            ;
+; 25                                           ; 1                            ;
+; 26                                           ; 1                            ;
+; 27                                           ; 0                            ;
+; 28                                           ; 1                            ;
+; 29                                           ; 3                            ;
 ; 30                                           ; 1                            ;
-; 31                                           ; 2                            ;
-; 32                                           ; 1                            ;
+; 31                                           ; 1                            ;
+; 32                                           ; 0                            ;
 ; 33                                           ; 1                            ;
-; 34                                           ; 2                            ;
+; 34                                           ; 0                            ;
 ; 35                                           ; 1                            ;
-; 36                                           ; 2                            ;
-; 37                                           ; 2                            ;
-; 38                                           ; 1                            ;
+; 36                                           ; 0                            ;
+; 37                                           ; 1                            ;
+; 38                                           ; 2                            ;
 +----------------------------------------------+------------------------------+
 
 
@@ -1559,11 +1563,11 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; LCD_DATA[7]        ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ;
 ; LCD_ON             ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ;
 ; LCD_RW             ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ;
-; KEY4               ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ;
 ; clk                ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ;
 ; rst_n              ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ;
 ; KEY2               ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ;
 ; KEY1               ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ;
+; KEY4               ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ;
 ; KEY3               ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ;
 +--------------------+--------------+--------------+--------------+--------------+--------------+-----------+--------------+--------------+-----------+-----------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+-----------+--------------+--------------+
 
@@ -1656,7 +1660,7 @@ Info (176215): I/O bank details before I/O pin placement
         Info (176213): I/O bank number 6 does not use VREF pins and has undetermined VCCIO pins. 1 total pin(s) used --  57 pins available
         Info (176213): I/O bank number 7 does not use VREF pins and has undetermined VCCIO pins. 0 total pin(s) used --  72 pins available
         Info (176213): I/O bank number 8 does not use VREF pins and has undetermined VCCIO pins. 0 total pin(s) used --  71 pins available
-Info (171121): Fitter preparation operations ending: elapsed time is 00:00:01
+Info (171121): Fitter preparation operations ending: elapsed time is 00:00:02
 Info (14896): Fitter has disabled Advanced Physical Optimization because it is not supported for the current family.
 Info (170189): Fitter placement preparation operations beginning
 Info (170190): Fitter placement preparation operations ending: elapsed time is 00:00:00
@@ -1665,7 +1669,7 @@ Info (170137): Fitter placement was successful
 Info (170192): Fitter placement operations ending: elapsed time is 00:00:05
 Info (170193): Fitter routing operations beginning
 Info (170195): Router estimated average interconnect usage is 0% of the available device resources
-    Info (170196): Router estimated peak interconnect usage is 3% of the available device resources in the region that extends from location X81_Y49 to location X91_Y60
+    Info (170196): Router estimated peak interconnect usage is 3% of the available device resources in the region that extends from location X58_Y61 to location X68_Y73
 Info (170199): The Fitter performed an Auto Fit compilation.  Optimizations were skipped to reduce compilation time.
     Info (170201): Optimizations that may affect the design's routability were skipped
 Info (170194): Fitter routing operations ending: elapsed time is 00:00:02
@@ -1677,8 +1681,8 @@ Info (334004): Delay annotation completed successfully
 Info (11218): Fitter post-fit operations ending: elapsed time is 00:00:01
 Info (144001): Generated suppressed messages file D:/QuartusProjects/music_player/quartus_prj/LCD_new/output_files/LCD.fit.smsg
 Info: Quartus Prime Fitter was successful. 0 errors, 4 warnings
-    Info: Peak virtual memory: 5726 megabytes
-    Info: Processing ended: Mon Oct 31 00:22:55 2022
+    Info: Peak virtual memory: 5728 megabytes
+    Info: Processing ended: Fri Nov 04 09:14:26 2022
     Info: Elapsed time: 00:00:19
     Info: Total CPU time (on all processors): 00:00:29
 

@@ -44,6 +44,46 @@
 					"strict" : false
 				},
 				{
+					"name" : "order_reg",
+					"strict" : false
+				},
+				{
+					"name" : "music_reg[0]",
+					"strict" : false
+				},
+				{
+					"name" : "music_reg[1]",
+					"strict" : false
+				},
+				{
+					"name" : "volume_reg[0]",
+					"strict" : false
+				},
+				{
+					"name" : "volume_reg[1]",
+					"strict" : false
+				},
+				{
+					"name" : "volume_reg[2]",
+					"strict" : false
+				},
+				{
+					"name" : "speed_reg[0]",
+					"strict" : false
+				},
+				{
+					"name" : "speed_reg[1]",
+					"strict" : false
+				},
+				{
+					"name" : "play_reg",
+					"strict" : false
+				},
+				{
+					"name" : "LED",
+					"strict" : false
+				},
+				{
 					"name" : "clk",
 					"strict" : false
 				},
@@ -60,11 +100,11 @@
 					"strict" : false
 				},
 				{
-					"name" : "KEY4",
+					"name" : "KEY3",
 					"strict" : false
 				},
 				{
-					"name" : "KEY3",
+					"name" : "KEY4",
 					"strict" : false
 				}
 			]

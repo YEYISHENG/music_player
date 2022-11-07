@@ -1,0 +1,307 @@
+// Copyright (C) 2018  Intel Corporation. All rights reserved.
+// Your use of Intel Corporation's design tools, logic functions 
+// and other software and tools, and its AMPP partner logic 
+// functions, and any output files from any of the foregoing 
+// (including device programming or simulation files), and any 
+// associated documentation or information are expressly subject 
+// to the terms and conditions of the Intel Program License 
+// Subscription Agreement, the Intel Quartus Prime License Agreement,
+// the Intel FPGA IP License Agreement, or other applicable license
+// agreement, including, without limitation, that your use is for
+// the sole purpose of programming logic devices manufactured by
+// Intel and sold by Intel or its authorized distributors.  Please
+// refer to the applicable agreement for further details.
+
+// VENDOR "Altera"
+// PROGRAM "Quartus Prime"
+// VERSION "Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition"
+
+// DATE "11/06/2022 19:48:37"
+
+// 
+// Device: Altera EP4CE6E22C6 Package TQFP144
+// 
+
+// 
+// This Verilog file should be used for ModelSim (Verilog) only
+// 
+
+`timescale 1 ps/ 1 ps
+
+module clc_flag (
+	clk,
+	rst_n,
+	music_reg,
+	cnt_clc);
+input 	clk;
+input 	rst_n;
+input 	[1:0] music_reg;
+output 	cnt_clc;
+
+// Design Ports Information
+// cnt_clc	=>  Location: PIN_31,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// music_reg[0]	=>  Location: PIN_28,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// music_reg[1]	=>  Location: PIN_30,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// clk	=>  Location: PIN_23,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// rst_n	=>  Location: PIN_24,	 I/O Standard: 2.5 V,	 Current Strength: Default
+
+
+wire gnd;
+wire vcc;
+wire unknown;
+
+assign gnd = 1'b0;
+assign vcc = 1'b1;
+assign unknown = 1'bx;
+
+tri1 devclrn;
+tri1 devpor;
+tri1 devoe;
+// synopsys translate_off
+initial $sdf_annotate("clc_flag_v.sdo");
+// synopsys translate_on
+
+wire \cnt_clc~output_o ;
+wire \clk~input_o ;
+wire \clk~inputclkctrl_outclk ;
+wire \music_reg[1]~input_o ;
+wire \music_reg[0]~input_o ;
+wire \temp_music_reg[0]~feeder_combout ;
+wire \rst_n~input_o ;
+wire \rst_n~inputclkctrl_outclk ;
+wire \temp_music_reg[1]~feeder_combout ;
+wire \Equal0~0_combout ;
+wire \cnt_clc~reg0_q ;
+wire [1:0] temp_music_reg;
+
+
+hard_block auto_generated_inst(
+	.devpor(devpor),
+	.devclrn(devclrn),
+	.devoe(devoe));
+
+// Location: IOOBUF_X0_Y7_N2
+cycloneive_io_obuf \cnt_clc~output (
+	.i(!\cnt_clc~reg0_q ),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\cnt_clc~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \cnt_clc~output .bus_hold = "false";
+defparam \cnt_clc~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOIBUF_X0_Y11_N8
+cycloneive_io_ibuf \clk~input (
+	.i(clk),
+	.ibar(gnd),
+	.o(\clk~input_o ));
+// synopsys translate_off
+defparam \clk~input .bus_hold = "false";
+defparam \clk~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: CLKCTRL_G2
+cycloneive_clkctrl \clk~inputclkctrl (
+	.ena(vcc),
+	.inclk({vcc,vcc,vcc,\clk~input_o }),
+	.clkselect(2'b00),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.outclk(\clk~inputclkctrl_outclk ));
+// synopsys translate_off
+defparam \clk~inputclkctrl .clock_type = "global clock";
+defparam \clk~inputclkctrl .ena_register_mode = "none";
+// synopsys translate_on
+
+// Location: IOIBUF_X0_Y8_N15
+cycloneive_io_ibuf \music_reg[1]~input (
+	.i(music_reg[1]),
+	.ibar(gnd),
+	.o(\music_reg[1]~input_o ));
+// synopsys translate_off
+defparam \music_reg[1]~input .bus_hold = "false";
+defparam \music_reg[1]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: IOIBUF_X0_Y9_N8
+cycloneive_io_ibuf \music_reg[0]~input (
+	.i(music_reg[0]),
+	.ibar(gnd),
+	.o(\music_reg[0]~input_o ));
+// synopsys translate_off
+defparam \music_reg[0]~input .bus_hold = "false";
+defparam \music_reg[0]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: LCCOMB_X1_Y8_N30
+cycloneive_lcell_comb \temp_music_reg[0]~feeder (
+// Equation(s):
+// \temp_music_reg[0]~feeder_combout  = \music_reg[0]~input_o 
+
+	.dataa(gnd),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(\music_reg[0]~input_o ),
+	.cin(gnd),
+	.combout(\temp_music_reg[0]~feeder_combout ),
+	.cout());
+// synopsys translate_off
+defparam \temp_music_reg[0]~feeder .lut_mask = 16'hFF00;
+defparam \temp_music_reg[0]~feeder .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: IOIBUF_X0_Y11_N15
+cycloneive_io_ibuf \rst_n~input (
+	.i(rst_n),
+	.ibar(gnd),
+	.o(\rst_n~input_o ));
+// synopsys translate_off
+defparam \rst_n~input .bus_hold = "false";
+defparam \rst_n~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: CLKCTRL_G4
+cycloneive_clkctrl \rst_n~inputclkctrl (
+	.ena(vcc),
+	.inclk({vcc,vcc,vcc,\rst_n~input_o }),
+	.clkselect(2'b00),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.outclk(\rst_n~inputclkctrl_outclk ));
+// synopsys translate_off
+defparam \rst_n~inputclkctrl .clock_type = "global clock";
+defparam \rst_n~inputclkctrl .ena_register_mode = "none";
+// synopsys translate_on
+
+// Location: FF_X1_Y8_N31
+dffeas \temp_music_reg[0] (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\temp_music_reg[0]~feeder_combout ),
+	.asdata(vcc),
+	.clrn(\rst_n~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(temp_music_reg[0]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \temp_music_reg[0] .is_wysiwyg = "true";
+defparam \temp_music_reg[0] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X1_Y8_N28
+cycloneive_lcell_comb \temp_music_reg[1]~feeder (
+// Equation(s):
+// \temp_music_reg[1]~feeder_combout  = \music_reg[1]~input_o 
+
+	.dataa(gnd),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(\music_reg[1]~input_o ),
+	.cin(gnd),
+	.combout(\temp_music_reg[1]~feeder_combout ),
+	.cout());
+// synopsys translate_off
+defparam \temp_music_reg[1]~feeder .lut_mask = 16'hFF00;
+defparam \temp_music_reg[1]~feeder .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X1_Y8_N29
+dffeas \temp_music_reg[1] (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\temp_music_reg[1]~feeder_combout ),
+	.asdata(vcc),
+	.clrn(\rst_n~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(temp_music_reg[1]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \temp_music_reg[1] .is_wysiwyg = "true";
+defparam \temp_music_reg[1] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X1_Y8_N4
+cycloneive_lcell_comb \Equal0~0 (
+// Equation(s):
+// \Equal0~0_combout  = (\music_reg[1]~input_o  & (temp_music_reg[1] & (\music_reg[0]~input_o  $ (!temp_music_reg[0])))) # (!\music_reg[1]~input_o  & (!temp_music_reg[1] & (\music_reg[0]~input_o  $ (!temp_music_reg[0]))))
+
+	.dataa(\music_reg[1]~input_o ),
+	.datab(\music_reg[0]~input_o ),
+	.datac(temp_music_reg[0]),
+	.datad(temp_music_reg[1]),
+	.cin(gnd),
+	.combout(\Equal0~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \Equal0~0 .lut_mask = 16'h8241;
+defparam \Equal0~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X1_Y8_N5
+dffeas \cnt_clc~reg0 (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\Equal0~0_combout ),
+	.asdata(vcc),
+	.clrn(\rst_n~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\cnt_clc~reg0_q ),
+	.prn(vcc));
+// synopsys translate_off
+defparam \cnt_clc~reg0 .is_wysiwyg = "true";
+defparam \cnt_clc~reg0 .power_up = "low";
+// synopsys translate_on
+
+assign cnt_clc = \cnt_clc~output_o ;
+
+endmodule
+
+module hard_block (
+
+	devpor,
+	devclrn,
+	devoe);
+
+// Design Ports Information
+// ~ALTERA_ASDO_DATA1~	=>  Location: PIN_6,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// ~ALTERA_FLASH_nCE_nCSO~	=>  Location: PIN_8,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// ~ALTERA_DCLK~	=>  Location: PIN_12,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// ~ALTERA_DATA0~	=>  Location: PIN_13,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// ~ALTERA_nCEO~	=>  Location: PIN_101,	 I/O Standard: 2.5 V,	 Current Strength: 8mA
+
+input 	devpor;
+input 	devclrn;
+input 	devoe;
+
+wire gnd;
+wire vcc;
+wire unknown;
+
+assign gnd = 1'b0;
+assign vcc = 1'b1;
+assign unknown = 1'bx;
+
+wire \~ALTERA_ASDO_DATA1~~padout ;
+wire \~ALTERA_FLASH_nCE_nCSO~~padout ;
+wire \~ALTERA_DATA0~~padout ;
+wire \~ALTERA_ASDO_DATA1~~ibuf_o ;
+wire \~ALTERA_FLASH_nCE_nCSO~~ibuf_o ;
+wire \~ALTERA_DATA0~~ibuf_o ;
+
+
+endmodule

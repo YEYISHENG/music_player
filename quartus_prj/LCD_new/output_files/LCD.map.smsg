@@ -1,4 +1,4 @@
-Warning (10268): Verilog HDL information at LCD.v(305): always construct contains both blocking and non-blocking assignments File: D:/QuartusProjects/music_player/rtl/LCD.v Line: 305
+Warning (10268): Verilog HDL information at LCD.v(358): always construct contains both blocking and non-blocking assignments File: D:/QuartusProjects/music_player/rtl/LCD.v Line: 358
 Info (10281): Verilog HDL Declaration information at LCD.v(5): object "KEY1" differs only in case from object "key1" in the same scope File: D:/QuartusProjects/music_player/rtl/LCD.v Line: 5
 Info (10281): Verilog HDL Declaration information at LCD.v(6): object "KEY2" differs only in case from object "key2" in the same scope File: D:/QuartusProjects/music_player/rtl/LCD.v Line: 6
 Info (10281): Verilog HDL Declaration information at LCD.v(7): object "KEY3" differs only in case from object "key3" in the same scope File: D:/QuartusProjects/music_player/rtl/LCD.v Line: 7

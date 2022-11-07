@@ -1,0 +1,33 @@
+`timescale 1ns/1ns
+module tb_clc_flag;
+
+reg         clk;
+reg         rst_n;
+reg         music_reg;
+wire [1:0]  cnt_clc;
+
+
+initial begin
+    clk <= 1'b0;
+    rst_n <= 1'b0;
+    #20
+    rst_n <= 1'b1;
+    music_reg <= 2'd1;
+    #200
+    music_reg <= 2'd2;
+    #20
+    music_reg <= 2'd3;
+    #20
+    music_reg <= 2'd2;
+    #20
+    music_reg <= 2'd1;
+end
+
+
+always  begin
+    #20
+    clk <= ~clk; 
+end
+
+
+endmodule //Untitled-2

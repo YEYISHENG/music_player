@@ -1,0 +1,29 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "cnt_clc",
+					"strict" : false
+				},
+				{
+					"name" : "music_reg[0]",
+					"strict" : false
+				},
+				{
+					"name" : "music_reg[1]",
+					"strict" : false
+				},
+				{
+					"name" : "clk",
+					"strict" : false
+				},
+				{
+					"name" : "rst_n",
+					"strict" : false
+				}
+			]
+		}
+	]
+}
