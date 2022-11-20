@@ -1,24 +1,36 @@
 module LCD
 	(
-	input 				clk			,
-	input 				rst_n		,
-    input               KEY1   		,
-    input               KEY2   		,
-    input               KEY3  		,
-    input               KEY4  		,
-	output 				LCD_E 		,
-	output reg 			LCD_RS		,
-	output reg[7:0]	    LCD_DATA	,
-    output wire         LCD_ON		,
-    output wire         LCD_RW		,
-	output reg			order_reg	,
-	output reg[1:0]		music_reg	,
-	output reg[2:0]		volume_reg ,
-	output reg[1:0]		speed_reg	,
-	output reg			play_reg	,
+	input 				clk			 ,
+	input 				rst_n		 ,
+    input               KEY1   		 ,
+    input               KEY2   		 ,
+    input               KEY3  		 ,
+    input               KEY4  		 ,
+	output 				LCD_E 		 ,
+	output reg 			LCD_RS		 ,
+	output reg[7:0]	    LCD_DATA	 ,
+    output wire         LCD_ON		 ,
+    output wire         LCD_RW		 ,
+	output 			    order1_flag	 ,
+	output 			    order2_flag	 ,
+	output      		music0_flag	 ,
+	output      		music1_flag	 ,
+	output              music2_flag	 ,
+	output              music3_flag	 ,
+	output      		volume1_flag ,
+	output      		volume2_flag ,
+	output      		volume3_flag ,
+	output      		volume4_flag ,
+	output      		volume5_flag ,
+	output      		speed1_flag	 ,
+	output      		speed2_flag	 ,
+	output      		speed3_flag	 ,
+	output 			    play_flag 	 ,
+	output 			    pause_flag 	 ,
 	output reg			LED 
 	);
-	
+	`include "parameter_sheet.h"
+
 	assign LCD_ON = 1'b1;     //打开LED电源
 	assign LCD_RW = 1'b0;	  //因为没有读操作，所以LCD_RW一直是低电平
 	
@@ -27,11 +39,11 @@ module LCD
 	reg[127:0]  row_2;
 
 
-	//reg 	   order_reg;			  //用来判断是顺序播放还是单曲循环的标志
-	//reg[1:0] music_reg;	  //用来记录当前播放的音乐是哪首
-	//reg[2:0] volume_reg;	  //用来记录选择的音量
-	//reg[1:0] speed_reg;	  //要来记录播放速度
-	//reg 	   play_reg;	  //用来记录现在是暂停还是播放
+	reg			order_reg;			  //用来判断是顺序播放还是单曲循环的标志
+	reg[1:0]	music_reg;	  		  //用来记录当前播放的音乐是哪首
+	reg[2:0] 	volume_reg;	  		  //用来记录选择的音量
+	reg[1:0] 	speed_reg;	  		  //要来记录播放速度
+	reg 	   	play_reg;	  		  //用来记录现在是暂停还是播放
 	wire key1_flag;
 	wire key2_flag;
 	wire key3_flag;
@@ -70,42 +82,6 @@ module LCD
 	);
 	
 	
-	
-		
-    //输出字符数据
-    parameter show_0 = "MUSIC           ";
-    parameter show_1 = "MODE            ";
-    parameter show_2 = "SPEED           ";
-    parameter show_3 = "VOLUME          ";
-    parameter show_4 = "music_1         ";
-    parameter show_5 = "music_2         ";
-    parameter show_6 = "play in order   ";
-    parameter show_7 = "single cycle    ";
-    parameter show_8 = "1               ";
-    parameter show_9 = "1.25            ";
-    parameter show_A = "0.75            ";
-    parameter show_B = "VOLUME_1        ";
-    parameter show_C = "VOLUME_2        ";
-    parameter show_D = "VOLUME_3        ";
-    parameter show_E = "VOLUME_4        ";
-    parameter show_F = "VOLUME_5        ";
-	parameter show_F1= "music_3         ";
-	parameter show_F2= "    music_1     ";
-	parameter show_F3= "    music_2     ";
-	parameter show_F4= "    music_3     ";
-	parameter show_F5= "            1m23";
-	parameter show_F6= "            2m34";
-	parameter show_F7= "            3m45";
-	parameter show_F8= "STP music_1     ";
-	parameter show_F9= "STP music_2     ";
-	parameter show_FA= "STP music_3     ";
-
-	parameter crt_F8= 56'h11_19_1d_1f_1d_19_11;  //下一曲符号，须在CGRAM中自定义
-	parameter crt_F9= 56'h11_13_17_1f_17_13_11;  //上一曲符号，须在CGRAM中自定义
-	parameter crt_FA= 56'h1b_1b_1b_1b_1b_1b_1b;  //下正在播放符号，须在CGRAM中自定义
-	parameter crt_FB= 56'h10_18_1c_1f_1c_18_10;  //暂停播放符号，须在CGRAM中自定义
-    parameter arrow = 8'b0111_1111;
-
 	//上电稳定阶段
 	parameter TIME_15MS=750_000;//需要15ms以达上电稳定(初始化)
 	reg[19:0]cnt_15ms;
@@ -148,7 +124,7 @@ module LCD
 				write_flag <= 1'b0;
 
     //根据按键进行显示界面的切换
-    parameter key1 = 2'b00, key2 = 2'b01, key3 = 2'b10, key4 = 2'b11;                   //按键的flag标志
+    parameter key1 = 3'b000, key2 = 3'b001, key3 = 3'b010, key4 = 3'b011;                   //按键的flag标志
     reg [2:0] KEY;
     always @(posedge clk or negedge rst_n) 
         if (!rst_n)  
@@ -165,7 +141,7 @@ module LCD
             KEY <= 3'b100;
 
 
-	parameter TIME_1S = 50_000_00;
+	parameter TIME_1S = 50_000_000;			//缺省情况下为32位无符号十进制数
 	reg [25:0] cnt_1s;
 	reg [7:0] cnt_sec;			//秒钟计时
 	reg [7:0] cnt_min;			//分钟计时
@@ -187,6 +163,16 @@ module LCD
 		else cnt_1s <= cnt_1s+1'b1;
 	end
 
+	//根据不同的播放速度更改定时器基准时间
+	reg [31:0] time_for_spd;
+	always @(posedge clk or negedge rst_n) begin
+		if(!rst_n) time_for_spd = TIME_1S;
+		else if(speed_reg == 0) time_for_spd <= TIME_1S;
+		else if(speed_reg == 2'd1) time_for_spd <= 0.8*TIME_1S;
+		else if(speed_reg == 2'd2) time_for_spd <= 1.3333333*TIME_1S;
+		else time_for_spd <= time_for_spd;
+	end
+
 	//秒钟计时
 	always @(posedge clk or negedge rst_n) begin
 		if(!rst_n) cnt_sec <= 0;
@@ -194,7 +180,7 @@ module LCD
 		else case(play_reg)
 					1'b0: cnt_sec <= cnt_sec;
 					1'b1: if(cnt_sec == 8'd59) cnt_sec <= 0;
-						  else if(cnt_1s == (TIME_1S - 1'b1)) cnt_sec <= cnt_sec+1; 					
+						  else if(cnt_1s == (time_for_spd - 1'b1)) cnt_sec <= cnt_sec+1; 					
 						  else cnt_sec <= cnt_sec;
 		endcase
 	end
@@ -208,80 +194,6 @@ module LCD
 				else cnt_min <= cnt_min+1;
 	end
 
-	//状态机有40种状态,此处用了格雷码,一次只有一位变化(在二进制下)
-	parameter IDLE = 8'h00;							//闲置状态
-	parameter SET_FUNCTION = 8'h01;					//工作方式设置，用来设置8(4)数据接口、2(1)行显示、5*8(5*10)dot
-	parameter DISP_OFF = 8'h03;						//显示开关设置关，设置是否显示字符和光标
-	parameter DISP_CLEAR = 8'h02;					//清屏
-	parameter ENTRY_MODE = 8'h06;					//进入模式设置，写入新数据后光标是否移动？移动方向？
-	parameter DISP_ON = 8'h07;						//显示开关设置开
-	parameter ROW1_ADDR = 8'h05;					//第一行显示首地址(DDRAM地址)
-	parameter ROW1_0 = 8'h04;						//显示字符数据(DDRAM中的数据)
-	parameter ROW1_1 = 8'h0C;
-	parameter ROW1_2 = 8'h0D;
-	parameter ROW1_3 = 8'h0F;
-	parameter ROW1_4 = 8'h0E;
-	parameter ROW1_5 = 8'h0A;
-	parameter ROW1_6 = 8'h0B;
-	parameter ROW1_7 = 8'h09;
-	parameter ROW1_8 = 8'h08;
-	parameter ROW1_9 = 8'h18;
-	parameter ROW1_A = 8'h19;
-	parameter ROW1_B = 8'h1B;
-	parameter ROW1_C = 8'h1A;
-	parameter ROW1_D = 8'h1E;
-	parameter ROW1_E = 8'h1F;
-	parameter ROW1_F = 8'h1D;
-	parameter ROW2_ADDR = 8'h1C;					//第二行显示首地址(DDRAM地址)
-	parameter ROW2_0 = 8'h14;
-	parameter ROW2_1 = 8'h15;
-	parameter ROW2_2 = 8'h17;
-	parameter ROW2_3 = 8'h16;
-	parameter ROW2_4 = 8'h12;
-	parameter ROW2_5 = 8'h13;
-	parameter ROW2_6 = 8'h11;
-	parameter ROW2_7 = 8'h10;
-	parameter ROW2_8 = 8'h30;
-	parameter ROW2_9 = 8'h31;
-	parameter ROW2_A = 8'h33;
-	parameter ROW2_B = 8'h32;
-	parameter ROW2_C = 8'h36;
-	parameter ROW2_D = 8'h37;
-	parameter ROW2_E = 8'h35;
-	parameter ROW2_F = 8'h34;
-
-	parameter WEDD1  = 8'h3C;						//write self-defining data ,向CGRAM中写入自定义字符数据1
-	parameter WEDD2  = 8'h3D;						//write self-defining data ,向CGRAM中写入自定义字符数据2
-	parameter WEDD3  = 8'h3F;						//write self-defining data ,向CGRAM中写入自定义字符数据3
-	parameter WEDD4  = 8'h3E;						//write self-defining data ,向CGRAM中写入自定义字符数据4
-	parameter SEE0_0 = 8'h3A;						//self-defining data,向CGRAM中写入的自定义字符数据,一次需写入7个8bit数据
-	parameter SEE0_1 = 8'h3B;
-	parameter SEE0_2 = 8'h39;
-	parameter SEE0_3 = 8'h38;
-	parameter SEE0_4 = 8'h28;
-	parameter SEE0_5 = 8'h29;
-	parameter SEE0_6 = 8'h2B;
-	parameter SEE1_0 = 8'h2A;
-	parameter SEE1_1 = 8'h2E;
-	parameter SEE1_2 = 8'h2F;
-	parameter SEE1_3 = 8'h2D;
-	parameter SEE1_4 = 8'h2C;
-	parameter SEE1_5 = 8'h24;
-	parameter SEE1_6 = 8'h25;
-	parameter SEE2_0 = 8'h27;
-	parameter SEE2_1 = 8'h26;
-	parameter SEE2_2 = 8'h22;
-	parameter SEE2_3 = 8'h23;
-	parameter SEE2_4 = 8'h21;
-	parameter SEE2_5 = 8'h20;
-	parameter SEE2_6 = 8'h60;
-	parameter SEE3_0 = 8'h61;
-	parameter SEE3_1 = 8'h63;
-	parameter SEE3_2 = 8'h62;
-	parameter SEE3_3 = 8'h66;
-	parameter SEE3_4 = 8'h67;
-	parameter SEE3_5 = 8'h65;
-	parameter SEE3_6 = 8'h64;
 
 	reg[7:0]currentstate;//Current state,当前状态
 	reg[7:0]nextstate;//Next state,下一状态
@@ -561,8 +473,8 @@ module LCD
         if(!rst_n)
             row_1[127:32] = show_0[127:32];
         else  begin
-            case(row_1[127:32])
-                show_0[127:32]: if(KEY == key1) row_1[127:32] <=show_0[127:32];
+            case(row_1[111:40])
+                show_0[111:40]: if(KEY == key1) row_1[127:32] <=show_0[127:32];
                         else if(KEY == key2) begin 
 						case(music_reg) 
 							2'd0: row_1[127:32] <= show_4[127:32];
@@ -576,138 +488,159 @@ module LCD
                         else if(KEY == key4) row_1[127:32] <= show_3[127:32];
 						else row_1[127:32] <= row_1[127:32];
 						
-                show_1[127:32]: if(KEY == key1) row_1[127:32] <=show_1[127:32];
+                show_1[111:40]: if(KEY == key1) row_1[127:32] <=show_1[127:32];
                         else if(KEY == key2) row_1[127:32] <=show_6[127:32];
                         else if(KEY == key3) row_1[127:32] <=show_2[127:32];
                         else if(KEY == key4) row_1[127:32] <= show_0[127:32];
 								else row_1[127:32] <= row_1[127:32];
 								
-                show_2[127:32]: if(KEY == key1) row_1[127:32] <=show_2[127:32];
+                show_2[111:40]: if(KEY == key1) row_1[127:32] <=show_2[127:32];
                         else if(KEY == key2) row_1[127:32] <=show_8[127:32];
                         else if(KEY == key3) row_1[127:32] <=show_3[127:32];
                         else if(KEY == key4) row_1[127:32] <= show_1[127:32];
 
-                show_3[127:32]: if(KEY == key1) row_1[127:32] <=show_3[127:32];
+                show_3[111:40]: if(KEY == key1) row_1[127:32] <=show_3[127:32];
                         else if(KEY == key2) row_1[127:32] <=show_B[127:32];
                         else if(KEY == key3) row_1[127:32] <=show_0[127:32];
                         else if(KEY == key4) row_1[127:32] <= show_2[127:32];
 								else row_1[127:32] <= row_1[127:32];
 
-                show_4[127:32]: if(KEY == key1) row_1[127:32] <=show_0[127:32];
+                show_4[111:40]: if(KEY == key1) row_1[127:32] <=show_0[127:32];
                         else if(KEY == key2) row_1[127:32] <=show_F2[127:32];
                         else if(KEY == key3) row_1[127:32] <=show_5[127:32];
                         else if(KEY == key4) row_1[127:32] <= show_F1[127:32];
 								else row_1[127:32] <= row_1[127:32];
 	
-                show_5[127:32]: if(KEY == key1) row_1[127:32] <=show_0[127:32];
+                show_5[111:40]: if(KEY == key1) row_1[127:32] <=show_0[127:32];
                         else if(KEY == key2) row_1[127:32] <=show_F3[127:32];
                         else if(KEY == key3) row_1[127:32] <=show_F1[127:32];
                         else if(KEY == key4) row_1[127:32] <= show_4[127:32];
 								else row_1[127:32] <= row_1[127:32];
 
-                show_6[127:32]: if(KEY == key1) row_1[127:32] <=show_1[127:32];
+                show_6[111:40]: if(KEY == key1) row_1[127:32] <=show_1[127:32];
                         else if(KEY == key2) row_1[127:32] <=show_1[127:32];
                         else if(KEY == key3) row_1[127:32] <=show_7[127:32];
                         else if(KEY == key4) row_1[127:32] <= show_7[127:32];
 								else row_1[127:32] <= row_1[127:32];
 
-                show_7[127:32]: if(KEY == key1) row_1[127:32] <=show_1[127:32];
+                show_7[111:40]: if(KEY == key1) row_1[127:32] <=show_1[127:32];
                         else if(KEY == key2) row_1[127:32] <=show_1[127:32];
                         else if(KEY == key3) row_1[127:32] <=show_6[127:32];
                         else if(KEY == key4) row_1[127:32] <= show_6[127:32];
 								else row_1[127:32] <= row_1[127:32];
 
-                show_8[127:32]: if(KEY == key1) row_1[127:32] <=show_2[127:32];
+                show_8[111:40]: if(KEY == key1) row_1[127:32] <=show_2[127:32];
                         else if(KEY == key2) row_1[127:32] <=show_2[127:32];
                         else if(KEY == key3) row_1[127:32] <=show_9[127:32];
                         else if(KEY == key4) row_1[127:32] <= show_A[127:32];
 								else row_1[127:32] <= row_1[127:32];
 
-                show_9[127:32]: if(KEY == key1) row_1[127:32] <=show_2[127:32];
+                show_9[111:40]: if(KEY == key1) row_1[127:32] <=show_2[127:32];
                         else if(KEY == key2) row_1[127:32] <=show_2[127:32];
                         else if(KEY == key3) row_1[127:32] <=show_A[127:32];
-                        else if(KEY == key4)row_1[127:32] <= show_8[127:32];
+                        else if(KEY == key4) row_1[127:32] <= show_8[127:32];
 								else row_1[127:32] <= row_1[127:32];
 
-                show_A[127:32]: if(KEY == key1) row_1[127:32] <=show_2[127:32];
+                show_A[111:40]: if(KEY == key1) row_1[127:32] <=show_2[127:32];
                         else if(KEY == key2) row_1[127:32] <=show_2[127:32];
                         else if(KEY == key3) row_1[127:32] <=show_8[127:32];
                         else if(KEY == key4) row_1[127:32] <= show_9[127:32];
 								else row_1[127:32] <= row_1[127:32];
 
-                show_B[127:32]: if(KEY == key1) row_1[127:32] <=show_3[127:32];
+                show_B[111:40]: if(KEY == key1) row_1[127:32] <=show_3[127:32];
                         else if(KEY == key2) row_1[127:32] <=show_3[127:32];
                         else if(KEY == key3) row_1[127:32] <=show_C[127:32];
                         else if(KEY == key4) row_1[127:32] <= show_F[127:32];
 								else row_1[127:32] <= row_1[127:32];
 
-                show_C[127:32]: if(KEY == key1) row_1[127:32] <=show_3[127:32];
+                show_C[111:40]: if(KEY == key1) row_1[127:32] <=show_3[127:32];
                         else if(KEY == key2) row_1[127:32] <=show_3[127:32];
                         else if(KEY == key3) row_1[127:32] <=show_D[127:32];
                         else if(KEY == key4) row_1[127:32] <= show_B[127:32];
 								else row_1[127:32] <= row_1[127:32];
 
-                show_D[127:32]: if(KEY == key1) row_1[127:32] <=show_3[127:32];
+                show_D[111:40]: if(KEY == key1) row_1[127:32] <=show_3[127:32];
                         else if(KEY == key2) row_1[127:32] <=show_3[127:32];
                         else if(KEY == key3) row_1[127:32] <=show_E[127:32];
                         else if(KEY == key4) row_1[127:32] <= show_C[127:32];
 								else row_1[127:32] <= row_1[127:32];
 
-                show_E[127:32]: if(KEY == key1) row_1[127:32] <=show_3[127:32];
+                show_E[111:40]: if(KEY == key1) row_1[127:32] <=show_3[127:32];
                         else if(KEY == key2) row_1[127:32] <=show_3[127:32];
                         else if(KEY == key3) row_1[127:32] <=show_F[127:32];
                         else if(KEY == key4) row_1[127:32] <= show_D[127:32];
 								else row_1[127:32] <= row_1[127:32];
 
-                show_F[127:32]: if(KEY == key1) row_1[127:32] <=show_3[127:32];
+                show_F[111:40]: if(KEY == key1) row_1[127:32] <=show_3[127:32];
                         else if(KEY == key2) row_1[127:32] <=show_3[127:32];
                         else if(KEY == key3) row_1[127:32] <=show_B[127:32];
                         else if(KEY == key4) row_1[127:32] <= show_E[127:32];
 								else row_1[127:32] <= row_1[127:32];
 
-				show_F1[127:32]: if(KEY == key1) row_1[127:32] <=show_0[127:32];
+				show_F1[111:40]: if(KEY == key1) row_1[127:32] <=show_0[127:32];
                         else if(KEY == key2) row_1[127:32] <=show_F4[127:32];
                         else if(KEY == key3) row_1[127:32] <=show_4[127:32];
                         else if(KEY == key4) row_1[127:32] <=show_5[127:32];
 								else row_1[127:32] <= row_1[127:32];
 				
-				show_F2[127:32]: if(KEY == key1) row_1[127:32] <=show_4[127:32];
-                        else if(KEY == key2) row_1[127:32] <=show_F8[127:32];
-                        else if(KEY == key3) row_1[127:32] <=show_F3[127:32];
-                        else if(KEY == key4) row_1[127:32] <=show_F4[127:32];
-								else row_1[127:32] <= row_1[127:32];
-				
-				show_F3[127:32]: if(KEY == key1) row_1[127:32] <=show_4[127:32];
-                        else if(KEY == key2) row_1[127:32] <=show_F9[127:32];
-                        else if(KEY == key3) row_1[127:32] <=show_F4[127:32];
-                        else if(KEY == key4) row_1[127:32] <=show_F2[127:32];
-								else row_1[127:32] <= row_1[127:32];
-				
-				show_F4[127:32]: if(KEY == key1) row_1[127:32] <=show_4[127:32];
-                        else if(KEY == key2) row_1[127:32] <=show_FA[127:32];
-                        else if(KEY == key3) row_1[127:32] <=show_F2[127:32];
-                        else if(KEY == key4) row_1[127:32] <=show_F3[127:32];
-								else row_1[127:32] <= row_1[127:32];
+				show_F2[111:40]: if(music_reg == 2'd1) begin
+                                 case(KEY)
+                                     key1: row_1[127:32] <=show_4[127:32];
+                                     key2: row_1[127:32] <=show_F8[127:32];
+                                     key3: row_1[127:32] <=show_F3[127:32];
+                                     key4: row_1[127:32] <=show_F4[127:32];
+								             default: row_1[127:32] <= row_1[127:32];
+                                 endcase
+								end
+                              else if(music_reg == 2'd2) row_1[127:32] <=show_F3[127:32];
+                              else if(music_reg == 2'd3) row_1[127:32] <=show_F4[127:32];
+                              else row_1[127:32] <= row_1[127:32];
 
-				show_F8: if(KEY == key1) row_1[127:32] <=show_4[127:32];
+				show_F3[111:40]: if(music_reg == 2'd2) begin
+                                 case(KEY)
+                                     key1: row_1[127:32] <=show_4[127:32];
+                                     key2: row_1[127:32] <=show_F9[127:32];
+                                     key3: row_1[127:32] <=show_F4[127:32];
+                                     key4: row_1[127:32] <=show_F2[127:32];
+								             default: row_1[127:32] <= row_1[127:32];
+                                 endcase
+								end
+                              else if(music_reg == 2'd1) row_1[127:32] <=show_F2[127:32];
+                              else if(music_reg == 2'd3) row_1[127:32] <=show_F4[127:32];
+                              else row_1[127:32] <= row_1[127:32];
+
+				show_F4[111:40]: if(music_reg == 2'd3) begin
+                                 case(KEY)
+                                     key1: row_1[127:32] <=show_4[127:32];
+                                     key2: row_1[127:32] <=show_FA[127:32];
+                                     key3: row_1[127:32] <=show_F2[127:32];
+                                     key4: row_1[127:32] <=show_F3[127:32];
+								             default: row_1[127:32] <= row_1[127:32];
+                                 endcase
+								end
+                              else if(music_reg == 2'd1) row_1[127:32] <=show_F2[127:32];
+                              else if(music_reg == 2'd2) row_1[127:32] <=show_F3[127:32];
+                              else row_1[127:32] <= row_1[127:32];
+
+				show_F8[111:40]: if(KEY == key1) row_1[127:32] <=show_4[127:32];
                         else if(KEY == key2) row_1[127:32] <=show_F2[127:32];
                         else if(KEY == key3) row_1[127:32] <=show_F3[127:32];
                         else if(KEY == key4) row_1[127:32] <=show_F4[127:32];
 								else row_1[127:32] <= row_1[127:32];
 				
-				show_F9: if(KEY == key1) row_1[127:32] <=show_4[127:32];
+				show_F9[111:40]: if(KEY == key1) row_1[127:32] <=show_4[127:32];
                         else if(KEY == key2) row_1[127:32] <=show_F3[127:32];
                         else if(KEY == key3) row_1[127:32] <=show_F4[127:32];
                         else if(KEY == key4) row_1[127:32] <=show_F2[127:32];
 								else row_1[127:32] <= row_1[127:32];
 				
-				show_FA: if(KEY == key1) row_1[127:32] <=show_4[127:32];
+				show_FA[111:40]: if(KEY == key1) row_1[127:32] <=show_4[127:32];
                         else if(KEY == key2) row_1[127:32] <=show_F4[127:32];
                         else if(KEY == key3) row_1[127:32] <=show_F2[127:32];
                         else if(KEY == key4) row_1[127:32] <=show_F3[127:32];
 								else row_1[127:32] <= row_1[127:32];
 
-                default: row_1[127:32] <= show_0;
+                default: row_1[127:32] <= show_0[127:32];
             endcase 
 		end
 	end
@@ -861,9 +794,9 @@ module LCD
 	//记录播放速度
 	always @(posedge clk or negedge rst_n) begin
 		if(!rst_n) speed_reg <= 0;
-		else if(row_1[127:32] == show_8[127:32]) speed_reg <= 0;
-		else if(row_1[127:32] == show_9[127:32]) speed_reg <= 2'd1;
-		else if(row_1[127:32] == show_A[127:32]) speed_reg <= 2'd2;
+		else if(row_1[127:32] == show_8[127:32]) speed_reg <= 0;				// × 1
+		else if(row_1[127:32] == show_9[127:32]) speed_reg <= 2'd1;				// × 1.25
+		else if(row_1[127:32] == show_A[127:32]) speed_reg <= 2'd2;				// × 0.75
 		else speed_reg <= speed_reg;
 	end
 
@@ -941,6 +874,34 @@ module LCD
 				end
                 default: row_2 <=show_1;              
             endcase
+
+
+	output_flag output_flag_inst
+    (
+    .clk          	(clk)	,
+    .rst_n        	(rst_n)	,
+    .order_reg	  	(order_reg)	,
+	.music_reg	  	(music_reg)	,
+	.volume_reg   	(volume_reg)	,
+	.speed_reg	  	(speed_reg)	,
+	.play_reg	  	(play_reg)	,
+    .order1_flag	(order1_flag) 	,        
+    .order2_flag	(order2_flag) 	,        
+    .music0_flag	(music0_flag) 	,        
+	.music1_flag	(music1_flag)	,        
+    .music2_flag	(music2_flag) 	,        
+    .music3_flag	(music3_flag) 	,        
+	.volume1_flag 	(volume1_flag)	,           
+    .volume2_flag 	(volume2_flag)	,           
+    .volume3_flag 	(volume3_flag)	,           
+    .volume4_flag 	(volume4_flag)	,           
+    .volume5_flag 	(volume5_flag)	,           
+	.speed1_flag	(speed1_flag) 	,        
+    .speed2_flag	(speed2_flag) 	,        
+    .speed3_flag	(speed3_flag) 	,        
+	.play_flag 	(play_flag) 	,        
+    .pause_flag 	(pause_flag)          
+    );
 
 
 endmodule
